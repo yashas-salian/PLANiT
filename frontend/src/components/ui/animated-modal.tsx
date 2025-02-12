@@ -35,7 +35,7 @@ export const useModal = () => {
   return context;
 };
 
-export function Modal({ children }: { children: ReactNode }) {
+export function   Modal({ children }: { children: ReactNode }) {
   return <ModalProvider>{children}</ModalProvider>;
 }
 
@@ -90,7 +90,7 @@ export const ModalBody = ({
           }}
           animate={{
             opacity: 1,
-            backdropFilter: "blur(10px)",
+            backdropFilter: "blur(30px)",
           }}
           exit={{
             opacity: 0,
@@ -103,7 +103,7 @@ export const ModalBody = ({
           <motion.div
             ref={modalRef}
             className={cn(
-              "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-white dark:bg-neutral-950 border border-transparent dark:border-neutral-800 md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
+              "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-white border border-transparent dark:border-neutral-800 md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
               className
             )}
             initial={{
@@ -185,7 +185,7 @@ const Overlay = ({ className }: { className?: string }) => {
         opacity: 0,
         backdropFilter: "blur(0px)",
       }}
-      className={`fixed inset-0 h-full w-full bg-black bg-opacity-50 z-50 ${className}`}
+      className={`fixed inset-0 h-full w-full backdrop-blur-lg bg-opacity-50 z-50 ${className}`}
     ></motion.div>
   );
 };
