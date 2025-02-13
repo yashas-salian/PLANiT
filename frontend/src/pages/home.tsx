@@ -29,7 +29,7 @@ interface SlideData {
 
 const items: Items[] = [
   { id: 1, name: "Safiya", designation: "Frontend Designer", image: em1 },
-  { id: 2, name: "Yashas", designation: "Backend Developer", image: em2 },
+  { id: 2, name: "Yashumon", designation: "Backend Developer", image: em2 },
   { id: 3, name: "Sohail", designation: "Documentation Executive", image: em3 }
 ];
 
