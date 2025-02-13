@@ -1,3 +1,6 @@
+import em2 from "../components/em2.jpg"
+import em3 from "../components/emp3.jpg"
+import em1 from "../components/safiyaWeb.jpg"
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import HoverEffect from "@/components/ui/card-hover-effect";
 import Carousel from "@/components/ui/carousel";
@@ -25,9 +28,9 @@ interface SlideData {
 }
 
 const items: Items[] = [
-  { id: 1, name: "Safiya", designation: "CEO", image: "web1.jpg" },
-  { id: 2, name: "Yashas", designation: "CTO", image: "link1" },
-  { id: 3, name: "Sohail", designation: "Manager", image: "link2" }
+  { id: 1, name: "Safiya", designation: "Frontend Designer", image: em1 },
+  { id: 2, name: "Yashas", designation: "Backend Developer", image: em2 },
+  { id: 3, name: "Sohail", designation: "Documentation Executive", image: em3 }
 ];
 
 const slides: SlideData[] = [
@@ -110,9 +113,9 @@ export const HomePage = () => {
       </div>
       <div className="pt-12 pl-6">
         <div className="pl-12 pr-12 pt-4 text-xl">
-          <div className="text-4xl font-extrabold">Welcome to <b>PLANiT</b> – Your Ultimate Event Management Solution!<br/></div>
+          <div className="text-4xl font-extrabold">Welcome to <b className="text-lime-500">PLANiT</b> – Your Ultimate Event Management Solution!<br/></div>
 
-<br></br>Planning an event can be overwhelming, but with <b>PLANiT</b>, it's effortless and stress-free! Whether you're organizing a birthday party, wedding, corporate event, anniversary celebration, or any special occasion, our platform ensures a smooth and hassle-free experience from start to finish.</div>
+<br></br>Planning an event can be overwhelming, but with <b className="text-lime-500">PLANiT</b>, it's effortless and stress-free! Whether you're organizing a birthday party, wedding, corporate event, anniversary celebration, or any special occasion, our platform ensures a smooth and hassle-free experience from start to finish.</div>
         <div className="font-extrabold text-4xl pl-12 pr-12 pt-6">What we do?</div>
   <HoverEffect
     items={[
@@ -125,10 +128,13 @@ export const HomePage = () => {
     ]}
   />
 </div>
-
-      {/* <div className="absolute bottom-0 left-0 w-full pt-4">
+<hr className="ml-6 mr-6"></hr>
+    <div className="pl-6 pt-4">
+      <b className="text-xl">Our team</b>
+    </div>
+      <div className="pl-4 pt-3 pb-6">
         <AnimatedTooltip items={items} />
-      </div> */}
+      </div>
     </div>
   );
 };
