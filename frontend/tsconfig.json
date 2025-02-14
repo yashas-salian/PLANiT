@@ -10,6 +10,11 @@
   ],
   "compilerOptions": {
     "baseUrl": ".",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true, // Use "react" if you're on an older React version
+    "strict": true,
     "paths": {
       "@/*": ["./src/*"]
     }

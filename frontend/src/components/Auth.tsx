@@ -13,9 +13,9 @@ export const AuthCard = () => {
     };
 
     return (
-        <div className="flex items-center justify-center h-screen bg-gradient-to-r from-lime-100 to-lime-300  ">
+        <div className="flex items-center justify-center h-screen bg-gradient-to-r from-purple-100 to-purple-300  ">
             <div className="relative w-[768px] max-w-full min-h-[480px] bg-white rounded-4xl shadow-lg overflow-hidden">
-                <div className="absolute top-0 h-full w-1/2 bg-gradient-to-r rounded-4xl from-lime-300 to-lime-700 transition-all duration-250 ease-in-out" 
+                <div className="absolute top-0 h-full w-1/2 bg-gradient-to-r rounded-4xl from-purple-300 to-purple-700 transition-all duration-250 ease-in-out" 
                      style={{ transform: isSignUp ? 'translateX(100%)' : 'translateX(0)' }}>
                     <div className="flex flex-col items-center justify-center h-full border rounded-4xl p-10 text-center text-white">
                         <h1 className={`text-2xl font-bold transition-opacity duration-250 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
@@ -25,7 +25,7 @@ export const AuthCard = () => {
                             {isSignUp ? "Enter your details to sign in and continue" : "Register with your personal details to use all site features"}
                         </p>
                         <button
-                            className={`mt-4 px-8 py-2 text-lime-600 bg-white rounded-lg text-sm uppercase font-semibold transition-opacity duration-250 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
+                            className={`mt-4 px-8 py-2 text-purple-600 bg-white rounded-lg text-sm uppercase font-semibold transition-opacity duration-250 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
                             onClick={handleToggle}
                         >
                             {isSignUp ? "Sign In" : "Sign Up"}
@@ -46,10 +46,10 @@ export const AuthCard = () => {
                                     <i className="fab fa-linkedin text-xl"></i>
                                 </div>
                                 <span className="text-sm mt-2">or use your email for registration</span>
-                                <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="text" placeholder="Name" />
+                                <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="text" placeholder="Username" />
                                 <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="email" placeholder="Email" />
                                 <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="password" placeholder="Password" />
-                                <button className="mt-4 px-8 py-2 text-white bg-gradient-to-r from-lime-300 to-lime-700 rounded-lg text-sm uppercase font-semibold">Sign Up</button>
+                                <button className="mt-4 px-8 py-2 text-white bg-gradient-to-r from-purple-300 to-purple-700 rounded-lg text-sm uppercase font-semibold">Sign Up</button>
                             </>
                         ) : (
                             <>
@@ -64,7 +64,7 @@ export const AuthCard = () => {
                                 <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="email" placeholder="Email" />
                                 <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="password" placeholder="Password" />
                                 <a href="#" className="mt-2 text-xs text-gray-500">Forgot your password?</a>
-                                <button className="mt-4 px-8 py-2 text-white bg-gradient-to-r from-lime-300 to-lime-700 rounded-lg text-sm uppercase font-semibold">Sign In</button>
+                                <button className="mt-4 px-8 py-2 text-white bg-gradient-to-r from-purple-300 to-purple-700 rounded-lg text-sm uppercase font-semibold">Sign In</button>
                             </>
                         )}
                     </div>
