@@ -9,6 +9,7 @@ import Carousel from "@/components/ui/carousel";
 import { Menu, MenuItem, ProductItem, HoveredLink } from "../components/ui/navbar-menu";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/button";
 
 interface Items {
   id: number;
@@ -43,7 +44,11 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="bg-purple-200 flex flex-col relative w-full min-h-screen overflow-x-hidden">
-      <div className="pt-2 pb-30 pr-4 pl-4 ml-124 w-lg">
+      <div className="grid grid-cols-3">
+        <div className="flex flex-col">
+          PLANiT
+        </div>
+      <div className="flex flex-col pt-2 pb-30 pr-4 pl-4 ml-124 w-lg">
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Home">
           <HoveredLink to="/" className="bg-purple-600">Home</HoveredLink>
@@ -61,16 +66,20 @@ export const HomePage: React.FC = () => {
           </div>
         </MenuItem>
       </Menu>
+      <div className="flex flex-col">
+        <Button text="Get Started"/>
+      </div>
+      </div>
       </div>
       <Carousel slides={slides} />
 
       <div className="pt-12 pl-6">
         <div className="pl-12 pr-12 pt-4 text-xl font-serif">
           <div className="text-4xl font-extrabold pt-6">
-            Welcome to <b className="text-purple-600">PLANiT</b> – Your Ultimate Event Management Solution!
+            Welcome to <b className="text-[#755EA5]">PLANiT</b> – Your Ultimate Event Management Solution!
           </div>
           <br />
-          Planning an event can be overwhelming, but with <b className="text-purple-600">PLANiT</b>, it's effortless and stress-free! Whether you're organizing a birthday party, wedding, corporate event, anniversary celebration, or any special occasion, our platform ensures a smooth and hassle-free experience from start to finish.
+          At <b className="text-[#755EA5]">PLANiT</b>, we turn your special moments into unforgettable experiences! Whether it's a birthday party, engagement, wedding celebration, anniversary, baby shower, corporate event, farewell, fresher’s party, holiday gathering, or an exciting open mic night, we take care of every detail so you can enjoy the occasion stress-free. From venue selection to décor, entertainment, catering, and seamless coordination, our expert team ensures a smooth, hassle-free, and personalized event experience. No matter the size or theme, we bring your vision to life with creativity, precision, and passion. Let <b className="text-[#755EA5]">PLANiT</b> handle the planning while you create memories that last a lifetime. Your perfect event starts here!
         </div>
 
         <div className="font-extrabold font-serif text-4xl pl-12 pr-12 pt-6">What we do?</div>
