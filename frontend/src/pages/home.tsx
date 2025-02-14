@@ -10,6 +10,7 @@ import { Menu, MenuItem, ProductItem, HoveredLink } from "../components/ui/navba
 import { motion } from "framer-motion";
 import { Link,useNavigate } from "react-router-dom";
 import { Button } from "@/components/button";
+import { FlipWords } from "@/components/ui/flip-words";
 
 interface Items {
   id: number;
@@ -47,14 +48,15 @@ export const HomePage: React.FC = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const navigate=useNavigate()
+  const words = ["Wedding", "Anniversaries", "Corporate Events", "and much more"];
   return (
     <div className="bg-purple-200 flex flex-col relative w-full min-h-screen overflow-x-hidden">
-      <div className="grid grid-cols-3 gap-8 px-6 py-4">
+      <div className="grid grid-cols-2 gap-8 px-6 py-4 md:grid grid-cols-3 gap-8 px-6 py-4">
         <div className="flex justify-start">
           <b className="text-2xl text-[#755EA5]  mb-4 pt-2 pl-20">PLANiT</b>
         </div>
         
-        <div className="relative z-10 flex justify-center pt-2 pb-10 pr-4 pl-4 w-lg">
+        <div className="invisible md:visible relative z-10 flex justify-center pt-2 pb-10 pr-4 pl-4 w-lg">
         <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Home">
           <HoveredLink to="/" className="bg-purple-600">Home</HoveredLink>
@@ -73,7 +75,7 @@ export const HomePage: React.FC = () => {
         </MenuItem>
       </Menu> 
         </div>
-        <div className="flex justify-end pr-20">
+        <div className="w-md md:flex justify-end pr-20">
           <Button text="Get Started" onClick={()=>{
             navigate("/auth")
           }}/>
@@ -89,7 +91,7 @@ export const HomePage: React.FC = () => {
           At <b className="text-[#755EA5]">PLANiT</b>, we turn your special moments into unforgettable experiences! Whether it's a birthday party, engagement, wedding celebration, anniversary, baby shower, corporate event, farewell, fresher’s party, holiday gathering, or an exciting open mic night, we take care of every detail so you can enjoy the occasion stress-free. From venue selection to décor, entertainment, catering, and seamless coordination, our expert team ensures a smooth, hassle-free, and personalized event experience. No matter the size or theme, we bring your vision to life with creativity, precision, and passion. Let <b className="text-[#755EA5]">PLANiT</b> handle the planning while you create memories that last a lifetime. Your perfect event starts here!
         </div>
 
-        <div className="font-extrabold font-serif text-4xl pl-12 pr-12 pt-6">What we do?</div>
+        <div className="font-extrabold font-serif text-4xl pl-12 pr-12 pt-6">What we do? we do <FlipWords words={words}/></div>
         <HoverEffect
           items={[
             { title: "Wedding Planning", description: "We handle everything from venue selection to décor, catering, and entertainment, ensuring a seamless and magical wedding experience." },
