@@ -44,12 +44,13 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="bg-purple-200 flex flex-col relative w-full min-h-screen overflow-x-hidden">
-      <div className="grid grid-cols-3">
-        <div className="flex flex-col">
-          PLANiT
+      <div className="grid grid-cols-3 gap-8 px-6 py-4">
+        <div className="flex justify-start">
+          <b className="text-2xl text-[#755EA5]  mb-4 pt-2 pl-20">PLANiT</b>
         </div>
-      <div className="flex flex-col pt-2 pb-30 pr-4 pl-4 ml-124 w-lg">
-      <Menu setActive={setActive}>
+        
+        <div className="flex justify-center pt-2 pb-30 pr-4 pl-4 w-lg">
+        <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Home">
           <HoveredLink to="/" className="bg-purple-600">Home</HoveredLink>
         </MenuItem>
@@ -65,14 +66,13 @@ export const HomePage: React.FC = () => {
             <div>Phone: 9999999999</div>
           </div>
         </MenuItem>
-      </Menu>
-      <div className="flex flex-col">
-        <Button text="Get Started"/>
+      </Menu> 
+        </div>
+        <div className="flex justify-end pr-20">
+          <Button text="Get Started"/>
+        </div>
       </div>
-      </div>
-      </div>
-      <Carousel slides={slides} />
-
+      <Carousel slides={slides}/>
       <div className="pt-12 pl-6">
         <div className="pl-12 pr-12 pt-4 text-xl font-serif">
           <div className="text-4xl font-extrabold pt-6">
