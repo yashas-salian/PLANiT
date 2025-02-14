@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import em2 from "../components/em2.jpg";
 import em3 from "../components/emp3.jpg";
 import em1 from "../components/safiyaWeb.jpg";
@@ -8,7 +8,7 @@ import HoverEffect from "@/components/ui/card-hover-effect";
 import Carousel from "@/components/ui/carousel";
 import { Menu, MenuItem, ProductItem, HoveredLink } from "../components/ui/navbar-menu";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { Button } from "@/components/button";
 
 interface Items {
@@ -39,9 +39,14 @@ const slides: SlideData[] = [
   { title: "Birthday Party", button: "Learn More", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJwOhvPfc8gxnJ2epznAqYP_qFE8_XwdQNbw&s" }
 ];
 
+  
 export const HomePage: React.FC = () => {
   const [active, setActive] = useState<string | null>(null);
 
+  const scrollToTop = (e) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  const navigate=useNavigate()
   return (
     <div className="bg-purple-200 flex flex-col relative w-full min-h-screen overflow-x-hidden">
       <div className="grid grid-cols-3 gap-8 px-6 py-4">
@@ -49,7 +54,7 @@ export const HomePage: React.FC = () => {
           <b className="text-2xl text-[#755EA5]  mb-4 pt-2 pl-20">PLANiT</b>
         </div>
         
-        <div className="flex justify-center pt-2 pb-30 pr-4 pl-4 w-lg">
+        <div className="relative z-10 flex justify-center pt-2 pb-10 pr-4 pl-4 w-lg">
         <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Home">
           <HoveredLink to="/" className="bg-purple-600">Home</HoveredLink>
@@ -69,7 +74,9 @@ export const HomePage: React.FC = () => {
       </Menu> 
         </div>
         <div className="flex justify-end pr-20">
-          <Button text="Get Started"/>
+          <Button text="Get Started" onClick={()=>{
+            navigate("/auth")
+          }}/>
         </div>
       </div>
       <Carousel slides={slides}/>
@@ -106,7 +113,16 @@ export const HomePage: React.FC = () => {
         </div>
         
         <div className="flex flex-col">
-          <b className="text-xl mb-4">Home</b>
+        <Link
+      to="#"
+      onClick={(e) => {
+        e.preventDefault(); // Prevents default behavior
+        scrollToTop(e);
+      }}
+      className="text-xl mb-4 font-bold"
+    >
+      <span>Home</span>
+    </Link>
         </div>
 
         <div className="flex flex-col">
