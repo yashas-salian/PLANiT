@@ -10,7 +10,7 @@
   ],
   "compilerOptions": {
     "baseUrl": ".",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "esModuleInterop": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true, // Use "react" if you're on an older React version
