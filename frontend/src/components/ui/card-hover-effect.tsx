@@ -46,7 +46,7 @@ const HoverEffect = ({ items, className = "" }: HoverEffectProps) => {
 
 const Card = ({ className = "", children }: { className?: string; children: React.ReactNode }) => {
   return (
-    <div className={`rounded-2xl h-full w-full p-2 overflow-hidden bg-[#755EA5] border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20 ${className}`}>
+    <div className={`rounded-2xl h-full w-full overflow-hidden bg-[#755EA5] border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20 ${className}`}>
       <div className="relative z-50 p-4">{children}</div>
     </div>
   );

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import em2 from "../components/em2.jpg";
 import em3 from "../components/emp3.jpg";
 import em1 from "../components/safiyaWeb.jpg";
+import logo from "../components/planit.svg";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import HoverEffect from "@/components/ui/card-hover-effect";
 import Carousel from "@/components/ui/carousel";
@@ -53,7 +54,12 @@ export const HomePage: React.FC = () => {
     <div className="bg-purple-200 flex flex-col relative w-full min-h-screen overflow-x-hidden">
       <div className="grid grid-cols-2 gap-8 px-6 py-4 md:grid grid-cols-3 gap-8 px-6 py-4">
         <div className="flex justify-start">
-          <b className="text-2xl text-[#755EA5]  mb-4 pt-2 pl-20">PLANiT</b>
+          <div className="grid grid-cols-2">
+            <div className="w-16 h-16 flex items-center justify-center border border-[#755EA5] rounded-full bg-purple-200 overflow-hidden">
+              <img src={logo} className="w-12 h-12 object-contain" />
+            </div>
+            <b className="text-2xl text-[#755EA5] mb-4 pt-2">PLANiT</b>
+          </div>
         </div>
 
         <div className="invisible md:visible relative z-10 flex justify-center pt-2 pb-10 pr-4 pl-4 w-lg">
@@ -62,16 +68,24 @@ export const HomePage: React.FC = () => {
               <HoveredLink to="/" className="bg-purple-600">Home</HoveredLink>
             </MenuItem>
             <MenuItem setActive={setActive} active={active} item="Features">
-              <HoveredLink to="/features">Features</HoveredLink>
+              <HoveredLink to="/features"><ul className="text-white space-y-2">
+              <li>• Real-time Event Planning</li>
+              <li>• Custom Theme Designer</li>
+              <li>• Budget Management</li>
+              <li>• Guest List Management</li>
+              <li>• Mobile Responsive Design</li>
+              <li>• Event Timeline Creator</li>
+            </ul>.... know more</HoveredLink>
             </MenuItem>
             <MenuItem setActive={setActive} active={active} item="About Us">
-              <HoveredLink to="/about">About Us</HoveredLink>
+              <HoveredLink to="/about">PLANiT simplifies event planning <br/>with innovative technology and <br/>user-friendly features. Since <br/>2024, we've helped clients <br/>turn ideas into memorable <br/>experiences effortlessly.<br/>.... know more</HoveredLink>
             </MenuItem>
             <MenuItem setActive={setActive} active={active} item="Contact">
-              <div className="flex flex-col space-y-2">
-                <div>Email: PLANiT@gmail.com</div>
-                <div>Phone: 9999999999</div>
-              </div>
+            <div className="text-white">
+            GVJ8+567, IIEDC, Aissms ioit,<br/> AISSMS COE Parking Rd,<br/> near RTO, Railway Officers Colony,<br/> Sangamvadi, Pune, Maharashtra 411001<br/><br/>
+              Email: PLANiT@gmail.com<br />
+              Phone: +91 9897969594
+            </div>
             </MenuItem>
           </Menu>
         </div>
@@ -111,14 +125,16 @@ export const HomePage: React.FC = () => {
         <div className="bg-[#9583C0] grid grid-cols-5 gap-8 px-6 py-4">
           <div className="flex flex-col">
             <b className="text-xl mb-4">Our Team</b>
-            <AnimatedTooltip items={items} />
+            <Link to="/team">
+            <AnimatedTooltip items={items}/>
+            </Link>
           </div>
 
           <div className="flex flex-col">
             <Link
               to="#"
               onClick={(e) => {
-                e.preventDefault(); // Prevents default behavior
+                e.preventDefault();
                 scrollToTop(e);
               }}
               className="text-xl mb-4 font-bold"
@@ -149,6 +165,7 @@ export const HomePage: React.FC = () => {
           <div className="flex flex-col">
             <b className="text-xl mb-4">Contact Us</b>
             <div className="text-black">
+            GVJ8+567, IIEDC, Aissms ioit, AISSMS COE Parking Rd, near RTO, Railway Officers Colony, Sangamvadi, Pune, Maharashtra 411001<br/><br/>
               Email: PLANiT@gmail.com<br />
               Phone: 9999999999
             </div>
