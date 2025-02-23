@@ -93,7 +93,7 @@ export const DesktopSidebar = ({
           className
         )}
         animate={{
-          width: animate ? (open ? "300px" : "60px") : "300px",
+          width: animate ? (open ? "300px" : "70px") : "300px",
         }}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
@@ -167,7 +167,7 @@ export const SidebarLink = ({
   const { open, animate } = useSidebar();
   return (
     <Link
-      href={link.href}
+      to={link.href}
       className={cn(
         "flex items-center justify-start gap-2  group/sidebar py-2",
         className

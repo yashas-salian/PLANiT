@@ -3,7 +3,7 @@ import { IconArrowNarrowRight } from "@tabler/icons-react";
 
 interface SlideData {
   title: string;
-  button: string;
+  // button?: string;
   src: string;
 }
 
@@ -101,9 +101,9 @@ const Slide = ({ slide, index, current, total, handleSlideClick }: SlideProps) =
           index === current ? "opacity-100 transform-none" : "opacity-0 translate-y-4"
         }`}>
           <h2 className="text-2xl font-semibold text-white">{slide.title}</h2>
-          <button className="mt-4 px-6 py-2 text-sm bg-white text-black rounded-lg shadow-md hover:shadow-lg transition duration-200">
+          {/* <button className="mt-4 px-6 py-2 text-sm bg-white text-black rounded-lg shadow-md hover:shadow-lg transition duration-200">
             {slide.button}
-          </button>
+          </button> */}
         </article>
       </div>
     </li>
