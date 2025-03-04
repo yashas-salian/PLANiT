@@ -3,6 +3,7 @@ import { Auth } from "./pages/signin"
 import { HomePage } from "./pages/home"
 import { Team } from "./pages/team"
 import { Dashboard } from "./pages/dashboard"
+import AboutUs from "./pages/about"
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<HomePage/>}/>
         <Route path="/team" element={<Team/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/about" element={<AboutUs/>}/>
       </Routes>
     </BrowserRouter>
   )

@@ -94,7 +94,7 @@ const Slide = ({ slide, index, current, total, handleSlideClick }: SlideProps) =
             alt={slide.title}
             loading="eager"
           />
-          {index === current && <div className="absolute inset-0 bg-black/30 transition-all duration-500" />}
+          {index === current && <div className="absolute inset-0 bg-black/30 transition-all duration-500 " />}
         </div>
 
         <article className={`relative p-6 transition-all duration-500 ${

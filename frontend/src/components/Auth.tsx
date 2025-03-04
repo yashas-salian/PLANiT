@@ -13,7 +13,7 @@ export const AuthCard = () => {
     };
 
     return (
-        <div className="flex items-center justify-center h-screen bg-gradient-to-r from-purple-100 to-purple-300  ">
+        <div className="flex items-center justify-center h-screen bg-purple-200  ">
             <div className="relative w-[768px] max-w-full min-h-[480px] bg-white rounded-4xl shadow-lg overflow-hidden">
                 <div className="absolute top-0 h-full w-1/2 bg-gradient-to-r rounded-4xl from-purple-300 to-purple-700 transition-all duration-250 ease-in-out" 
                      style={{ transform: isSignUp ? 'translateX(100%)' : 'translateX(0)' }}>

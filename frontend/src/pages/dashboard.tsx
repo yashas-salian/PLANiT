@@ -1,24 +1,31 @@
-import React from 'react';
-import { Home, Contact, Users, HelpCircle, BadgeSwissFranc, Menu } from 'lucide-react';
+import { Home, Contact, Users, HelpCircle, BadgeSwissFranc, Menu , Pencil, Plus } from 'lucide-react';
 import { Sidebar, SidebarBody, SidebarLink, useSidebar } from '../components/ui/sidebar';
 import { motion } from 'framer-motion';
 import Carousel from '@/components/ui/carousel';
 import logo from "../components/LOGO.jpg"
 import { Link } from 'react-router-dom';
+import wedding from "../components/wedding.jpg"
+import anniversary from "../components/anniversary.jpg"
+import openMicNight from "../components/OpenMicNight.jpg"
+import holidayParty from "../components/HolidayParty.jpg"
+import welcome from "../components/welcome.jpg"
+import birthday from "../components/birthday.jpg"
+import { ModalProvider, Modal, ModalTrigger, ModalBody , ModalFooter, ModalContent  } from '@/components/ui/animated-modal';
+import { Select } from '@react-three/drei';
+
 
 interface SlideData {
   title: string;
-  button: string;
   src: string;
 }
 
 const slides: SlideData[] = [
-  { title: "Welcome", button: "Click Me", src: "https://static.vecteezy.com/system/resources/previews/024/316/125/original/event-management-wedding-planner-manager-planning-event-conference-or-party-professional-organizer-schedule-modern-flat-cartoon-style-illustration-on-white-background-vector.jpg" },
-  { title: "Anniversary", button: "Learn More", src: "https://scopeims.com/wp-content/uploads/2019/03/PHOTOFINE-51-compressor.jpg" },
-  { title: "Open mic night", button: "Learn More", src: "https://uploads.sarvgyan.com/2014/08/event-management.jpg" },
-  { title: "Holiday Party", button: "Learn More", src: "https://i.pinimg.com/originals/8a/7a/2e/8a7a2e889618b8a6c50f3bd7f56105c0.jpg" },
-  { title: "Wedding", button: "Learn More", src: "https://wallpapercave.com/wp/wp10715834.jpg" },
-  { title: "Birthday Party", button: "Learn More", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJwOhvPfc8gxnJ2epznAqYP_qFE8_XwdQNbw&s" }
+  { title: "Welcome",  src: welcome },
+  { title: "Anniversary", src:anniversary },
+  { title: "Open mic night", src: openMicNight },
+  { title: "Holiday Party", src: holidayParty },
+  { title: "Wedding", src: wedding },
+  { title: "Birthday Party", src: birthday }
 ];
 
 const SidebarHeader = () => {
@@ -96,13 +103,90 @@ export const Dashboard = () => {
 
       <main className="flex-1 p-8 bg-purple-200">
             <div className="ml-12 w-16 h-16 bg-purple-200 overflow-hidden">
-              <img src={logo} className="w-12 h-12 object-contain" />
+              <img src={logo} className="w-12 h-12 object-contain"/>
             </div>
             <Link to="/" className="pt-4">
               <b className=" absolute top-7 left-35 text-2xl text-[#755EA5] mb-4 mt-1">PLANiT</b>
             </Link>
         <div className="text-purple-600 mt-4 pl-16">
         <Carousel slides={slides}/>
+        </div>
+        <div>
+          <Modal>
+            <ModalTrigger className="flex items-center gap-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg px-40 py-2 transition-colors"> 
+              <Plus className='h-5 w-5'/>
+              <span>Create event </span>
+            </ModalTrigger>
+
+            <ModalBody>
+              <ModalContent>
+                <div className="grid grid-cols-2">
+                  <div className="grid grid-rows-2">
+                    <div className="row-span-1">
+                      <label>Event Name</label>
+                    </div>
+                    <div className="row-span-1">
+                      <input placeholder="Ex:- wedding" className="border border-black"></input>
+                    </div>
+                  </div>
+                  <div className="grid grid-rows-2">
+                    <div className="row-span-1">
+                      <label>Event Date</label>
+                    </div>
+                    <div className="row-span-1">
+                      <input type="date" placeholder="Ex:- wedding" className="border border-black"></input>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-4 grid grid-cols-2">
+                  <div className="grid grid-rows-2">
+                    <div className="row-span-1">
+                      <label>Event Type</label>
+                    </div>
+                    <div className="row-span-1 ">
+                      <select name="Events" className="border border-black">
+                        <option value="Wedding">Wedding</option>
+                        <option value="Anniversary">Anniversary</option>
+                        <option value="Birthday party">Birthday party</option>
+                        <option value="Open mic night">Open mic night</option>
+                        <option value="Holiday party">Holiday party</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="grid grid-rows-2">
+                    <div className="row-span-1">
+                      <label>Event Name</label>
+                    </div>
+                    <div className="row-span-1">
+                    <select name="Events" className="border border-black">
+                        <option >Bibwewadi</option>
+                        <option>Hadapsar</option>
+                        <option >Kondhawa</option>
+                        <option >PCMC</option>
+                        <option>Shivajinagar</option>
+                        <option>Wakad</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </ModalContent>
+
+              <ModalFooter className='bg-white'>
+                <div className="grid grid-cols-2">
+                  <div className="">
+                    <button className="bg-gray-50 border border-black rounded-full p-2 hover:bg-gray-300">Cancel</button>
+                  </div>
+                  <div className="pl-1">
+                    <button className="bg-purple-600 border border-transparent rounded-full p-2 hover:bg-purple-500">Submit</button>
+                  </div>
+                </div>
+                
+                
+              </ModalFooter>
+            </ModalBody>
+          </Modal>
         </div>
       </main>
     </div>

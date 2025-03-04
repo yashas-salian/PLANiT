@@ -1,8 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import {Link} from "react-router-dom";
-import { Img } from "react-image"
+import { Link }from "react-router-dom";
 
 const transition = {
   type: "spring",
@@ -25,10 +24,10 @@ export const MenuItem = ({
   children?: React.ReactNode;
 }) => {
   return (
-    <div onMouseEnter={() => setActive(item)} className="relative bg-[#755EA5] text-white">
+    <div onMouseEnter={() => setActive(item)} className="relative ">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-white hover:opacity-[0.9] bg-[#755EA5]"
+        className="cursor-pointer text-white hover:opacity-[0.9]"
       >
         {item}
       </motion.p>
@@ -43,7 +42,7 @@ export const MenuItem = ({
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="bg-[#755EA5] backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] shadow-xl"
+                className="bg-[#755EA5]  backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] shadow-xl"
               >
                 <motion.div
                   layout // layout ensures smooth animation
@@ -69,8 +68,8 @@ export const Menu = ({
 }) => {
   return (
     <nav
-      onMouseLeave={() => setActive(null)} 
-      className="relative rounded-full border border-transparent bg-[#755EA5] shadow-input flex justify-center space-x-4 px-8 py-4 "
+      onMouseLeave={() => setActive(null)} // resets the state
+      className="relative rounded-full border border-transparent bg-[#755EA5] shadow-input flex justify-center space-x-4 px-8 py-6 "
     >
       {children}
     </nav>
@@ -89,16 +88,16 @@ export const ProductItem = ({
   src: string;
 }) => {
   return (
-    <Link href={href} className="flex space-x-2 bg-[#755EA5]">
-      <Img
+    <Link href={href} className="flex space-x-2">
+      <img
         src={src}
         width={140}
         height={70}
         alt={title}
-        className="flex-shrink-0 rounded-md shadow-2xl bg-[#755EA5]"
+        className="flex-shrink-0 rounded-md shadow-2xl"
       />
       <div>
-        <h4 className="text-xl font-bold mb-1 text-white">
+        <h4 className="text-white text-xl font-bold mb-1 ">
           {title}
         </h4>
         <p className="text-white text-sm max-w-[10rem]">
