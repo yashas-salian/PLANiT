@@ -15,6 +15,8 @@ import { FlipWords } from "@/components/ui/flip-words";
 import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
 import { FeaturesSectionDemo } from "@/components/ui/bento-grid";
 import { Instagram , Youtube , Linkedin , X , Facebook } from "lucide-react";
+import AOS from 'aos';
+import "aos/dist/aos.css";
 import wedding from "../components/wedding.jpg"
 import anniversary from "../components/anniversary.jpg"
 import openMicNight from "../components/OpenMicNight.jpg"
@@ -137,6 +139,11 @@ export const HomePage: React.FC = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const navigate = useNavigate()
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration in ms
+    });
+  }, []);
   const words = ["Weddings", "Anniversaries", "Corporate Events", "and much more"];
   return (
     <div className="bg-purple-200 flex flex-col relative w-full min-h-screen overflow-x-hidden">
@@ -234,18 +241,19 @@ export const HomePage: React.FC = () => {
         {/* <Carousel slides={slides} /> */}
       <div className="pt-12 pl-6">
         <div className="grid-cols-1 md:grid grid-cols-2 gap-4">
-          <div className="pl-12 pr-12 pt-4 text-xl font-serif">
+          <div data-aos="fade-up" className="pl-12 pr-12 pt-4 text-xl font-serif">
             <div className="text-4xl font-extrabold pt-6">
               Welcome to <b className="text-[#755EA5]">PLANiT</b> – Your Ultimate Event Management Solution!
             </div>
             <br />
             At <b className="text-[#755EA5]">PLANiT</b>, we turn your special moments into unforgettable experiences! Whether it's a birthday party, engagement, wedding celebration, anniversary, baby shower, corporate event, farewell, fresher’s party, holiday gathering, or an exciting open mic night, we take care of every detail so you can enjoy the occasion stress-free. From venue selection to décor, entertainment, catering, and seamless coordination, our expert team ensures a smooth, hassle-free, and personalized event experience. No matter the size or theme, we bring your vision to life with creativity, precision, and passion.<br/> Let <b className="text-[#755EA5]">PLANiT</b> handle the planning while you create memories that last a lifetime. Your perfect event starts here!
           </div>
-          <div className=" pt-20 pl-20">
+          <div data-aos="fade-up" className=" pt-20 pl-20">
             <DirectionAwareHover imageUrl={calender}/>
           </div>
         </div>
         <div className="font-extrabold font-serif text-4xl pl-12 pr-12 pt-6">What we do? We do <FlipWords words={words} /></div>
+        <div data-aos="fade-up">
         <HoverEffect
           items={[
             { title: "Wedding Planning", description: "We handle everything from venue selection to décor, catering, and entertainment, ensuring a seamless and magical wedding experience." },
@@ -256,14 +264,17 @@ export const HomePage: React.FC = () => {
             { title: "Holiday Parties", description: "From festive decorations to curated menus and entertainment, we create vibrant holiday parties that capture the season's spirit." }
           ]}
         />
+        </div>
       </div>
         <div className="pb-16">
-          <div className="font-extrabold font-serif text-4xl pl-18 pr-12 pt-6 pb-4">
+          {/* <div className="font-extrabold font-serif text-4xl pl-18 pr-12 pt-6 pb-4">
             Some of our <b className="text-[#755EA5]">Works</b>
-          </div>
-      <Carousel slides={slides} />
+          </div> */}
+          {/* <div data-aos="fade-up">
+            <Carousel slides={slides} />
+          </div> */}
       </div>
-      <div>
+      <div data-aos="fade-up">
         <FeaturesSectionDemo/>
       </div>
       <div className="bg-purple-200 flex flex-col relative w-full">
