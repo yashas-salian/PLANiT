@@ -3,7 +3,6 @@
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge"
 import {
   Blocks,
   ChevronsUpDown,
@@ -18,7 +17,8 @@ import {
   Theater,
   CircleCheckBigIcon,
   BrainCircuit,
-  CalendarHeart
+  CalendarHeart,
+  AtSign
 } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {Link} from "react-router-dom";
@@ -39,7 +39,7 @@ const sidebarVariants = {
     width: "15rem",
   },
   closed: {
-    width: "3.05rem",
+    width: "4.05rem",
   },
 };
 
@@ -305,6 +305,60 @@ export function SessionNavBar() {
                 </ScrollArea>
               </div>
               <div className="flex flex-col p-2">
+                <div>
+                <DropdownMenu modal={false}>
+                    <DropdownMenuTrigger className="w-full">
+                      <div className="flex h-8 w-full flex-row items-center gap-2 rounded-md px-2 py-1.5  transition hover:text-primary hover:bg-purple-300">
+                        <Avatar className="size-6">
+                          <AtSign/>
+                        </Avatar>
+                        <motion.li
+                          variants={variants}
+                          className="flex w-full items-center gap-2 "
+                        >
+                          {!isCollapsed && (
+                            <>
+                              <p className="text-lg font-medium ">Account</p>
+                              <ChevronsUpDown className="ml-auto h-6 w-6 text-muted-foreground/50" />
+                            </>
+                          )}
+                        </motion.li>
+                      </div>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent sideOffset={5} className="absolute bottom-0 left-32 bg-[#8B78B6]">
+                      <div className="flex flex-row items-center gap-2 p-2">
+                        <Avatar className="size-6">
+                          <AvatarFallback>
+                            AL
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="flex flex-col text-left">
+                          <span className="text-lg font-medium">
+                            {`Andrew Luo`}
+                          </span>
+                          <span className="line-clamp-1 text-xs text-muted-foreground">
+                            {`andrew@usehindsight.com`}
+                          </span>
+                        </div>
+                      </div>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem
+                        asChild
+                        className="flex items-center gap-2"
+                      >
+                        <Link to="/settings/profile">
+                          <UserCircle className="h-6 w-6" /> Profile
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        className="flex items-center gap-2"
+                      >
+                        <LogOut className="h-6 w-6" /> Sign out
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+                <Separator className="w-full"/>
                 <Link
                   href="/settings/integrations"
                   className="mt-auto flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5  hover:bg-purple-300 transition hover:text-primary"
@@ -316,8 +370,8 @@ export function SessionNavBar() {
                     )}
                   </motion.li>
                 </Link>
-                <div>
-                  <DropdownMenu modal={false}>
+                {/* <div> */}
+                  {/* <DropdownMenu modal={false}>
                     <DropdownMenuTrigger className="w-full">
                       <div className="flex h-8 w-full flex-row items-center gap-2 rounded-md px-2 py-1.5  transition hover:text-primary">
                         <Avatar className="size-6">
@@ -339,7 +393,7 @@ export function SessionNavBar() {
                         </motion.li>
                       </div>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent sideOffset={5}>
+                    <DropdownMenuContent sideOffset={5} className="absolute bottom-0 left-32 bg-purple-400">
                       <div className="flex flex-row items-center gap-2 p-2">
                         <Avatar className="size-6">
                           <AvatarFallback>
@@ -360,7 +414,7 @@ export function SessionNavBar() {
                         asChild
                         className="flex items-center gap-2"
                       >
-                        <Link href="/settings/profile">
+                        <Link to="/settings/profile">
                           <UserCircle className="h-6 w-6" /> Profile
                         </Link>
                       </DropdownMenuItem>
@@ -371,7 +425,7 @@ export function SessionNavBar() {
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

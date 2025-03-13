@@ -6,7 +6,6 @@ import em1 from "../components/safiyaWeb.jpg";
 import logo from "../components/LOGO.jpg";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import HoverEffect from "@/components/ui/card-hover-effect";
-import Carousel from "@/components/ui/carousel";
 import { Menu, MenuItem, ProductItem, HoveredLink } from "../components/ui/navbar-menu";
 import { HeroParallax } from "../components/ui/hero-parallax";
 import { Link, useNavigate } from "react-router-dom";
@@ -246,7 +245,15 @@ export const HomePage: React.FC = () => {
               Welcome to <b className="text-[#755EA5]">PLANiT</b> – Your Ultimate Event Management Solution!
             </div>
             <br />
-            At <b className="text-[#755EA5]">PLANiT</b>, we turn your special moments into unforgettable experiences! Whether it's a birthday party, engagement, wedding celebration, anniversary, baby shower, corporate event, farewell, fresher’s party, holiday gathering, or an exciting open mic night, we take care of every detail so you can enjoy the occasion stress-free. From venue selection to décor, entertainment, catering, and seamless coordination, our expert team ensures a smooth, hassle-free, and personalized event experience. No matter the size or theme, we bring your vision to life with creativity, precision, and passion.<br/> Let <b className="text-[#755EA5]">PLANiT</b> handle the planning while you create memories that last a lifetime. Your perfect event starts here!
+            At <b className="text-[#755EA5]">PLANiT</b>, we turn your special moments into unforgettable 
+            experiences! Whether it's a birthday party, engagement, wedding celebration, anniversary, 
+            baby shower, corporate event, farewell, fresher’s party, holiday gathering, or an exciting 
+            open mic night, we take care of every detail so you can enjoy the occasion stress-free. 
+            From venue selection to décor, entertainment, catering, and seamless coordination,
+             our expert team ensures a smooth, hassle-free, and personalized event experience. 
+             No matter the size or theme, we bring your vision to life with creativity, precision, 
+             and passion.<br/> Let <b className="text-[#755EA5]">PLANiT</b> handle the planning 
+             while you create memories that last a lifetime. Your perfect event starts here!
           </div>
           <div data-aos="fade-up" className=" pt-20 pl-20">
             <DirectionAwareHover imageUrl={calender}/>
