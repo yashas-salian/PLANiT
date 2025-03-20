@@ -48,6 +48,19 @@ export const Marquee: React.FC<MarqueeProps> = ({
   // Calculate animation duration based on total distance and speed
   const animationDistance = startPosition - endPosition;
   const animationDuration = animationDistance / speed;
+
+  // Create animation style - using all non-shorthand properties
+  const animationStyle = containerWidth && contentWidth ? {
+    animationName: 'marquee',
+    animationDuration: `${animationDuration}s`,
+    animationTimingFunction: 'linear',
+    animationIterationCount: 'infinite',
+    animationPlayState: isPaused ? 'paused' : 'running',
+    animationDirection: direction === 'left' ? 'normal' : 'reverse',
+    transform: `translateX(${fullWidth ? startPosition : 0}px)`
+  } : {
+    transform: `translateX(${fullWidth ? startPosition : 0}px)`
+  };
   
   return (
     <div 
@@ -58,12 +71,7 @@ export const Marquee: React.FC<MarqueeProps> = ({
     >
       <div 
         className="inline-block"
-        style={{
-          transform: `translateX(${fullWidth ? startPosition : 0}px)`,
-          animation: containerWidth && contentWidth ? 
-            `marquee ${animationDuration}s linear infinite ${isPaused ? 'paused' : 'running'}` : 'none',
-          animationDirection: direction === 'left' ? 'normal' : 'reverse',
-        }}
+        style={animationStyle}
       >
         <div ref={contentRef} className="inline-block px-4">
           {text}
@@ -76,16 +84,19 @@ export const Marquee: React.FC<MarqueeProps> = ({
         )}
       </div>
       
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(${fullWidth ? startPosition : 0}px);
+      {/* Replace the styled-jsx tag with regular style tag */}
+      <style>
+        {`
+          @keyframes marquee {
+            0% {
+              transform: translateX(${fullWidth ? startPosition : 0}px);
+            }
+            100% {
+              transform: translateX(${endPosition}px);
+            }
           }
-          100% {
-            transform: translateX(${endPosition}px);
-          }
-        }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 };

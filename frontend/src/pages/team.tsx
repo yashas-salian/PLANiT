@@ -1,380 +1,4 @@
-// import { FocusCards } from "@/components/ui/focus-cards"
-// import em1 from "../components/em1.jpg"
-// import em2 from "../components/em2.jpg"
-// import em3 from "../components/emp3.jpg"
-// import safiyaWeb from "../components/safiyaWeb.jpg"
-// import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
-// import { Link,useNavigate } from "react-router-dom"
-// import { AnimatedTooltip } from "@/components/ui/animated-tooltip"
-// import { Facebook, Instagram, Linkedin,  X, Youtube } from "lucide-react"
-// import { HoveredLink, MenuItem, Menu } from "@/components/ui/navbar-menu"
-// import { useState } from "react"
-// import logo from "../components/LOGO.jpg"
 
-// interface Card {
-//     title: string;
-//     src: string;
-// };
-
-// const card: Card[]=[
-//     {title: "Safiya Khan" , src:em1},
-//     {title: "Yashas Salian" , src:em2},
-//     {title: "Sohail Sayyad" , src:em3}
-// ]
-
-// interface Testimonial {
-//     quote: string;
-//     name: string;
-//     designation: string;
-//     src: string;
-// };
-
-// const testimonials: Testimonial[] = [
-//     {
-//       quote: `"A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away."`,
-//       name: "Safiya Khan",
-//       designation: "Frontend Designer",
-//       src: safiyaWeb,
-//     },
-//     {
-//       quote:`"A well-designed backend is like a well-oiled machine, working seamlessly behind the scenes."`,
-//       name: "Yashas Salian",
-//       designation: "Backend Developer",
-//       src: em2,
-//     },
-//     {
-//       quote: `"In an age of infinite digital documentation, paper was the last safe place for secrets."`,
-//       name: "Sohail Sayyad",
-//       designation: "Documentation Executive",
-//       src: em3,
-//     },
-//   ];
-
-//   interface Items {
-//     id: number;
-//     name: string;
-//     designation: string;
-//     image: string;
-//   }
-  
-//   const items: Items[] = [
-//     { id: 1, name: "Safiya", designation: "Frontend Designer", image: em1 },
-//     { id: 2, name: "Yashas", designation: "Backend Developer", image: em2 },
-//     { id: 3, name: "Sohail", designation: "Documentation Executive", image: em3 }
-//   ];
-  
-//   const scrollToTop=(e)=>{
-//     window.scrollTo({top:0 , behavior:"smooth"})
-//   }
-// export const Team=()=>{
-//     const [active, setActive] = useState<string | null>(null);
-//     return <div className="bg-purple-200 flex flex-col relative w-full min-h-screen overflow-x-hidden">
-//             <div className="grid grid-cols-2 gap-8 px-6 py-4 md:grid grid-cols-2 gap-8 px-6 py-4">
-//               <div className="flex justify-start">
-//                 <div className="grid grid-cols-2">
-//                   <div className="w-16 h-16 flex items-center justify-center bg-purple-200 overflow-hidden">
-//                     <img src={logo} className="w-12 h-12 object-contain z-0" />
-//                   </div>
-//                   <Link to="/" className="pt-4">
-//                   <b className="absolute top-3 text-2xl text-[#755EA5] mb-4 mt-4 z-10">PLANiT</b>
-//                   </Link>
-//                 </div>
-//               </div>
-//               <div className="absolute z-10 flex justify-center pt-2 pr-4 w-full">
-//                   <Menu setActive={setActive}>
-//                     <MenuItem setActive={setActive} active={active} item="Home">
-//                       <HoveredLink to="/" ><div className="transition-all duration-100 hover:scale-105">Home</div></HoveredLink>
-//                     </MenuItem>
-//                     <MenuItem setActive={setActive} active={active} item="Features">
-//                       <HoveredLink to="/features">
-//                       <ul className="transition-all duration-100 text-white space-y-2">
-//                       <li className="transition-all duration-100 hover:pl-2 pr-2 hover:bg-purple-400 rounded-lg hover:scale-105"> Real-time Event Planning</li>
-//                       <li className="transition-all duration-100 hover:pl-2 pr-2 hover:bg-purple-400 rounded-lg hover:scale-105">Custom Theme Designer</li>
-//                       <li className="transition-all duration-100 hover:pl-2 pr-2 hover:bg-purple-400 rounded-lg hover:scale-105"> Budget Management</li>
-//                       <li className="transition-all duration-100 hover:pl-2 pr-2 hover:bg-purple-400 rounded-lg hover:scale-105"> Guest List Management</li>
-//                       <li className="transition-all duration-100 hover:pl-2 pr-2 hover:bg-purple-400 rounded-lg hover:scale-105"> Mobile Responsive Design</li>
-//                       <li className="transition-all duration-100 hover:pl-2 pr-2 hover:bg-purple-400 rounded-lg hover:scale-105"> Event Timeline Creator</li>
-//                       <li className="transition-all duration-100 hover:pl-2 pr-2 hover:bg-purple-400 rounded-lg hover:scale-105"> All features</li>
-//                     </ul></HoveredLink>
-//                     </MenuItem>
-//                     <MenuItem setActive={setActive} active={active} item="Our team">
-//                     <Link to="/team">
-//                       <div className="w-full text-white transition-all duration-100 hover:scale-105">
-//                         Know more about our team
-//                       </div>
-//                     </Link>
-//                     </MenuItem>
-//                     <MenuItem setActive={setActive} active={active} item="About Us">
-//                       <HoveredLink to="/about">
-//                       <div className="transition-all duration-100 hover:scale-105">Know about our work</div>
-//                       </HoveredLink>
-//                       {/* PLANiT simplifies event planning <br/>with innovative technology and 
-//                       <br/>user-friendly features. Since <br/>2024, we've helped clients <br/>turn
-//                       ideas into memorable <br/>experiences effortlessly.<br/>.... know more */}
-//                     </MenuItem>
-//                     <MenuItem setActive={setActive} active={active} item="Contact">
-//                     <Link to="/contact">
-//                       <div className="w-full text-white transition-all duration-100 hover:scale-105">
-//                       {/* GVJ8+567, IIEDC, Aissms ioit,<br/> AISSMS COE Parking Rd,<br/> near RTO, Railway Officers Colony,<br/> Sangamvadi, Pune, Maharashtra 411001<br/><br/>
-//                         Email: PLANiT@gmail.com<br />
-//                         Phone: +91 9897969594 */}
-//                         Contact us
-//                       </div>
-//                     </Link>
-//                     </MenuItem>
-//                   </Menu>
-//               </div>
-//             </div>
-
-//             <b className="text-4xl pl-10 pt-6 block text-[#755EA5]">Our team</b>
-//             <div className="pt-10 ">
-//                 <FocusCards cards={card}/>
-//             </div>
-//             <div>
-//                 <AnimatedTestimonials testimonials={testimonials} autoplay={true}/>
-//             </div>
-//             <div className="bg-[#9583C0] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 px-4 md:px-6 py-6 md:py-8 text-white">
-
-
-//         {/* Home Section */}
-//           <div className="flex flex-col items-center md:items-start">
-//           <b className="text-2xl mb-4 text-black  ">Quick links</b>
-//             <ul className="text-black space-y-2">
-//               <li className="font-semibold transition-all duration-400 hover:scale-105"><Link
-//               to="/"
-//               className=" mb-4text-black  "
-//             >
-//               <span>Home</span>
-//             </Link></li>
-//               <li className="font-semibold transition-all duration-100 hover:scale-105"><Link to="/features">Features</Link></li>
-//               <li className="font-semibold transition-all duration-100 hover:scale-105"><Link to="/team"
-//                   onClick={(e) => {
-//                   e.preventDefault();
-//                   scrollToTop(e);
-//             }}>Our team</Link></li>
-//               <li className="font-semibold transition-all duration-100 hover:scale-105"><Link to="/about">About us</Link></li>
-//               <li className="font-semibold transition-all duration-100 hover:scale-105"><Link to="/contact">Contact us</Link></li>
-//             </ul>
-            
-//           </div>
-
-//           {/* Features Section */}
-//           <div className="flex flex-col items-center md:items-start">
-//             <b className="text-2xl mb-4 text-black ">Features</b>
-//               <Link to="/features">
-//                 <ul className="text-black space-y-2">
-//                   <li className="font-semibold transition-all duration-100 hover:scale-105"> Real-time Event Planning</li> 
-//                   <li className="font-semibold transition-all duration-100 hover:scale-105">Custom Theme Designer</li>
-//                   <li className="font-semibold transition-all duration-100 hover:scale-105"> Budget Management</li>
-//                   <li className="font-semibold transition-all duration-100 hover:scale-105"> Guest List Management</li>
-//                   <li className="font-semibold transition-all duration-100 hover:scale-105"> Mobile Responsive Design</li>
-//                   <li className="font-semibold transition-all duration-100 hover:scale-105"> Event Timeline Creator</li>
-//                   <li className="font-semibold transition-all duration-100 hover:scale-105"> All features</li>
-//                 </ul>
-//               </Link>
-//           </div>
-
-//             {/* Our team section */}
-//           <div className="flex flex-col items-center md:items-start">
-//             <b className="text-2xl mb-4 text-black ">Our Team</b>
-//             <Link to="/team">
-//               <AnimatedTooltip items={items} />
-//             </Link>
-//             <b className="text-2xl mt-4 text-black mt-8 mb-4">Social media</b>
-//             <div className="text-black grid grid-cols-5 gap-x-4"> 
-//               <div className="transition-all duration-100 hover:scale-120"><Link to="https://www.instagram.com/yashassalian1/"><Instagram/></Link></div>
-//               <div className="transition-all duration-100 hover:scale-120"><Link to="https://www.instagram.com/yashassalian1/"><Facebook/></Link></div>
-//               <div className="transition-all duration-100 hover:scale-120"><Link to="https://www.youtube.com/@yashassalian191"><Youtube/></Link></div>
-//               <div className="transition-all duration-100 hover:scale-120"><Link to="https://www.linkedin.com/in/yashas-salian-69539228b/"><Linkedin/></Link></div>
-//               <div className="transition-all duration-100 hover:scale-120"><Link to="https://x.com/salian_yashas"><X/></Link></div>
-//             </div>
-//           </div>
-
-//           {/* About Us Section */}
-//           <div className="flex flex-col items-center md:items-start">
-//             <b className="text-2xl mb-4 text-black ">About Us</b>
-//             <p className="text-black text-center md:text-left font-semibold">
-//               PLANiT simplifies event planning with innovative technology and user-friendly features. Since 2024, we've helped clients turn ideas into memorable experiences effortlessly.
-//             </p>
-//           </div>
-
-//           {/* Contact Us Section */}
-//           <div className="flex flex-col items-center md:items-start">
-//             <b className="text-2xl mb-4 text-black ">Contact Us</b>
-//             <div className="text-black text-center md:text-left font-semibold">
-//               GVJ8+567, IIEDC, Aissms IOIT, AISSMS COE Parking Rd, near RTO, Railway Officers Colony, Sangamvadi, Pune, Maharashtra 411001
-//               <br /><br />
-//               <div className="font-semibold transition-all duration-100 hover:scale-105">
-//                 <a href="mailto:PLANiT@gmail.com">Email: PLANiT@gmail.com</a> <br />
-//               </div>
-//               <div className="font-semibold transition-all duration-100 hover:scale-105">
-//             <a href="tel:7385875052">Phone: 9999999999</a> <br />
-//             </div>
-//             <div className="font-semibold transition-all duration-100 hover:scale-105">
-//             More contact info
-//             </div>
-//             </div>
-//         </div>
-//       </div>
-//         </div>
-// }
-
-//claude.ai
-// import React, { useState } from 'react';
-// import em1 from "../components/em1.jpg"
-// import em2 from "../components/em2.jpg"
-// import em3 from "../components/emp3.jpg"
-// export const Team = () => {
-//   const [activeTeamMember, setActiveTeamMember] = useState(null);
-//   const [hoverMember, setHoverMember] = useState(null);
-
-//   const teamMembers = [
-//     {
-//       id: 1,
-//       name: "Alex Johnson",
-//       role: "Chief Technology Officer",
-//       bio: "Alex has over 15 years of experience in software development and architecture. Previously led engineering teams at major tech companies, specializing in scalable cloud solutions.",
-//       skills: ["Cloud Architecture", "System Design", "Team Leadership", "Strategic Planning"],
-//       image: em1,
-//       color: "bg-indigo-600"
-//     },
-//     {
-//       id: 2,
-//       name: "Samantha Chen",
-//       role: "Lead Product Designer",
-//       bio: "Samantha brings 8 years of UX/UI expertise with a background in cognitive psychology. Her human-centered design approach has shaped award-winning products used by millions.",
-//       skills: ["User Experience", "Interface Design", "Prototyping", "Design Systems"],
-//       image: em2,
-//       color: "bg-emerald-600"
-//     },
-//     {
-//       id: 3,
-//       name: "Marcus Williams",
-//       role: "Head of Marketing",
-//       bio: "Marcus has driven growth marketing strategies for startups and Fortune 500 companies alike. His data-driven approach combines creativity with analytical precision.",
-//       skills: ["Growth Strategy", "Brand Development", "Digital Campaigns", "Analytics"],
-//       image: em3,
-//       color: "bg-amber-600"
-//     }
-//   ];
-
-//   return (
-//     <div className="min-h-screen bg-purple-200 py-16 px-4 sm:px-6 lg:px-8 text-white">
-//       <div className="max-w-7xl mx-auto">
-//         <div className="text-center mb-16">
-//           <h1 className="text-5xl font-bold mb-4 text-[#755EA5]">Meet Our Team</h1>
-//           <p className="text-xl text-black max-w-3xl mx-auto">
-//             Passionate experts dedicated to bringing our vision to life through innovation, 
-//             creativity, and relentless pursuit of excellence.
-//           </p>
-//         </div>
-
-//         {/* Desktop Team Cards */}
-//         <div className="hidden md:grid grid-cols-3 gap-8 mb-16">
-//           {teamMembers.map((member) => (
-//             <div
-//               key={member.id}
-//               className={`rounded-xl overflow-hidden transition-all duration-500 transform ${
-//                 hoverMember === member.id ? "scale-105" : ""
-//               } ${activeTeamMember === member.id ? "ring-4 ring-white" : ""}`}
-//               onMouseEnter={() => setHoverMember(member.id)}
-//               onMouseLeave={() => setHoverMember(null)}
-//               onClick={() => setActiveTeamMember(
-//                 activeTeamMember === member.id ? null : member.id
-//               )}
-//             >
-//               <div className="aspect-w-1 aspect-h-1 bg-gray-700">
-//                 <img 
-//                   src={member.image} 
-//                   alt={member.name}
-//                   className="object-cover w-full h-64 transition-all duration-500 filter grayscale hover:grayscale-0"
-//                 />
-//               </div>
-//               <div className={`${member.color} p-6`}>
-//                 <h3 className="text-2xl font-bold">{member.name}</h3>
-//                 <p className="text-lg opacity-90 mb-1">{member.role}</p>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-
-//         {/* Mobile Team Carousel */}
-//         <div className="md:hidden mb-12">
-//           {teamMembers.map((member) => (
-//             <div 
-//               key={member.id} 
-//               className="mb-8 rounded-xl overflow-hidden"
-//               onClick={() => setActiveTeamMember(
-//                 activeTeamMember === member.id ? null : member.id
-//               )}
-//             >
-//               <div className="aspect-w-1 aspect-h-1">
-//                 <img 
-//                   src={member.image} 
-//                   alt={member.name}
-//                   className="object-cover w-full h-64"
-//                 />
-//               </div>
-//               <div className={`${member.color} p-4`}>
-//                 <h3 className="text-xl font-bold">{member.name}</h3>
-//                 <p className="opacity-90">{member.role}</p>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-
-//         {/* Team Member Details */}
-//         {activeTeamMember && (
-//           <div className="bg-[#755EA5] rounded-2xl p-8 shadow-2xl animate-fadeIn max-w-4xl mx-auto">
-//             {teamMembers
-//               .filter(member => member.id === activeTeamMember)
-//               .map(member => (
-//                 <div key={member.id} className="md:flex gap-8">
-//                   <div className="md:w-1/3 mb-6 md:mb-0">
-//                     <div className="rounded-xl overflow-hidden">
-//                       <img 
-//                         src={member.image} 
-//                         alt={member.name} 
-//                         className="w-full h-auto object-cover"
-//                       />
-//                     </div>
-//                   </div>
-//                   <div className="md:w-2/3">
-//                     <h2 className="text-3xl font-bold mb-2">{member.name}</h2>
-//                     <p className="text-xl mb-4 inline-block px-3 py-1 rounded-full bg-purple-800 border border-purple-900" >
-//                       {member.role}
-//                     </p>
-//                     <p className="text-gray-300 mb-6">{member.bio}</p>
-//                     <div>
-//                       <h4 className="text-lg font-medium mb-3">Areas of Expertise</h4>
-//                       <div className="flex flex-wrap gap-2">
-//                         {member.skills.map((skill, index) => (
-//                           <span 
-//                             key={index} 
-//                             className="bg-purple-400 px-3 py-1 rounded-full text-sm"
-//                           >
-//                             {skill}
-//                           </span>
-//                         ))}
-//                       </div>
-//                     </div>
-//                     <button 
-//                       className="mt-8 bg-white text-gray-900 px-6 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors"
-//                       onClick={() => setActiveTeamMember(null)}
-//                     >
-//                       Close
-//                     </button>
-//                   </div>
-//                 </div>
-//               ))}
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
-
-//claudeai-2
 import React, { useState, useEffect } from 'react';
 import em1 from "../components/em1.jpg";
 import em2 from "../components/em2.jpg";
@@ -503,33 +127,33 @@ export const Team = () => {
         </div>
 
         {/* View Controls */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
-          <div className="flex gap-2">
-            <button 
-              onClick={() => setViewMode('cards')}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${viewMode === 'cards' 
-                ? 'bg-[#755EA5] text-white' 
-                : 'bg-white text-gray-700 hover:bg-gray-100'}`}
-            >
-              Cards
-            </button>
-            <button 
-              onClick={() => setViewMode('grid')}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${viewMode === 'grid' 
-                ? 'bg-[#755EA5] text-white' 
-                : 'bg-white text-gray-700 hover:bg-gray-100'}`}
-            >
-              Grid
-            </button>
-            <button 
-              onClick={() => setViewMode('list')}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${viewMode === 'list' 
-                ? 'bg-[#755EA5] text-white' 
-                : 'bg-white text-gray-700 hover:bg-gray-100'}`}
-            >
-              List
-            </button>
-          </div>
+          <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+            <div className="flex gap-2">
+              <button 
+                onClick={() => setViewMode('cards')}
+                className={`px-4 py-2 rounded-lg font-medium transition-colors ${viewMode === 'cards' 
+                  ? 'bg-[#755EA5] text-white' 
+                  : 'bg-white text-gray-700 hover:bg-gray-100'}`}
+              >
+                Cards
+              </button>
+              <button 
+                onClick={() => setViewMode('grid')}
+                className={`px-4 py-2 rounded-lg font-medium transition-colors ${viewMode === 'grid' 
+                  ? 'bg-[#755EA5] text-white' 
+                  : 'bg-white text-gray-700 hover:bg-gray-100'}`}
+              >
+                Grid
+              </button>
+              <button 
+                onClick={() => setViewMode('list')}
+                className={`px-4 py-2 rounded-lg font-medium transition-colors ${viewMode === 'list' 
+                  ? 'bg-[#755EA5] text-white' 
+                  : 'bg-white text-gray-700 hover:bg-gray-100'}`}
+              >
+                List
+              </button>
+            </div>
           
           <div className="w-full md:w-auto">
             <select 
@@ -545,96 +169,96 @@ export const Team = () => {
           </div>
         </div>
 
-        {/* Cards View */}
-        {viewMode === 'cards' && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {filteredMembers.map((member, index) => (
-              <div
-                key={member.id}
-                className={`rounded-xl overflow-hidden shadow-lg transition-all duration-500 transform ${
-                  animateCards ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-                } ${hoverMember === member.id ? "scale-105 shadow-xl" : ""} ${
-                  activeTeamMember === member.id ? "ring-4 ring-purple-400" : ""
-                }`}
-                style={{ 
-                  transitionDelay: `${index * 150}ms`,
-                  backgroundColor: 'white'
-                }}
-                onMouseEnter={() => setHoverMember(member.id)}
-                onMouseLeave={() => setHoverMember(null)}
-                onClick={() => handleCardClick(member.id)}
-              >
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="object-cover w-full h-72 transition-all duration-500 transform hover:scale-110"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
-                    <h3 className="text-2xl font-bold text-white">{member.name}</h3>
-                    <p className="text-white opacity-90">{member.role}</p>
+          {/* Cards View */}
+          {viewMode === 'cards' && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+              {filteredMembers.map((member, index) => (
+                <div
+                  key={member.id}
+                  className={`rounded-xl overflow-hidden shadow-lg transition-all duration-500 transform ${
+                    animateCards ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+                  } ${hoverMember === member.id ? "scale-105 shadow-xl" : ""} ${
+                    activeTeamMember === member.id ? "ring-4 ring-purple-400" : ""
+                  }`}
+                  style={{ 
+                    transitionDelay: `${index * 150}ms`,
+                    backgroundColor: 'white'
+                  }}
+                  onMouseEnter={() => setHoverMember(member.id)}
+                  onMouseLeave={() => setHoverMember(null)}
+                  onClick={() => handleCardClick(member.id)}
+                >
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="object-cover w-full h-72 transition-all duration-500 transform hover:scale-110"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                      <h3 className="text-2xl font-bold text-white">{member.name}</h3>
+                      <p className="text-white opacity-90">{member.role}</p>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <p className="text-gray-700 mb-4 line-clamp-3">{member.bio}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {member.skills.slice(0, 3).map((skill, idx) => (
+                        <span key={idx} className={`${member.color} bg-opacity-20 text-gray-700 px-3 py-1 rounded-full text-sm`}>
+                          {skill}
+                        </span>
+                      ))}
+                      {member.skills.length > 3 && (
+                        <span className="text-sm text-gray-500">+{member.skills.length - 3} more</span>
+                      )}
+                    </div>
+                    <button 
+                      className={`w-full mt-2 ${member.color} text-white px-4 py-2 rounded-lg font-medium transition-colors`}
+                    >
+                      View Profile
+                    </button>
                   </div>
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-700 mb-4 line-clamp-3">{member.bio}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {member.skills.slice(0, 3).map((skill, idx) => (
-                      <span key={idx} className={`${member.color} bg-opacity-20 text-gray-700 px-3 py-1 rounded-full text-sm`}>
-                        {skill}
-                      </span>
-                    ))}
-                    {member.skills.length > 3 && (
-                      <span className="text-sm text-gray-500">+{member.skills.length - 3} more</span>
-                    )}
-                  </div>
-                  <button 
-                    className={`w-full mt-2 ${member.color} text-white px-4 py-2 rounded-lg font-medium transition-colors`}
-                  >
-                    View Profile
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+              ) )}
+            </div>
+          )}
 
-        {/* Grid View */}
-        {viewMode === 'grid' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            {filteredMembers.map((member) => (
-              <div
-                key={member.id}
-                className="bg-white rounded-xl overflow-hidden shadow-md flex transition-all duration-300 hover:shadow-xl"
-                onClick={() => handleCardClick(member.id)}
-              >
-                <div className="w-1/3">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div className="w-2/3 p-6">
-                  <h3 className="text-xl font-bold text-gray-800">{member.name}</h3>
-                  <p className={`inline-block px-3 py-1 rounded-full text-white text-sm mb-2 ${member.color}`}>
-                    {member.role}
-                  </p>
-                  <p className="text-gray-600 mb-3 line-clamp-2">{member.bio}</p>
-                  <div className="flex flex-wrap gap-1 mt-2">
-                    {member.skills.slice(0, 2).map((skill, idx) => (
-                      <span key={idx} className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
-                        {skill}
-                      </span>
-                    ))}
-                    {member.skills.length > 2 && (
-                      <span className="text-xs text-gray-500">+{member.skills.length - 2} more</span>
-                    )}
+          {/* Grid View */}
+          {viewMode === 'grid' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+              {filteredMembers.map((member) => (
+                <div
+                  key={member.id}
+                  className="bg-white rounded-xl overflow-hidden shadow-md flex transition-all duration-300 hover:shadow-xl"
+                  onClick={() => handleCardClick(member.id)}
+                >
+                  <div className="w-1/3">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="w-2/3 p-6">
+                    <h3 className="text-xl font-bold text-gray-800">{member.name}</h3>
+                    <p className={`inline-block px-3 py-1 rounded-full text-white text-sm mb-2 ${member.color}`}>
+                      {member.role}
+                    </p>
+                    <p className="text-gray-600 mb-3 line-clamp-2">{member.bio}</p>
+                    <div className="flex flex-wrap gap-1 mt-2">
+                      {member.skills.slice(0, 2).map((skill, idx) => (
+                        <span key={idx} className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                          {skill}
+                        </span>
+                      ))}
+                      {member.skills.length > 2 && (
+                        <span className="text-xs text-gray-500">+{member.skills.length - 2} more</span>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        )}
+              ))}
+            </div>
+          )}
 
         {/* List View */}
         {viewMode === 'list' && (

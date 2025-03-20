@@ -4,6 +4,10 @@ import em2 from "../components/em2.jpg";
 import em3 from "../components/emp3.jpg";
 import em1 from "../components/safiyaWeb.jpg";
 import logo from "../components/LOGO.jpg";
+import birthdayimg from "../components/birthday.jpg"
+import openMicimg from "../components/OpenMicNight.jpg"
+import holidayimg from "../components/HolidayParty.jpg"
+import haldiimg from "../components/haldiimg.jpg"
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import HoverEffect from "@/components/ui/card-hover-effect";
 import { Menu, MenuItem, ProductItem, HoveredLink } from "../components/ui/navbar-menu";
@@ -16,13 +20,21 @@ import { FeaturesSectionDemo } from "@/components/ui/bento-grid";
 import { Instagram , Youtube , Linkedin , X , Facebook } from "lucide-react";
 import AOS from 'aos';
 import "aos/dist/aos.css";
-import wedding from "../components/wedding.jpg"
+import weddingimg from "../components/wedding.jpg"
 import anniversary from "../components/anniversary.jpg"
 import openMicNight from "../components/OpenMicNight.jpg"
 import holidayParty from "../components/HolidayParty.jpg"
 import welcome from "../components/welcome.jpg"
 import birthday from "../components/birthday.jpg"
 import calender from "../components/calender.jpg"
+import { DashboardButton } from "@/components/dashboardButton";
+import { MaskContainer } from "@/components/ui/svg-mask-effect";
+import { Card, Carousel } from "@/components/ui/apple-cards-carousel";
+import venue1 from "../components/wedding-venue.jpg"
+import venue2 from "../components/anniversary-venue.jpg"
+import venue3 from "../components/birthday-venue.jpg"
+import venue4 from "../components/openMic-venue.jpg"
+import venue5 from "../components/party-venue.jpg"
 
 interface Items {
   id: number;
@@ -37,6 +49,38 @@ interface SlideData {
   src: string;
 }
 
+const eventCards = [
+  {
+    src: venue1,
+    title: "Pune",
+    category: "",
+    content: <p>Our wedding planning services create memorable experiences.</p>,
+  },
+  {
+    src: venue2,
+    title: "Bengaluru",
+    category: "",
+    content: <p>We make your birthday celebrations truly special.</p>,
+  },
+  {
+    src: venue3,
+    title: "Lucknow",
+    category: "",
+    content: <p>Elevate your corporate events with our professional services.</p>,
+  },
+  {
+    src: venue4,
+    title: "Sambhajinagar",
+    category: "",
+    content: <p>Creative entertainment solutions for all occasions.</p>,
+  },
+  {
+    src: venue5,
+    title: "Delhi",
+    category: "",
+    content: <p>Creative entertainment solutions for all occasions.</p>,
+  }
+]
 const items: Items[] = [
   { id: 1, name: "Safiya", designation: "Frontend Designer", image: em1 },
   { id: 2, name: "Yashas", designation: "Backend Developer", image: em2 },
@@ -48,7 +92,7 @@ const slides: SlideData[] = [
   { title: "Anniversary", src:anniversary},
   { title: "Open mic night", src: openMicNight },
   { title: "Holiday Party", src: holidayParty },
-  { title: "Wedding",  src: wedding },
+  { title: "Wedding",  src: weddingimg },
   { title: "Birthday Party",  src: birthday }
 ];
 
@@ -57,7 +101,7 @@ const products = [
   {
     title: "",
     link: "/product-1",
-    thumbnail: wedding,
+    thumbnail: weddingimg,
   },
   {
     title: "",
@@ -82,7 +126,7 @@ const products = [
   {
     title: "",
     link: "/product-6",
-    thumbnail: wedding,
+    thumbnail: weddingimg,
   },
   {
     title: "",
@@ -107,7 +151,7 @@ const products = [
   {
     title: "",
     link: "/product-11",
-    thumbnail: wedding,
+    thumbnail: weddingimg,
   },
   {
     title: "",
@@ -138,11 +182,14 @@ export const HomePage: React.FC = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const navigate = useNavigate()
+
   useEffect(() => {
-    AOS.init({
-      duration: 1000, // animation duration in ms
-    });
-  }, []);
+        AOS.init({
+          duration: 5000,
+          offset: 0
+        });
+      }, []);
+
   const words = ["Weddings", "Anniversaries", "Corporate Events", "and much more"];
   return (
     <div className="bg-purple-200 flex flex-col relative w-full min-h-screen overflow-x-hidden">
@@ -174,7 +221,7 @@ export const HomePage: React.FC = () => {
               title="Core Features"
               description="Discover our product's main capabilities"
               href="/features/core"
-              src={wedding}
+              src={weddingimg}
             />
             <ProductItem
               title="Premium Features"
@@ -238,29 +285,32 @@ export const HomePage: React.FC = () => {
         <HeroParallax products={products}/>
       </div>
         {/* <Carousel slides={slides} /> */}
-      <div className="pt-12 pl-6">
-        <div className="grid-cols-1 md:grid grid-cols-2 gap-4">
+      <div className="pt-12">
+        <div className="grid-cols-1 md:w-screen grid grid-cols-2 gap-4 bg-[#755EA5] pb-10">
           <div data-aos="fade-up" className="pl-12 pr-12 pt-4 text-xl font-serif">
-            <div className="text-4xl font-extrabold pt-6">
-              Welcome to <b className="text-[#755EA5]">PLANiT</b> – Your Ultimate Event Management Solution!
+            <div className="text-4xl font-extrabold pt-6 text-white">
+              Welcome to <b className="text-white">PLANiT</b> – Your Ultimate Event Management Solution!
             </div>
-            <br />
-            At <b className="text-[#755EA5]">PLANiT</b>, we turn your special moments into unforgettable 
+            <div className="text-white mt-10">
+            At <b className="text-white">PLANiT</b>, we turn your special moments into unforgettable 
             experiences! Whether it's a birthday party, engagement, wedding celebration, anniversary, 
             baby shower, corporate event, farewell, fresher’s party, holiday gathering, or an exciting 
             open mic night, we take care of every detail so you can enjoy the occasion stress-free. 
             From venue selection to décor, entertainment, catering, and seamless coordination,
              our expert team ensures a smooth, hassle-free, and personalized event experience. 
              No matter the size or theme, we bring your vision to life with creativity, precision, 
-             and passion.<br/> Let <b className="text-[#755EA5]">PLANiT</b> handle the planning 
+             and passion.<br/> Let <b className="text-white">PLANiT</b> handle the planning 
              while you create memories that last a lifetime. Your perfect event starts here!
+            </div>
+            <br />
+            
           </div>
           <div data-aos="fade-up" className=" pt-20 pl-20">
             <DirectionAwareHover imageUrl={calender}/>
           </div>
         </div>
-        <div className="font-extrabold font-serif text-4xl pl-12 pr-12 pt-6">What we do? We do <FlipWords words={words} /></div>
-        <div data-aos="fade-up">
+        <div className="font-extrabold font-serif text-4xl pl-12 pr-12 pt-20">What we do? We do <FlipWords words={words} /></div>
+        <div data-aos="fade-up pl-6">
         <HoverEffect
           items={[
             { title: "Wedding Planning", description: "We handle everything from venue selection to décor, catering, and entertainment, ensuring a seamless and magical wedding experience." },
@@ -272,14 +322,223 @@ export const HomePage: React.FC = () => {
           ]}
         />
         </div>
+        {/* <div  className="text-center text-5xl font-bold text-[#755EA5] mt-10">Categories</div>
+       <div className="bg-[#755EA5] pl-40 mt-10 grid grid-cols-3 relative overflow-hidden">
+        <div data-aos="fade-right" data-aos-duration="2000" className="col-span-1 relative p-6 rounded-xl cursor-pointer w-80">
+          <div className="flex flex-col">
+            <div data-aos="fade-right" className="text-3xl text-white font-bold mb-5 ml-30">1.Wedding</div>
+            <div className=""><img src={weddingimg} alt="wedding image" className="w-80 h-80 rounded-4xl ml-20"/>
+            </div>
+            <div className="ml-33 pt-6">
+            <Button text="Book now" onClick={()=>{
+              navigate('/auth')
+            }}/>
+            </div>
+          </div> 
+        </div>
+        <MaskContainer className="col-span-2" revealText={
+         <div className="w-180 bg-[#A18FCC] text-black text-lg rounded-4xl font-bold text-justify p-10 mt-12 italic"> At <b className="text-[#755EA5]">PLANiT</b>, we specialize in making wedding planning smooth and hassle-free.
+         Our platform offers everything you need to organize a perfect wedding, from managing
+           guest lists and RSVPs to coordinating with top wedding vendors like florists, 
+           caterers, and photographers. You can create a personalized wedding timeline, track 
+           key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
+           you can customize every detail of your big day while staying organized and on schedule.
+           Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
+             is here to make your wedding planning journey simple and unforgettable.</div>
+        } >
+          <div  className="w-180 relative p-6 rounded-xl cursor-pointer text-white font-bold italic text-justify text-lg mt-20 pr-25 transition-all duration-500">
+          At PLANiT, we specialize in making wedding planning smooth and hassle-free.
+          Our platform offers everything you need to organize a perfect wedding, from managing
+            guest lists and RSVPs to coordinating with top wedding vendors like florists, 
+            caterers, and photographers. You can create a personalized wedding timeline, track 
+            key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
+            you can customize every detail of your big day while staying organized and on schedule.
+            Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
+              is here to make your wedding planning journey simple and unforgettable.
+          </div>
+        </MaskContainer>
       </div>
-        <div className="pb-16">
-          {/* <div className="font-extrabold font-serif text-4xl pl-18 pr-12 pt-6 pb-4">
-            Some of our <b className="text-[#755EA5]">Works</b>
-          </div> */}
-          {/* <div data-aos="fade-up">
-            <Carousel slides={slides} />
-          </div> */}
+      <div className=" pl-40  grid grid-cols-3 relative overflow-hidden">
+      <MaskContainer className="col-span-2" revealText={
+          <div className="w-180 bg-[#A18FCC] text-black text-lg rounded-4xl font-bold text-justify p-10 mt-12 italic"> At <b className="text-[#755EA5]">PLANiT</b>, we specialize in making wedding planning smooth and hassle-free.
+          Our platform offers everything you need to organize a perfect wedding, from managing
+            guest lists and RSVPs to coordinating with top wedding vendors like florists, 
+            caterers, and photographers. You can create a personalized wedding timeline, track 
+            key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
+            you can customize every detail of your big day while staying organized and on schedule.
+            Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
+              is here to make your wedding planning journey simple and unforgettable.</div>
+        } >
+          <div  className="w-180 relative p-6 rounded-xl cursor-pointer text-white font-bold italic text-justify text-lg pr-25 mt-20 transition-all duration-500">
+          At PLANiT, we specialize in making wedding planning smooth and hassle-free.
+          Our platform offers everything you need to organize a perfect wedding, from managing
+            guest lists and RSVPs to coordinating with top wedding vendors like florists, 
+            caterers, and photographers. You can create a personalized wedding timeline, track 
+            key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
+            you can customize every detail of your big day while staying organized and on schedule.
+            Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
+              is here to make your wedding planning journey simple and unforgettable.
+          </div>
+        </MaskContainer>
+        <div data-aos="fade-left" data-aos-duration="2000" className="col-span-1 relative p-6 rounded-xl cursor-pointer w-80">
+          <div className="flex flex-col">
+            <div data-aos="fade-left" className="text-3xl text-[#755EA5] font-bold mb-5">2.Anniversary</div>
+            <div><img src={anniversary} alt="wedding image" className="w-80 h-80 rounded-4xl"/>
+            </div>
+            <div className="flex justify-center  pt-6">
+            <DashboardButton text="Book now" onClick={()=>{
+              navigate('/auth')
+            }}/>
+            </div>
+          </div> 
+        </div>
+      </div>
+      <div className="bg-[#755EA5] pl-40 grid grid-cols-3  relative overflow-hidden">
+      <div data-aos="fade-right" data-aos-duration="2000" className="col-span-1 relative p-6 rounded-xl cursor-pointer w-80">
+          <div className="flex flex-col">
+            <div data-aos="fade-right" className="text-3xl text-white font-bold mb-5 ml-30">3.Birthday</div>
+            <div className=""><img src={birthday} alt="wedding image" className="w-80 h-80 rounded-4xl ml-20"/>
+            </div>
+            <div className="ml-33 pt-6">
+            <Button text="Book now" onClick={()=>{
+              navigate('/auth')
+            }}/>
+            </div>
+          </div> 
+        </div>
+        <MaskContainer className="col-span-2 " revealText={
+          <div className="w-180 bg-[#A18FCC] text-black text-lg rounded-4xl font-bold text-justify p-10 mt-12 italic"> At <b className="text-[#755EA5]">PLANiT</b>, we specialize in making wedding planning smooth and hassle-free.
+          Our platform offers everything you need to organize a perfect wedding, from managing
+            guest lists and RSVPs to coordinating with top wedding vendors like florists, 
+            caterers, and photographers. You can create a personalized wedding timeline, track 
+            key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
+            you can customize every detail of your big day while staying organized and on schedule.
+            Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
+              is here to make your wedding planning journey simple and unforgettable.</div>
+        } >
+          <div  className="w-180 relative p-6 rounded-xl cursor-pointer text-white font-bold italic text-justify text-lg mt-12 pr-25 transition-all duration-500">
+          At PLANiT, we specialize in making wedding planning smooth and hassle-free.
+          Our platform offers everything you need to organize a perfect wedding, from managing
+            guest lists and RSVPs to coordinating with top wedding vendors like florists, 
+            caterers, and photographers. You can create a personalized wedding timeline, track 
+            key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
+            you can customize every detail of your big day while staying organized and on schedule.
+            Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
+              is here to make your wedding planning journey simple and unforgettable.
+          </div>
+        </MaskContainer>
+      </div>
+      <div className=" pl-40  grid grid-cols-3 relative overflow-hidden">
+      <MaskContainer className="col-span-2" revealText={
+         <div className="w-180 bg-[#A18FCC] text-black text-lg rounded-4xl font-bold text-justify p-10 mt-12 italic"> At <b className="text-[#755EA5]">PLANiT</b>, we specialize in making wedding planning smooth and hassle-free.
+         Our platform offers everything you need to organize a perfect wedding, from managing
+           guest lists and RSVPs to coordinating with top wedding vendors like florists, 
+           caterers, and photographers. You can create a personalized wedding timeline, track 
+           key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
+           you can customize every detail of your big day while staying organized and on schedule.
+           Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
+             is here to make your wedding planning journey simple and unforgettable.</div>
+        } >
+          <div className="w-180 relative p-6 rounded-xl cursor-pointer text-white font-bold italic text-justify text-lg mt-20 pr-25 transition-all duration-500">
+          At PLANiT, we specialize in making wedding planning smooth and hassle-free.
+          Our platform offers everything you need to organize a perfect wedding, from managing
+            guest lists and RSVPs to coordinating with top wedding vendors like florists, 
+            caterers, and photographers. You can create a personalized wedding timeline, track 
+            key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
+            you can customize every detail of your big day while staying organized and on schedule.
+            Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
+              is here to make your wedding planning journey simple and unforgettable.
+          </div>
+        </MaskContainer>
+        <div data-aos="fade-left" data-aos-duration="2000" className="col-span-1 relative p-6 rounded-xl cursor-pointer w-80">
+          <div className="flex flex-col">
+            <div data-aos="fade-left" className="text-3xl text-[#755EA5] font-bold mb-5 w-full mr-30">4.Open Mic Night</div>
+            <div><img src={openMicNight} alt="wedding image" className="w-80 h-80 rounded-4xl"/>
+            </div>
+            <div className="flex justify-center  pt-6">
+            <DashboardButton text="Book now" onClick={()=>{
+              navigate('/auth')
+            }}/>
+            </div>
+          </div> 
+        </div>
+      </div> */}
+      <section className="py-16 bg-purple-200">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-[#755EA5]">Our Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Wedding Planning",
+                description:
+                  "From intimate ceremonies to grand celebrations, we handle every detail of your special day.",
+                icon: "heart",
+                image: weddingimg,
+              },
+              {
+                title: "Corporate Events",
+                description: "Professional planning for conferences, team building, and company celebrations.",
+                icon: "briefcase",
+                image: holidayimg,
+              },
+              {
+                title: "Birthday Parties",
+                description: "Create memorable birthday experiences with custom themes and entertainment.",
+                icon: "cake",
+                image: birthdayimg,
+              },
+              {
+                title: "Anniversary Celebrations",
+                description: "Commemorate your special milestones with thoughtfully planned celebrations.",
+                icon: "gift",
+                image: anniversary,
+              },
+              {
+                title: "Cultural Events",
+                description: "Showcase traditions and heritage with authentic cultural event planning.",
+                icon: "globe",
+                image: haldiimg,
+              },
+              {
+                title: "Custom Event Solutions",
+                description: "Unique events tailored to your specific vision and requirements.",
+                icon: "settings",
+                image: openMicimg,
+              },
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="bg-purple-50 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={service.image || "/placeholder.svg"}
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3 text-[#755EA5]">{service.title}</h3>
+                  <p className="text-gray-700">{service.description}</p>
+                  <button className="mt-4 px-4 py-2 bg-[#755EA5] text-white rounded-lg hover:bg-purple-700 transition-colors">
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      </div>
+      <div className=" relative overflow-hidden bg-[#755EA5] mb-20 pb-10">
+        <div className="text-center text-5xl font-bold text-white pt-10">Venues</div>
+        <div data-aos="zoom-in-up">
+        <Carousel
+          items={eventCards.map((card, index) => <Card key={index} card={card} index={index} layout={true} />)}
+        />
+        </div>
       </div>
       <div data-aos="fade-up">
         <FeaturesSectionDemo/>

@@ -149,20 +149,6 @@ const features = [
           skeleton: <SkeletonTwo />,
           className: "border-b col-span-1 lg:col-span-2 border-[#755EA5]",
         },
-        {
-          title: "Watch Us on YouTube",
-          description:
-            "Want to see our platform in action? Watch our demo and success stories on YouTube!",
-          skeleton: <SkeletonThree />,
-          className: "col-span-1 lg:col-span-3 lg:border-r border-[#755EA5]",
-        },
-        {
-          title: "Book Events in Seconds",
-          description:
-            "Plan and book events across India with just a few clicks, powered by our seamless cloud services.",
-          skeleton: <SkeletonFour />,
-          className: "col-span-1 lg:col-span-3 border-b lg:border-none",
-        },
       ];
       
   return (

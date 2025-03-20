@@ -3,7 +3,6 @@ import { IconArrowNarrowRight } from "@tabler/icons-react";
 
 interface SlideData {
   title: string;
-  // button?: string;
   src: string;
 }
 
@@ -124,7 +123,7 @@ const CarouselControl = ({ type, title, handleClick }: { type: string; title: st
   );
 };
 
-const Carousel = ({ slides }: { slides: SlideData[] }) => {
+export const CarouselFocus = ({ slides }: { slides: SlideData[] }) => {
   const [current, setCurrent] = useState(0);
   const id = useId();
 
@@ -158,5 +157,3 @@ const Carousel = ({ slides }: { slides: SlideData[] }) => {
     </div>
   );
 };
-
-export default Carousel;

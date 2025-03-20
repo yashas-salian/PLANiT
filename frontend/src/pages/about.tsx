@@ -296,7 +296,7 @@ const items: Items[] = [
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Stats Section */} 
       <section 
         id="stats-section" 
         ref={statsRef}
