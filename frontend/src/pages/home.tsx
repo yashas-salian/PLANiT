@@ -190,7 +190,7 @@ export const HomePage: React.FC = () => {
         });
       }, []);
 
-  const words = ["Weddings", "Anniversaries", "Corporate Events", "and much more"];
+  const words = ["precision","creativity","control","simplicity","efficiency"];
   return (
     <div className="bg-purple-200 flex flex-col relative w-full min-h-screen overflow-x-hidden">
       <div className="grid grid-cols-2 gap-8 px-6 py-4 md:grid grid-cols-3 gap-8 px-6 py-4">
@@ -275,8 +275,8 @@ export const HomePage: React.FC = () => {
         </MenuItem>
       </Menu>
         </div>
-        <div className="w-md md:flex justify-end pr-20">
-          <Button text="Get Started" onClick={() => {
+        <div className="ml-50 w-xs h-15 mt-2 md:flex justify-end pr-20">
+          <DashboardButton text="Get Started" onClick={() => {
             navigate("/auth")
           }} />
         </div>
@@ -285,13 +285,13 @@ export const HomePage: React.FC = () => {
         <HeroParallax products={products}/>
       </div>
         {/* <Carousel slides={slides} /> */}
-      <div className="pt-12">
+      <div className="">
         <div className="grid-cols-1 md:w-screen grid grid-cols-2 gap-4 bg-[#755EA5] pb-10">
           <div data-aos="fade-up" className="pl-12 pr-12 pt-4 text-xl font-serif">
             <div className="text-4xl font-extrabold pt-6 text-white">
               Welcome to <b className="text-white">PLANiT</b> – Your Ultimate Event Management Solution!
             </div>
-            <div className="text-white mt-10">
+            <div className="text-white mt-10 text-justify">
             At <b className="text-white">PLANiT</b>, we turn your special moments into unforgettable 
             experiences! Whether it's a birthday party, engagement, wedding celebration, anniversary, 
             baby shower, corporate event, farewell, fresher’s party, holiday gathering, or an exciting 
@@ -305,164 +305,24 @@ export const HomePage: React.FC = () => {
             <br />
             
           </div>
-          <div data-aos="fade-up" className=" pt-20 pl-20">
-            <DirectionAwareHover imageUrl={calender}/>
+          <div data-aos="fade-up" className="w-full pt-20 pl-20">
+            <DirectionAwareHover imageUrl={calender} className="w-200"/>
           </div>
         </div>
-        <div className="font-extrabold font-serif text-4xl pl-12 pr-12 pt-20">What we do? We do <FlipWords words={words} /></div>
+        <div className="font-extrabold text-center text-[#755EA5] font-serif text-4xl pl-12 pr-12 pt-20">Effortless Event Planning with <FlipWords words={words} /></div>
         <div data-aos="fade-up pl-6">
         <HoverEffect
           items={[
-            { title: "Wedding Planning", description: "We handle everything from venue selection to décor, catering, and entertainment, ensuring a seamless and magical wedding experience." },
-            { title: "Birthday Parties", description: "From themed decorations to cake, music, and activities, we create unforgettable birthday celebrations tailored to all ages." },
-            { title: "Corporate Events", description: "We plan professional gatherings, including conferences, seminars, and team-building events, with seamless logistics and top-notch coordination." },
-            { title: "Anniversary Celebrations", description: "Celebrate love with intimate or grand anniversary parties featuring elegant décor, fine dining, and personalized touches." },
-            { title: "Open Mic Nights", description: "We set up engaging open mic nights with stage design, sound setup, and a welcoming atmosphere for performers and audiences." },
-            { title: "Holiday Parties", description: "From festive decorations to curated menus and entertainment, we create vibrant holiday parties that capture the season's spirit." }
+            { title: "Real-time Event Planning", description: "Plan and manage your events in real-time with live updates, ensuring seamless coordination and smooth execution." },
+            { title: "Custom Theme Designer", description: "Design personalized event themes with our intuitive theme builder, offering endless customization options for any occasion." },
+            { title: "Budget Management", description: "Keep track of your event expenses effortlessly with our comprehensive budget management tool, ensuring you stay within limits." },
+            { title: "Guest List Management", description: "Easily create, manage, and track RSVPs with our guest list management system, providing real-time attendance insights." },
+            { title: "Mobile Responsive Design", description: "Access and manage your event plans on any device with our fully mobile-responsive platform for planning on the go." },
+            { title: "Event Timeline Creator", description: "Organize and visualize your event schedule with our timeline creator, keeping every detail in place from start to finish." }
           ]}
+          
         />
         </div>
-        {/* <div  className="text-center text-5xl font-bold text-[#755EA5] mt-10">Categories</div>
-       <div className="bg-[#755EA5] pl-40 mt-10 grid grid-cols-3 relative overflow-hidden">
-        <div data-aos="fade-right" data-aos-duration="2000" className="col-span-1 relative p-6 rounded-xl cursor-pointer w-80">
-          <div className="flex flex-col">
-            <div data-aos="fade-right" className="text-3xl text-white font-bold mb-5 ml-30">1.Wedding</div>
-            <div className=""><img src={weddingimg} alt="wedding image" className="w-80 h-80 rounded-4xl ml-20"/>
-            </div>
-            <div className="ml-33 pt-6">
-            <Button text="Book now" onClick={()=>{
-              navigate('/auth')
-            }}/>
-            </div>
-          </div> 
-        </div>
-        <MaskContainer className="col-span-2" revealText={
-         <div className="w-180 bg-[#A18FCC] text-black text-lg rounded-4xl font-bold text-justify p-10 mt-12 italic"> At <b className="text-[#755EA5]">PLANiT</b>, we specialize in making wedding planning smooth and hassle-free.
-         Our platform offers everything you need to organize a perfect wedding, from managing
-           guest lists and RSVPs to coordinating with top wedding vendors like florists, 
-           caterers, and photographers. You can create a personalized wedding timeline, track 
-           key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
-           you can customize every detail of your big day while staying organized and on schedule.
-           Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
-             is here to make your wedding planning journey simple and unforgettable.</div>
-        } >
-          <div  className="w-180 relative p-6 rounded-xl cursor-pointer text-white font-bold italic text-justify text-lg mt-20 pr-25 transition-all duration-500">
-          At PLANiT, we specialize in making wedding planning smooth and hassle-free.
-          Our platform offers everything you need to organize a perfect wedding, from managing
-            guest lists and RSVPs to coordinating with top wedding vendors like florists, 
-            caterers, and photographers. You can create a personalized wedding timeline, track 
-            key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
-            you can customize every detail of your big day while staying organized and on schedule.
-            Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
-              is here to make your wedding planning journey simple and unforgettable.
-          </div>
-        </MaskContainer>
-      </div>
-      <div className=" pl-40  grid grid-cols-3 relative overflow-hidden">
-      <MaskContainer className="col-span-2" revealText={
-          <div className="w-180 bg-[#A18FCC] text-black text-lg rounded-4xl font-bold text-justify p-10 mt-12 italic"> At <b className="text-[#755EA5]">PLANiT</b>, we specialize in making wedding planning smooth and hassle-free.
-          Our platform offers everything you need to organize a perfect wedding, from managing
-            guest lists and RSVPs to coordinating with top wedding vendors like florists, 
-            caterers, and photographers. You can create a personalized wedding timeline, track 
-            key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
-            you can customize every detail of your big day while staying organized and on schedule.
-            Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
-              is here to make your wedding planning journey simple and unforgettable.</div>
-        } >
-          <div  className="w-180 relative p-6 rounded-xl cursor-pointer text-white font-bold italic text-justify text-lg pr-25 mt-20 transition-all duration-500">
-          At PLANiT, we specialize in making wedding planning smooth and hassle-free.
-          Our platform offers everything you need to organize a perfect wedding, from managing
-            guest lists and RSVPs to coordinating with top wedding vendors like florists, 
-            caterers, and photographers. You can create a personalized wedding timeline, track 
-            key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
-            you can customize every detail of your big day while staying organized and on schedule.
-            Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
-              is here to make your wedding planning journey simple and unforgettable.
-          </div>
-        </MaskContainer>
-        <div data-aos="fade-left" data-aos-duration="2000" className="col-span-1 relative p-6 rounded-xl cursor-pointer w-80">
-          <div className="flex flex-col">
-            <div data-aos="fade-left" className="text-3xl text-[#755EA5] font-bold mb-5">2.Anniversary</div>
-            <div><img src={anniversary} alt="wedding image" className="w-80 h-80 rounded-4xl"/>
-            </div>
-            <div className="flex justify-center  pt-6">
-            <DashboardButton text="Book now" onClick={()=>{
-              navigate('/auth')
-            }}/>
-            </div>
-          </div> 
-        </div>
-      </div>
-      <div className="bg-[#755EA5] pl-40 grid grid-cols-3  relative overflow-hidden">
-      <div data-aos="fade-right" data-aos-duration="2000" className="col-span-1 relative p-6 rounded-xl cursor-pointer w-80">
-          <div className="flex flex-col">
-            <div data-aos="fade-right" className="text-3xl text-white font-bold mb-5 ml-30">3.Birthday</div>
-            <div className=""><img src={birthday} alt="wedding image" className="w-80 h-80 rounded-4xl ml-20"/>
-            </div>
-            <div className="ml-33 pt-6">
-            <Button text="Book now" onClick={()=>{
-              navigate('/auth')
-            }}/>
-            </div>
-          </div> 
-        </div>
-        <MaskContainer className="col-span-2 " revealText={
-          <div className="w-180 bg-[#A18FCC] text-black text-lg rounded-4xl font-bold text-justify p-10 mt-12 italic"> At <b className="text-[#755EA5]">PLANiT</b>, we specialize in making wedding planning smooth and hassle-free.
-          Our platform offers everything you need to organize a perfect wedding, from managing
-            guest lists and RSVPs to coordinating with top wedding vendors like florists, 
-            caterers, and photographers. You can create a personalized wedding timeline, track 
-            key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
-            you can customize every detail of your big day while staying organized and on schedule.
-            Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
-              is here to make your wedding planning journey simple and unforgettable.</div>
-        } >
-          <div  className="w-180 relative p-6 rounded-xl cursor-pointer text-white font-bold italic text-justify text-lg mt-12 pr-25 transition-all duration-500">
-          At PLANiT, we specialize in making wedding planning smooth and hassle-free.
-          Our platform offers everything you need to organize a perfect wedding, from managing
-            guest lists and RSVPs to coordinating with top wedding vendors like florists, 
-            caterers, and photographers. You can create a personalized wedding timeline, track 
-            key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
-            you can customize every detail of your big day while staying organized and on schedule.
-            Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
-              is here to make your wedding planning journey simple and unforgettable.
-          </div>
-        </MaskContainer>
-      </div>
-      <div className=" pl-40  grid grid-cols-3 relative overflow-hidden">
-      <MaskContainer className="col-span-2" revealText={
-         <div className="w-180 bg-[#A18FCC] text-black text-lg rounded-4xl font-bold text-justify p-10 mt-12 italic"> At <b className="text-[#755EA5]">PLANiT</b>, we specialize in making wedding planning smooth and hassle-free.
-         Our platform offers everything you need to organize a perfect wedding, from managing
-           guest lists and RSVPs to coordinating with top wedding vendors like florists, 
-           caterers, and photographers. You can create a personalized wedding timeline, track 
-           key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
-           you can customize every detail of your big day while staying organized and on schedule.
-           Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
-             is here to make your wedding planning journey simple and unforgettable.</div>
-        } >
-          <div className="w-180 relative p-6 rounded-xl cursor-pointer text-white font-bold italic text-justify text-lg mt-20 pr-25 transition-all duration-500">
-          At PLANiT, we specialize in making wedding planning smooth and hassle-free.
-          Our platform offers everything you need to organize a perfect wedding, from managing
-            guest lists and RSVPs to coordinating with top wedding vendors like florists, 
-            caterers, and photographers. You can create a personalized wedding timeline, track 
-            key tasks, and send digital invitations—all in one place. With easy-to-use tools, 
-            you can customize every detail of your big day while staying organized and on schedule.
-            Whether you’re planning a small, intimate ceremony or a grand celebration, <b className="text-[#755EA5]">PLANiT </b>
-              is here to make your wedding planning journey simple and unforgettable.
-          </div>
-        </MaskContainer>
-        <div data-aos="fade-left" data-aos-duration="2000" className="col-span-1 relative p-6 rounded-xl cursor-pointer w-80">
-          <div className="flex flex-col">
-            <div data-aos="fade-left" className="text-3xl text-[#755EA5] font-bold mb-5 w-full mr-30">4.Open Mic Night</div>
-            <div><img src={openMicNight} alt="wedding image" className="w-80 h-80 rounded-4xl"/>
-            </div>
-            <div className="flex justify-center  pt-6">
-            <DashboardButton text="Book now" onClick={()=>{
-              navigate('/auth')
-            }}/>
-            </div>
-          </div> 
-        </div>
-      </div> */}
       <section className="py-16 bg-purple-200">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-[#755EA5]">Our Services</h2>
@@ -532,14 +392,14 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
       </div>
-      <div className=" relative overflow-hidden bg-[#755EA5] mb-20 pb-10">
-        <div className="text-center text-5xl font-bold text-white pt-10">Venues</div>
-        <div data-aos="zoom-in-up">
-        <Carousel
-          items={eventCards.map((card, index) => <Card key={index} card={card} index={index} layout={true} />)}
-        />
-        </div>
-      </div>
+        {/* <div className=" relative overflow-hidden bg-[#755EA5] mb-20 pb-10">
+          <div className="text-center text-5xl font-bold text-white pt-10">Venues</div>
+          <div data-aos="zoom-in-up">
+          <Carousel
+            items={eventCards.map((card, index) => <Card key={index} card={card} index={index} layout={true} />)}
+          />
+          </div>
+        </div> */}
       <div data-aos="fade-up">
         <FeaturesSectionDemo/>
       </div>

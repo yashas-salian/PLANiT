@@ -15,7 +15,7 @@ const HoverEffect = ({ items, className = "" }: HoverEffectProps) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 ${className}`}>
+    <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 ml-10 mr-10 ${className}`}>
       {items.map((item, idx) => (
         <div
           key={idx}
@@ -53,11 +53,11 @@ const Card = ({ className = "", children }: { className?: string; children: Reac
 };
 
 const CardTitle = ({ className = "", children }: { className?: string; children: React.ReactNode }) => {
-  return <h4 className={`text-white font-serif font-bold text-2xl tracking-wide mt-4 ${className}`}>{children}</h4>;
+  return <h4 className={`text-white font-serif font-bold text-2xl text-center tracking-wide mt-4 ${className}`}>{children}</h4>;
 };
 
 const CardDescription = ({ className = "", children }: { className?: string; children: React.ReactNode }) => {
-  return <p className={`mt-8 text-white text-[18px] font-serif tracking-wide leading-relaxed text-sm ${className}`}>{children}</p>;
+  return <p className={`mt-8 text-white text-[18px] text-center font-serif tracking-wide leading-relaxed text-sm ${className}`}>{children}</p>;
 };
 
 export default HoverEffect;

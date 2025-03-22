@@ -8,6 +8,9 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import em1 from "../components/safiyaWeb.jpg";
+import em2 from "../components/em2.jpg";
+import em3 from "../components/emp3.jpg";
 
 interface Testimonial {
   id: string
@@ -32,33 +35,33 @@ export function FeedbackSection({ initialTestimonials = [], className = "" }: Fe
       : [
           {
             id: "1",
-            name: "Priya Sharma",
+            name: "Duha Ansari",
             date: "March 15, 2024",
             rating: 5,
             eventType: "Wedding",
             message:
               "PLANiT made our wedding planning process so smooth. The team was responsive and understood exactly what we wanted. Every detail was perfect and our guests were amazed by how well everything was organized.",
-            image: "/placeholder.svg?height=80&width=80",
+            image: "Duha",
           },
           {
             id: "2",
-            name: "Rahul Mehta",
+            name: "Shubham Pote",
             date: "February 28, 2024",
             rating: 4,
             eventType: "Corporate Event",
             message:
               "We've used PLANiT for three company events now, and each one has been flawlessly executed. The team is professional, detail-oriented, and always goes the extra mile to ensure everything runs smoothly.",
-            image: "/placeholder.svg?height=80&width=80",
+            image: "Shubham",
           },
           {
             id: "3",
-            name: "Ananya Patel",
+            name: "Sunny Ghodekar",
             date: "January 10, 2024",
             rating: 5,
             eventType: "Birthday Party",
             message:
               "The attention to detail was impressive. My 30th birthday party was exactly how I imagined it would be. The decorations, catering, and entertainment were all perfectly coordinated.",
-            image: "/placeholder.svg?height=80&width=80",
+            image: "Sunny",
           },
         ],
   )
@@ -207,7 +210,7 @@ export function FeedbackSection({ initialTestimonials = [], className = "" }: Fe
 
           <Button
             onClick={() => setShowForm(!showForm)}
-            className="bg-[#755EA5] text-white hover:bg-purple-700 flex items-center gap-2 "
+            className="bg-[#755EA5] text-white hover:bg-purple-300 flex items-center gap-2 "
           >
             <MessageSquare className="w-4 h-4 text-white" />
             {showForm ? "Cancel" : "Share Your Experience"}

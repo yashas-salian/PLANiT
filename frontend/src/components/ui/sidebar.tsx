@@ -172,7 +172,7 @@ export function SessionNavBar() {
                       <House className="h-6 w-6" />{" "}
                       <motion.li variants={variants}>
                         {!isCollapsed && (
-                          <p className="ml-2 text-lg font-medium">Home Page</p>
+                          <p className="ml-2 text-lg font-medium">Home</p>
                         )}
                       </motion.li>
                     </Link>
@@ -191,24 +191,6 @@ export function SessionNavBar() {
                         {!isCollapsed && (
                           <div className="flex items-center gap-2">
                             <p className="ml-2 text-lg font-medium">Our Work</p>
-                          </div>
-                        )}
-                      </motion.li>
-                    </Link>
-                    <Separator className="w-full" />
-                    <Link
-                      to="/chat"     //category
-                      className={cn(
-                        "flex h-8 flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-purple-300 hover:text-primary",
-                        pathname?.includes("chat") && "bg-muted text-blue-600",
-                      )}
-                    >
-                      <Blocks className="h-6 w-6" />
-                      <motion.li variants={variants}>
-                        {!isCollapsed && (
-                          <div className="ml-2 flex items-center  gap-2">
-                            <p className="text-lg font-medium">Category</p>
-                            
                           </div>
                         )}
                       </motion.li>

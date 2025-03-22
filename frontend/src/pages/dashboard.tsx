@@ -65,7 +65,7 @@ export const Dashboard=()=> {
     const [filterSkill, setFilterSkill] = useState('');
     const [isExpanded, setIsExpanded] = useState(false);
   
-    const teamMembers = [
+    const venueDetails = [
       {
         id: 1,
         location: "Pune",
@@ -122,8 +122,8 @@ export const Dashboard=()=> {
       }
     ];
     const filteredMembers = filterSkill 
-    ? teamMembers.filter(member => member.skills.includes(filterSkill))
-    : teamMembers;
+    ? venueDetails.filter(member => member.skills.includes(filterSkill))
+    : venueDetails;
 
     useEffect(() => {
       // Animate cards when component mounts
@@ -330,12 +330,13 @@ export const Dashboard=()=> {
                         </div>
                       </div>
 
-                      
-                        <div className="ml-20 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 g">
+                      {viewMode === 'upcoming' && (
+                        <div className="ml-20 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                           <img className="rounded-xl w-100" src={weddingimg}></img>
                           <img className="rounded-xl w-100" src={weddingimg}></img>
                           <img className="rounded-xl w-100" src={weddingimg}></img>
                           </div>
+                      )}
                       
 
                       {/* Grid View */}
@@ -362,9 +363,9 @@ export const Dashboard=()=> {
               {filteredMembers.map((member, index) => (
                 <div
                   key={member.id}
-                  className={`rounded-xl overflow-hidden shadow-lg transition-all duration-500 transform ${
-                    animateCards ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-                  } ${hoverMember === member.id ? "scale-105 shadow-xl" : ""} ${
+                  className={`rounded-xl overflow-hidden shadow-lg transition-all duration-500 transform 
+                    ${animateCards ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}
+                     ${hoverMember === member.id ? "scale-105 shadow-xl" : ""} ${
                     activeTeamMember === member.id ? "ring-4 ring-purple-400" : ""
                   }`}
                   style={{ 

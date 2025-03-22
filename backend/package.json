@@ -1,12 +1,18 @@
 {
   "name": "backend",
-  "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "@prisma/extension-accelerate": "^1.3.0",
+    "@yashas40/modules": "^1.0.0",
+    "hono": "^4.7.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250214.0",
+    "prisma": "^6.5.0",
+    "wrangler": "^4.4.0"
+  }
 }

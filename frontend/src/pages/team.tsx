@@ -14,7 +14,7 @@ export const Team = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const teamMembers = [
-    {
+    { 
       id: 1,
       name: "Safiya Khan",
       role: "Frontend Developer",

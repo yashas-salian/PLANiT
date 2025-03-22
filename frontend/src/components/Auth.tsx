@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import axios from "axios"
+import { useNavigate } from "react-router-dom";
 export const AuthCard = () => {
     const [isSignUp, setIsSignUp] = useState(false);
     const [isTransitioning, setIsTransitioning] = useState(false);
@@ -11,7 +12,11 @@ export const AuthCard = () => {
             setIsTransitioning(false);
         }, 250);
     };
-
+    const [name, setName]=useState("")
+    const [email, setEmail]=useState("")
+    const [password, setPassword]=useState("")
+    const[loader , setLoader]=useState(false)
+    const navigate = useNavigate()
     return (
         <div className="flex items-center justify-center h-screen bg-purple-200  ">
             <div className="relative w-[768px] max-w-full min-h-[480px] bg-white rounded-4xl shadow-lg overflow-hidden">
@@ -46,14 +51,31 @@ export const AuthCard = () => {
                                     <i className="fab fa-linkedin text-xl"></i>
                                 </div>
                                 <span className="text-sm mt-2">or use your email for registration</span>
-                                <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="text" placeholder="Username" />
-                                <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="email" placeholder="Email" />
-                                <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="password" placeholder="Password" />
-                                <button className="mt-4 px-8 py-2 text-white bg-gradient-to-r from-purple-300 to-purple-700 rounded-lg text-sm uppercase font-semibold">Sign Up</button>
+                                <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="text" placeholder="Username" onChange={(e)=>{
+                                    setName(e.target.value)
+                                }}/>
+                                <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="email" placeholder="Email" onChange={(e)=>{
+                                    setEmail(e.target.value)
+                                }}/>
+                                <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="password" placeholder="Password" onChange={(e)=>{
+                                    setPassword(e.target.value)
+                                }}/>
+                                <button className="mt-4 px-8 py-2 text-white bg-gradient-to-r from-purple-300 to-purple-700 rounded-lg text-sm uppercase font-semibold" onClick={ async ()=>{
+                                    const response = await axios.post('http://127.0.0.1:8787/api/v1/app/user/signup',{
+                                        name : name,
+                                        email : email,
+                                        password : password
+                                    }) 
+                                    if (response.data.message==="signup successfull"){
+                                        const jwt= response.data.token
+                                        localStorage.setItem("token", jwt)
+                                        navigate('/dashboard')
+                                    }
+                                }}>Sign Up</button>
                             </>
                         ) : (
                             <>
-                                <h1 className="text-2xl font-bold">Sign In</h1>
+                                <h1 className="text-2xl font-bold">Login</h1>
                                 <div className="flex space-x-3 mt-3">
                                     <i className="fab fa-google text-xl"></i>
                                     <i className="fab fa-facebook text-xl"></i>
@@ -61,10 +83,24 @@ export const AuthCard = () => {
                                     <i className="fab fa-linkedin text-xl"></i>
                                 </div>
                                 <span className="text-sm mt-2">or use your email password</span>
-                                <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="email" placeholder="Email" />
-                                <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="password" placeholder="Password" />
+                                <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="email" placeholder="Email" onChange={(e)=>{
+                                    setEmail(e.target.value)
+                                }}/>
+                                <input className="mt-2 w-full p-2 bg-gray-100 rounded-lg outline-none text-sm" type="password" placeholder="Password" onChange={(e)=>{
+                                    setPassword(e.target.value)
+                                }}/>
                                 <a href="#" className="mt-2 text-xs text-gray-500">Forgot your password?</a>
-                                <button className="mt-4 px-8 py-2 text-white bg-gradient-to-r from-purple-300 to-purple-700 rounded-lg text-sm uppercase font-semibold">Sign In</button>
+                                <button className="mt-4 px-8 py-2 text-white bg-gradient-to-r from-purple-300 to-purple-700 rounded-lg text-sm uppercase font-semibold" onClick={ async ()=>{
+                                    const response = await axios.post('http://127.0.0.1:8787/api/v1/app/user/login',{
+                                        email : email,
+                                        password : password
+                                    }) 
+                                    if (response.data.message==="login successfull"){
+                                        const jwt= response.data.token
+                                        localStorage.setItem("token", jwt)
+                                        navigate('/dashboard')
+                                    }
+                                }}>Login</button>
                             </>
                         )}
                     </div>
