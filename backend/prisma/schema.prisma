@@ -18,7 +18,7 @@ datasource db {
 model User{
   id Int @id @default(autoincrement())
   name String
-  email String 
+  email String @unique
   password String
   events Events[]
 }
@@ -32,10 +32,11 @@ model Events{
   Category String
   EventDate DateTime
   EventVenue String
-  Attendees Int
+  Attendees Int 
   Budget BigInt
+  EventStatus Boolean @default(false)
   userID Int
-  user User @relation(fields: [userID], references: [id] )
+  user User @relation(fields: [userID], references: [id] , onDelete: Cascade )
 }
 
 
