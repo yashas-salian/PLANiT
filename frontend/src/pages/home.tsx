@@ -1,13 +1,25 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import em2 from "../components/em2.jpg";
-import em3 from "../components/emp3.jpg";
-import em1 from "../components/safiyaWeb.jpg";
-import logo from "../components/LOGO.jpg";
-import birthdayimg from "../components/birthday.jpg"
-import openMicimg from "../components/OpenMicNight.jpg"
-import holidayimg from "../components/HolidayParty.jpg"
-import haldiimg from "../components/haldiimg.jpg"
+import em2 from "../components/images/em2.jpg";
+import em3 from "../components/images/emp3.jpg";
+import em1 from "../components/images/safiyaWeb.jpg";
+import logo from "../components/images/LOGO.jpg";
+import birthdayimg from "../components/images/birthday.jpg"
+import openMicimg from "../components/images/OpenMicNight.jpg"
+import holidayimg from "../components/images/HolidayParty.jpg"
+import haldiimg from "../components/images/haldiimg.jpg"
+import weddingimg from "../components/images/wedding.jpg"
+import anniversary from "../components/images/anniversary.jpg"
+import openMicNight from "../components/images/OpenMicNight.jpg"
+import holidayParty from "../components/images/HolidayParty.jpg"
+import welcome from "../components/images/welcome.jpg"
+import birthday from "../components/images/birthday.jpg"
+import calender from "../components/images/calender.jpg"
+import venue1 from "../components/images/wedding-venue.jpg"
+import venue2 from "../components/images/anniversary-venue.jpg"
+import venue3 from "../components/images/birthday-venue.jpg"
+import venue4 from "../components/images/openMic-venue.jpg"
+import venue5 from "../components/images/party-venue.jpg"
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import HoverEffect from "@/components/ui/card-hover-effect";
 import { Menu, MenuItem, ProductItem, HoveredLink } from "../components/ui/navbar-menu";
@@ -20,21 +32,9 @@ import { FeaturesSectionDemo } from "@/components/ui/bento-grid";
 import { Instagram , Youtube , Linkedin , X , Facebook } from "lucide-react";
 import AOS from 'aos';
 import "aos/dist/aos.css";
-import weddingimg from "../components/wedding.jpg"
-import anniversary from "../components/anniversary.jpg"
-import openMicNight from "../components/OpenMicNight.jpg"
-import holidayParty from "../components/HolidayParty.jpg"
-import welcome from "../components/welcome.jpg"
-import birthday from "../components/birthday.jpg"
-import calender from "../components/calender.jpg"
 import { DashboardButton } from "@/components/dashboardButton";
 import { MaskContainer } from "@/components/ui/svg-mask-effect";
 import { Card, Carousel } from "@/components/ui/apple-cards-carousel";
-import venue1 from "../components/wedding-venue.jpg"
-import venue2 from "../components/anniversary-venue.jpg"
-import venue3 from "../components/birthday-venue.jpg"
-import venue4 from "../components/openMic-venue.jpg"
-import venue5 from "../components/party-venue.jpg"
 
 interface Items {
   id: number;
@@ -382,9 +382,9 @@ export const HomePage: React.FC = () => {
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-3 text-[#755EA5]">{service.title}</h3>
                   <p className="text-gray-700">{service.description}</p>
-                  <button className="mt-4 px-4 py-2 bg-[#755EA5] text-white rounded-lg hover:bg-purple-700 transition-colors">
+                  {/* <button className="mt-4 px-4 py-2 bg-[#755EA5] text-white rounded-lg hover:bg-purple-700 transition-colors">
                     Learn More
-                  </button>
+                  </button> */}
                 </div>
               </div>
             ))}

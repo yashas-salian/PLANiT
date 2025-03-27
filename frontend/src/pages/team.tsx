@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import em1 from "../components/em1.jpg";
-import em2 from "../components/em2.jpg";
-import em3 from "../components/emp3.jpg";
+import em1 from "../components/images/em1.jpg";
+import em2 from "../components/images/em2.jpg";
+import em3 from "../components/images/emp3.jpg";
 import { Instagram  , Linkedin , X  , Github , Dribbble, SunMedium} from "lucide-react";
 
 export const Team = () => {

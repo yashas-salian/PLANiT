@@ -21,7 +21,7 @@ import {
   AtSign
 } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -33,6 +33,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
+import { useEvents } from "@/hooks";
+
 
 const sidebarVariants = {
   open: {
@@ -81,7 +83,10 @@ const staggerVariants = {
 
 export function SessionNavBar() {
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const {userDetails} = useEvents();
   const pathname = usePathname();
+  const Navigate = useNavigate();
+
   return (
     <motion.div
       className={cn(
@@ -311,15 +316,15 @@ export function SessionNavBar() {
                       <div className="flex flex-row items-center gap-2 p-2">
                         <Avatar className="size-6">
                           <AvatarFallback>
-                            AL
+                            {/* {avatarName} */}
                           </AvatarFallback>
                         </Avatar>
                         <div className="flex flex-col text-left">
                           <span className="text-lg font-medium">
-                            {`Andrew Luo`}
+                            {userDetails.name}
                           </span>
                           <span className="line-clamp-1 text-xs text-muted-foreground">
-                            {`andrew@usehindsight.com`}
+                            {userDetails.email }
                           </span>
                         </div>
                       </div>
@@ -335,7 +340,10 @@ export function SessionNavBar() {
                       <DropdownMenuItem
                         className="flex items-center gap-2"
                       >
-                        <LogOut className="h-6 w-6" /> Sign out
+                       <LogOut/> <button onClick={()=>{
+                        localStorage.removeItem("token")
+                        Navigate('/')
+                       }}>Sign Out</button>
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>

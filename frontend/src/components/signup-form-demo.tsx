@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -14,28 +14,45 @@ export default function SignupFormDemo() {
     e.preventDefault();
     console.log("Form submitted");
   };
+  const [clientName, setClientName] = useState("")
+  const [phoneNumber, setphoneNumber] = useState("")
+  const [eventName, seteventName] = useState("")
+  const [Category, setCategory] = useState("")
+  const [eventDate, seteventDate] = useState("")
+  const [eventVenue , seteventVenue] = useState("")
+  const [Attendees, setAttendees] = useState("")
+  const [Budget, setBudget] = useState("")
   return (
     <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-purple-300 p-4 md:rounded-2xl md:p-8 ">
       <form className="my-8" onSubmit={handleSubmit}>
         <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
           <LabelInputContainer>
             <Label htmlFor="firstname">Client name</Label>
-            <Input id="firstname" placeholder="Ex:-Tyler" type="text" />
+            <Input id="firstname" placeholder="Ex:-Tyler" type="text" onChange={(e)=>{
+                setClientName(e.target.value)
+            }}/>
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname">Phone number</Label>
-            <Input id="lastname" placeholder="Ex:-9999999999" type="text" />
+            <Input id="lastname" placeholder="Ex:-9999999999" type="text" onChange={(e)=>{
+                setphoneNumber(e.target.value)
+            }}/>
           </LabelInputContainer>
         </div>
         <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
           <LabelInputContainer>
             <Label htmlFor="firstname">Event name</Label>
-            <Input id="firstname" placeholder="Ex:-Ayush's birthday" type="text" />
+            <Input id="firstname" placeholder="Ex:-Ayush's birthday" type="text" onChange={(e)=>{
+                seteventName(e.target.value)
+            }}/>
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname">Category</Label>
             {/* <Input id="lastname" placeholder="Durden" type="text" /> */}
-              <select className="shadow-input dark:placeholder-text-neutral-600 flex h-10 w-full rounded-md border-none bg-gray-50 px-3 py-2 text-sm text-black transition duration-400 group-hover/input:shadow-none file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-neutral-400 focus-visible:ring-[2px] focus-visible:ring-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-white dark:shadow-[0px_0px_1px_1px_#404040] dark:focus-visible:ring-neutral-600">
+              <select className="shadow-input dark:placeholder-text-neutral-600 flex h-10 w-full rounded-md border-none bg-gray-50 px-3 py-2 text-sm text-black transition duration-400 group-hover/input:shadow-none file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-neutral-400 focus-visible:ring-[2px] focus-visible:ring-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-white dark:shadow-[0px_0px_1px_1px_#404040] dark:focus-visible:ring-neutral-600" 
+              onChange={(e)=>{
+                setCategory(e.target.value)
+            }}>
                 <option className="text-black">Wedding</option>
                 <option className="text-black">Birthday</option>
                 <option className="text-black">Anniversary</option>
@@ -49,12 +66,17 @@ export default function SignupFormDemo() {
         <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
           <LabelInputContainer>
             <Label htmlFor="firstname">Event date</Label>
-            <Input type="date" />
+            <Input type="datetime-local" onChange={(e)=>{
+                seteventDate(e.target.value)
+            }}/>
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname">Event Venue</Label>
             {/* <Input id="lastname" placeholder="Durden" type="text" /> */}
-            <select className="shadow-input dark:placeholder-text-neutral-600 flex h-10 w-full rounded-md border-none bg-gray-50 px-3 py-2 text-sm text-black transition duration-400 group-hover/input:shadow-none file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-neutral-400 focus-visible:ring-[2px] focus-visible:ring-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-white dark:shadow-[0px_0px_1px_1px_#404040] dark:focus-visible:ring-neutral-600">
+            <select className="shadow-input dark:placeholder-text-neutral-600 flex h-10 w-full rounded-md border-none bg-gray-50 px-3 py-2 text-sm text-black transition duration-400 group-hover/input:shadow-none file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-neutral-400 focus-visible:ring-[2px] focus-visible:ring-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-white dark:shadow-[0px_0px_1px_1px_#404040] dark:focus-visible:ring-neutral-600"
+            onChange={(e)=>{
+              seteventVenue(e.target.value)
+          }}>
                 <option className="text-black">Pune</option>
                 <option className="text-black">Bangalore</option>
                 <option className="text-black">Lucknow</option>
@@ -68,30 +90,17 @@ export default function SignupFormDemo() {
         <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
           <LabelInputContainer>
             <Label htmlFor="firstname">Attendees count</Label>
-            <Input id="firstname" placeholder="Ex:-500" type="number" />
+            <Input id="firstname" placeholder="Ex:-500" type="number" onChange={(e)=>{
+                setAttendees(e.target.value)
+            }}/>
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname">Budget</Label>
-            <Input id="lastname" placeholder="Ex:-50000" type="number" />
+            <Input id="lastname" placeholder="Ex:-50000" type="number" onChange={(e)=>{
+                setBudget(e.target.value)
+            }}/>
           </LabelInputContainer>
         </div>
-        {/* <LabelInputContainer className="mb-4">
-          <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
-        </LabelInputContainer>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="password">Password</Label>
-          <Input id="password" placeholder="••••••••" type="password" />
-        </LabelInputContainer>
-        <LabelInputContainer className="mb-8">
-          <Label htmlFor="twitterpassword">Your twitter password</Label>
-          <Input
-            id="twitterpassword"
-            placeholder="••••••••"
-            type="twitterpassword"
-          />
-        </LabelInputContainer> */}
-
         <div className="my-8 h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent dark:via-neutral-700" />          
       </form>
     </div>

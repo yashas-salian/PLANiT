@@ -6,12 +6,12 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import {Link} from "react-router-dom";
-import venue1 from "../wedding-venue.jpg"
-import venue2 from "../anniversary-venue.jpg"
-import venue3 from "../birthday-venue.jpg"
-import venue4 from "../openMic-venue.jpg"
-import venue5 from "../holiday-venue.jpg"
-import team from "../team-planning.jpg"
+import venue1 from "../images/wedding-venue.jpg"
+import venue2 from "../images/anniversary-venue.jpg"
+import venue3 from "../images/birthday-venue.jpg"
+import venue4 from "../images/openMic-venue.jpg"
+import venue5 from "../images/holiday-venue.jpg"
+import team from "../images/team-planning.jpg"
 
 const globeData = [
   // North America to Europe

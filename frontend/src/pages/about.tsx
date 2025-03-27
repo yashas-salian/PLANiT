@@ -1,17 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import wedding from "../components/wedding.jpg"
-import anniversary from "../components/anniversary.jpg"
-import openMicNight from "../components/OpenMicNight.jpg"
-import holidayParty from "../components/HolidayParty.jpg"
-import welcome from "../components/welcome.jpg"
-import birthday from "../components/birthday.jpg"
-import calender from "../components/calender.jpg"
+import wedding from "../components/images/wedding.jpg"
+import birthday from "../components/images/birthday.jpg"
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Youtube, Linkedin, X ,MessageSquare, Smartphone, MapPin} from 'lucide-react'; // Import social media icons
 import { AnimatedTooltip } from '@/components/ui/animated-tooltip';
-import em2 from "../components/em2.jpg";
-import em3 from "../components/emp3.jpg";
-import em1 from "../components/safiyaWeb.jpg";
+import em2 from "../components/images/em2.jpg";
+import em3 from "../components/images/emp3.jpg";
+import em1 from "../components/images/safiyaWeb.jpg";
 
 
 const AboutUsPage = () => {
