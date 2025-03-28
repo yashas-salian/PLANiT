@@ -309,7 +309,7 @@ export const HomePage: React.FC = () => {
             <DirectionAwareHover imageUrl={calender} className="w-200"/>
           </div>
         </div>
-        <div className="font-extrabold text-center text-[#755EA5] font-serif text-4xl pl-12 pr-12 pt-20">Effortless Event Planning with <FlipWords words={words} /></div>
+        <div className="font-extrabold text-center text-[#755EA5] font-serif text-4xl pl-12 pr-12 pt-20">Effortless Event Planning with <FlipWords words={words} className="text-5xl"/></div>
         <div data-aos="fade-up pl-6">
         <HoverEffect
           items={[

@@ -9,7 +9,7 @@ interface MarqueeProps {
   fullWidth?: boolean;
 }
 
-export const Marquee: React.FC<MarqueeProps> = ({
+export const MarqueeONE: React.FC<MarqueeProps> = ({
   text,
   speed = 100,
   pauseOnHover = true,
@@ -73,12 +73,12 @@ export const Marquee: React.FC<MarqueeProps> = ({
         className="inline-block"
         style={animationStyle}
       >
-        <div ref={contentRef} className="inline-block px-4">
+        <div ref={contentRef} className="inline-block px-4 border border-purple-900">
           {text}
         </div>
         {!fullWidth && (
           // Only duplicate content for seamless loop in standard mode
-          <div className="inline-block px-4">
+          <div className="inline-block px-4 border border-purple-900">
             {text}
           </div>
         )}

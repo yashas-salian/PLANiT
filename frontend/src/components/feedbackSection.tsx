@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Star, MessageSquare } from "lucide-react"
+import { Star, MessageSquare, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
@@ -138,11 +138,9 @@ export function FeedbackSection({ initialTestimonials = [], className = "" }: Fe
     <div className="bg-purple-50 rounded-xl shadow-md overflow-hidden h-full">
       <div className="p-6">
         <div className="flex items-center gap-4 mb-4">
-          <img
-            src={testimonial.image || "/placeholder.svg?height=80&width=80"}
-            alt={testimonial.name}
-            className="w-14 h-14 rounded-full object-cover border-2 border-[#755EA5]"
-          />
+          <div className="border border-black rounded-full p-2 text-3xl">
+          <User/>
+          </div>
           <div>
             <h4 className="font-bold text-lg">{testimonial.name}</h4>
             <p className="text-sm text-gray-500">{testimonial.date}</p>

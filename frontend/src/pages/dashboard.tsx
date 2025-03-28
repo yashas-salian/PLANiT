@@ -1,4 +1,4 @@
-import { Marquee } from "@/components/marquee";
+import Marquee from "react-fast-marquee";
 import { SessionNavBar } from "../components/ui/sidebar";
 import { FeedbackSection } from "@/components/feedbackSection";
 import {useEvents} from "../hooks/index"
@@ -433,17 +433,32 @@ export const Dashboard = () => {
     const {upcomingEvents ,  completedEvents } = useEvents()
   return (
     <> 
-    {loading ? <div className="mt-70"><Loader size="lg" /></div>: 
+    {loading ? <div className="mt-70 "><Loader/></div>: 
     <div className="overflow-x-hidden bg-purple-200">
       <div><ToastContainer/></div>
       <div>
         <SessionNavBar />
       </div>
-      <div className="pt-4 pb-6 bg-purple-100">
-        <Marquee text="A dream becomes a goal when action is taken toward its achievement.
+      {/* <div className="pt-4 pb-6 bg-purple-100"> niche wala iska alternative hai */}
+      <div className="pt-6 pb-4 ">
+        {/* <MarqueeONE text="A dream becomes a goal when action is taken toward its achievement.
         |  To execute an event successfully, you need three things: the right people, the right mindset, and just enough madness to make it unforgettable.`
         |  A successful event is when people leave feeling better than when they arrived." 
-        className="text-[#755EA5] font-bold text-xl italic"/>
+        className="text-[#755EA5] font-bold text-xl italic"/> */}
+        <Marquee pauseOnHover={true}>
+            <div className="pr-2 pl-2 bg-[#755EA5] text-white text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1">
+              A dream becomes a goal when action is taken toward its achievement.
+            </div>
+            <div className="pr-2 pl-2 bg-[#755EA5] text-white text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1">
+            To execute an event successfully, you need three things: the right people, the right mindset, and just enough madness to make it unforgettable.
+            </div>
+            <div className="pr-2 pl-2 bg-[#755EA5] text-white text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1">
+            A successful event is when people leave feeling better than when they arrived.
+            </div>
+            <div className="pr-2 pl-2 bg-[#755EA5] text-white text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1">
+            An event is not over until everyone stops talking about it.
+            </div>
+        </Marquee>
       </div>
       <div className="flex flex-col mb-20 pt-10">
         <div className="ml-8">
@@ -682,7 +697,7 @@ export const Dashboard = () => {
 
             {viewMode === 'upcoming' && (
               <div className="ml-20 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 mr-4">
-                {upcomingEvents.length===0 ? <BackgroundLines><div className="text-white text-2xl font-semibold w-full ml-145 mt-6"> No upcoming events</div></BackgroundLines>: 
+                {upcomingEvents.length===0 ? <BackgroundLines><div className="text-white text-2xl font-semibold w-full ml-145 mt-6"> No Upcoming Events</div></BackgroundLines>: 
                 upcomingEvents.map((event, index) => (
                   <div key={index} className="bg-white border border-purple-300 rounded-lg p-4 shadow-md">
                     {event.Category==='Wedding'? <img src={weddingimg} className=""></img>: <div></div>}
@@ -727,7 +742,7 @@ export const Dashboard = () => {
             
             {viewMode === 'completed' && (
               <div className="ml-20 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 mr-4">
-                {completedEvents.length===0 ? <BackgroundLines><div className="text-white text-2xl font-semibold w-full ml-145 mt-6"> No completed events</div></BackgroundLines> : 
+                {completedEvents.length===0 ? <BackgroundLines><div className="text-white text-2xl font-semibold w-full ml-145 mt-6"> No Completed Events</div></BackgroundLines> : 
               completedEvents.map((event, index) => (
                 <div key={index} className="bg-white border border-purple-300 rounded-lg p-4 shadow-md">
                   {event.Category==='Wedding'? <img src={weddingimg} className=""></img>: <div></div>}
@@ -770,7 +785,7 @@ export const Dashboard = () => {
             </div>
             )}
           </div>
-        }
+        
       {/* </BackgroundLines> */}
       </div>
       <div className="min-h-screen bg-purple-200 py-16 px-4 sm:px-6 lg:px-8 mt-4">
@@ -786,7 +801,6 @@ export const Dashboard = () => {
                   activeTeamMember === member.id ? "ring-4 ring-purple-400" : ""
                 }`}
                 style={{ 
-                  transitionDelay: `${index * 150}ms`,
                   backgroundColor: 'white'
                 }}
                 onMouseEnter={() => setHoverMember(member.id)}
