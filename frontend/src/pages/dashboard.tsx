@@ -47,6 +47,7 @@ import { IconMoneybag } from "@tabler/icons-react";
 import { BackgroundLines } from "@/components/ui/background-lines";
 import DarkModeToggle from "@/components/darkMode";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
+import PlanitLogoLoader from "@/components/planitLoader";
 
 interface Items {
   id: number;
@@ -435,7 +436,10 @@ export const Dashboard = () => {
     const {upcomingEvents ,  completedEvents } = useEvents()
   return (
     <> 
-    {loading ? <div className="mt-70 "><Loader/></div>: 
+    {loading ? <div className="mt-70 ">
+      <div className="flex justify-center"><PlanitLogoLoader className="bg-transparent"/></div>
+      
+      </div>: 
     <div className="overflow-x-hidden bg-purple-200">
       <div><ToastContainer/></div>
       <div>

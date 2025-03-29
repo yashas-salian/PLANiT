@@ -3,6 +3,7 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom";
 import { Loader } from "./loader";
 import { BACKEND_URL } from "@/config";
+import PlanitLogoLoader from "./planitLoader";
 export const AuthCard = () => {
     const [isSignUp, setIsSignUp] = useState(false);
     const [isTransitioning, setIsTransitioning] = useState(false);
@@ -27,7 +28,7 @@ export const AuthCard = () => {
 
     return (        
     <>
-        {loading ? <div><Loader size="lg" color="primary" text="Just a minute" className="text-[#755EA5]"/></div> : 
+        {loading ? <div><PlanitLogoLoader className="bg-transparent"/></div> : 
         <div className="flex items-center justify-center h-screen bg-purple-200">
             <div className="relative w-[768px] max-w-full min-h-[480px] bg-white rounded-4xl shadow-lg overflow-hidden">
                 <div className="absolute top-0 h-full w-1/2 bg-gradient-to-r rounded-4xl from-purple-300 to-purple-700 transition-all duration-250 ease-in-out" 
