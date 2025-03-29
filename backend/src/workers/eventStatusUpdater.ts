@@ -4,18 +4,16 @@ import { PrismaClient } from '@prisma/client/edge';
 import { withAccelerate } from '@prisma/extension-accelerate';
 
 export interface Env {
-  // Add any environment variables you need
-  DATABASE_URL: "postgresql://neondb_owner:npg_mrEflpXo5cZ3@ep-fancy-meadow-a5rl7chp-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require";
+  DATABASE_URL: string;
 }
 
-
-
 export default {
-  // Cron trigger that runs daily at midnight UTC
+  // Cron trigger that runs hourly (based on your cron setting)
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<Response> {
     const prisma = new PrismaClient({
-      datasourceUrl: env.DATABASE_URL	,
+      datasourceUrl: env.DATABASE_URL,
     }).$extends(withAccelerate());
+
     try {
       console.log('Running event status update job');
       
@@ -28,7 +26,7 @@ export default {
           }
         },
         data: {
-            EventStatus: true
+          EventStatus: true
         }
       });
       
