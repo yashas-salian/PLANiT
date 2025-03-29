@@ -127,7 +127,7 @@ userRouter.get('/get-details',async (c)=>{
         })
     }
 
-    const userID = payload.idb as number
+    const userID = payload.id as number
 
     const user = await prisma.user.findFirst({
         where:{

@@ -45,6 +45,8 @@ import { Loader } from "@/components/loader";
 import { BACKEND_URL } from "@/config";
 import { IconMoneybag } from "@tabler/icons-react";
 import { BackgroundLines } from "@/components/ui/background-lines";
+import DarkModeToggle from "@/components/darkMode";
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 
 interface Items {
   id: number;
@@ -445,17 +447,17 @@ export const Dashboard = () => {
         |  To execute an event successfully, you need three things: the right people, the right mindset, and just enough madness to make it unforgettable.`
         |  A successful event is when people leave feeling better than when they arrived." 
         className="text-[#755EA5] font-bold text-xl italic"/> */}
-        <Marquee pauseOnHover={true}>
-            <div className="pr-2 pl-2 bg-[#755EA5] text-white text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1">
+        <Marquee >
+            <div className="pr-2 pl-2  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1 hover:bg-[#755EA5] hover:text-white">
               A dream becomes a goal when action is taken toward its achievement.
             </div>
-            <div className="pr-2 pl-2 bg-[#755EA5] text-white text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1">
+            <div className="pr-2 pl-2  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1 hover:bg-[#755EA5] hover:text-white">
             To execute an event successfully, you need three things: the right people, the right mindset, and just enough madness to make it unforgettable.
             </div>
-            <div className="pr-2 pl-2 bg-[#755EA5] text-white text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1">
+            <div className="pr-2 pl-2  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1 hover:bg-[#755EA5] hover:text-white">
             A successful event is when people leave feeling better than when they arrived.
             </div>
-            <div className="pr-2 pl-2 bg-[#755EA5] text-white text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1">
+            <div className="pr-2 pl-2  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1 hover:bg-[#755EA5] hover:text-white">
             An event is not over until everyone stops talking about it.
             </div>
         </Marquee>
@@ -697,7 +699,7 @@ export const Dashboard = () => {
 
             {viewMode === 'upcoming' && (
               <div className="ml-20 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 mr-4">
-                {upcomingEvents.length===0 ? <BackgroundLines><div className="text-white text-2xl font-semibold w-full ml-145 mt-6"> No Upcoming Events</div></BackgroundLines>: 
+                {upcomingEvents.length===0 ? <BackgroundLines><div className="text-white md:text-white text-2xl font-semibold w-full ml-145"> No Upcoming Events</div></BackgroundLines>: 
                 upcomingEvents.map((event, index) => (
                   <div key={index} className="bg-white border border-purple-300 rounded-lg p-4 shadow-md">
                     {event.Category==='Wedding'? <img src={weddingimg} className=""></img>: <div></div>}
@@ -742,7 +744,7 @@ export const Dashboard = () => {
             
             {viewMode === 'completed' && (
               <div className="ml-20 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 mr-4">
-                {completedEvents.length===0 ? <BackgroundLines><div className="text-white text-2xl font-semibold w-full ml-145 mt-6"> No Completed Events</div></BackgroundLines> : 
+                {completedEvents.length===0 ? <BackgroundLines><div className="text-white text-2xl font-semibold w-full ml-145"> No Completed Events</div></BackgroundLines> : 
               completedEvents.map((event, index) => (
                 <div key={index} className="bg-white border border-purple-300 rounded-lg p-4 shadow-md">
                   {event.Category==='Wedding'? <img src={weddingimg} className=""></img>: <div></div>}
@@ -839,26 +841,27 @@ export const Dashboard = () => {
           </div>
         </div>
       </div>
+      <BackgroundBeamsWithCollision>
       <section 
         id="stats-section" 
         ref={statsRef}
         className=" py-16 text-white"
       >
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-[#755EA5]">Sign of our togetherness</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-[#755EA5]">
+        <div className="max-w-6xl mx-auto px-4 ">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">Sign of our togetherness</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
             {stats.map((stat) => (
-              <div key={stat.id} className="p-4">
-                <div className="text-4xl font-bold mb-2">
+              <div key={stat.id} className="p-4 mr-12 ml-10">
+                <div className="text-4xl font-bold mb-2 ">
                   {counts[stat.id] || 0}{stat.suffix}
                 </div>
-                <div className="text-[#755EA5]">{stat.label}</div>
+                <div className="text-white">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
-      
+      </BackgroundBeamsWithCollision>
       <div>
         <FeedbackSection/>
       </div>>

@@ -86,7 +86,6 @@ export function SessionNavBar() {
   const {userDetails} = useEvents();
   const pathname = usePathname();
   const Navigate = useNavigate();
-
   return (
     <motion.div
       className={cn(
@@ -315,8 +314,8 @@ export function SessionNavBar() {
                     <DropdownMenuContent sideOffset={5} className="absolute bottom-0 left-32 bg-[#8B78B6]">
                       <div className="flex flex-row items-center gap-2 p-2">
                         <Avatar className="size-6">
-                          <AvatarFallback>
-                            {/* {avatarName} */}
+                          <AvatarFallback className="text-3xl border border-full pb-3 ">
+                            {/* {userDetails.name[0][0]} */}
                           </AvatarFallback>
                         </Avatar>
                         <div className="flex flex-col text-left">
