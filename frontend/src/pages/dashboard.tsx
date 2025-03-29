@@ -447,21 +447,17 @@ export const Dashboard = () => {
       </div>
       {/* <div className="pt-4 pb-6 bg-purple-100"> niche wala iska alternative hai */}
       <div className="pt-6 pb-4 ">
-        {/* <MarqueeONE text="A dream becomes a goal when action is taken toward its achievement.
-        |  To execute an event successfully, you need three things: the right people, the right mindset, and just enough madness to make it unforgettable.`
-        |  A successful event is when people leave feeling better than when they arrived." 
-        className="text-[#755EA5] font-bold text-xl italic"/> */}
-        <Marquee >
-            <div className="pr-2 pl-2  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1 hover:bg-[#755EA5] hover:text-white">
+        <Marquee pauseOnHover={true}>
+            <div className="pr-4 pl-4  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
               A dream becomes a goal when action is taken toward its achievement.
             </div>
-            <div className="pr-2 pl-2  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1 hover:bg-[#755EA5] hover:text-white">
+            <div className="pr-4 pl-4  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
             To execute an event successfully, you need three things: the right people, the right mindset, and just enough madness to make it unforgettable.
             </div>
-            <div className="pr-2 pl-2  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1 hover:bg-[#755EA5] hover:text-white">
+            <div className="pr-4 pl-4  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
             A successful event is when people leave feeling better than when they arrived.
             </div>
-            <div className="pr-2 pl-2  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-1 mr-1 hover:bg-[#755EA5] hover:text-white">
+            <div className="pr-4 pl-4  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
             An event is not over until everyone stops talking about it.
             </div>
         </Marquee>
