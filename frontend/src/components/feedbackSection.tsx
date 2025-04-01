@@ -179,28 +179,28 @@ export function FeedbackSection({ initialTestimonials = [], className = "" }: Fe
             <Button
               variant={filter === "all" ? "default" : ""}
               onClick={() => setFilter("all")}
-              className={filter === "all" ? "bg-[#755EA5] text-black" : "bg-white text-gray-700 hover:bg-gray-100"}
+              className={filter === "all" ? "bg-[#755EA5] text-black hover:cursor-pointer" : "bg-white text-gray-700 hover:bg-gray-100 hover:cursor-pointer"}
             >
               All Reviews
             </Button>
             <Button
               variant={filter === "5star" ? "default" : ""}
               onClick={() => setFilter("5star")}
-              className={filter === "5star" ? "bg-[#755EA5] text-black" : "bg-white text-gray-700 hover:bg-gray-100"}
+              className={filter === "5star" ? "bg-[#755EA5] text-black hover:cursor-pointer" : "bg-white text-gray-700 hover:bg-gray-100 hover:cursor-pointer"}
             >
               5 Star
             </Button>
             <Button
               variant={filter === "4star" ? "default" : ""}
               onClick={() => setFilter("4star")}
-              className={filter === "4star" ? "bg-[#755EA5] text-black" : "bg-white text-gray-700 hover:bg-gray-100"}
+              className={filter === "4star" ? "bg-[#755EA5] text-black hover:cursor-pointer" : "bg-white text-gray-700 hover:bg-gray-100 hover:cursor-pointer"}
             >
               4 Star
             </Button>
             <Button
               variant={filter === "3star" ? "default" : ""}
               onClick={() => setFilter("3star")}
-              className={filter === "3star" ? "bg-[#755EA5] text-black" : "bg-white text-gray-700 hover:bg-gray-100"}
+              className={filter === "3star" ? "bg-[#755EA5] text-black hover:cursor-pointer" : "bg-white text-gray-700 hover:bg-gray-100 hover:cursor-pointer"}
             >
               3 Star & Below
             </Button>
@@ -208,7 +208,7 @@ export function FeedbackSection({ initialTestimonials = [], className = "" }: Fe
 
           <Button
             onClick={() => setShowForm(!showForm)}
-            className="bg-[#755EA5] text-white hover:bg-purple-300 flex items-center gap-2 "
+            className="bg-[#755EA5] text-white hover:bg-purple-400 flex items-center gap-2 hover:cursor-pointer"
           >
             <MessageSquare className="w-4 h-4 text-white" />
             {showForm ? "Cancel" : "Share Your Experience"}
@@ -218,9 +218,9 @@ export function FeedbackSection({ initialTestimonials = [], className = "" }: Fe
         {/* Feedback Form */}
         {showForm && !submitted && (
           <div className="mb-12 bg-white p-6 rounded-xl shadow-md">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <h3 className="text-2xl font-bold text-[#755EA5]">Share Your Experience</h3>
+            <form onSubmit={handleSubmit} className="space-y-6 ">
+              <div className="space-y-2  ">
+                <h3 className="text-2xl font-bold text-[#755EA5] ">Share Your Experience</h3>
                 <p className="text-gray-600">Your feedback helps us improve and helps others discover our services.</p>
               </div>
 

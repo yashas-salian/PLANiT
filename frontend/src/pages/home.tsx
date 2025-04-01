@@ -194,13 +194,13 @@ export const HomePage: React.FC = () => {
   const words = ["precision","creativity","control","simplicity","efficiency"];
   return (
     <div className="bg-purple-200 flex flex-col relative w-full min-h-screen overflow-x-hidden">
-      <div className="grid grid-cols-2 gap-8 px-6 py-4 md:grid grid-cols-3 gap-8 px-6 py-4">
-        <div className="flex justify-start">
-            <div className="w-auto flex items-center justify-center bg-purple-200 overflow-hidden p-0 m-0">
-              <img src={planit_logo} className="w-[150px] h-auto object-contain z-0" />
+      <div className="grid grid-cols-2 gap-8 px-6 md:grid grid-cols-3 gap-8 px-6">
+        <div className="flex justify-start md:flex justify-start">
+            <div className="w-auto flex items-center justify-center bg-purple-200 overflow-hidden">
+              <img src={planit_logo} className="w-[150px] h-auto mb-10 object-contain z-0" />
             </div>
         </div>
-        <div className="invisible md:visible relative z-10 flex justify-center pt-6 pr-4 pl-4 w-lg max-h-24">
+        <div className="invisible md:visible relative z-10 flex justify-center pt-4 pr-4 pl-4 mb-10 w-lg max-h-24">
         <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Home">
           <div className="flex flex-col space-y-4 w-64">
@@ -271,7 +271,7 @@ export const HomePage: React.FC = () => {
         </MenuItem>
       </Menu>
         </div>
-        <div className="ml-50 w-xs h-15 mt-6 md:flex justify-end pr-20">
+        <div className="col-span-1 flex justify-end mr-10 md:ml-50 w-xs h-15 mt-4 md:flex justify-end pr-20">
           <DashboardButton text="Get Started" onClick={() => {
             navigate("/auth")
           }} />

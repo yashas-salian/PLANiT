@@ -3,28 +3,27 @@
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
+import planit_logo_black from "../images/planit_logo_black.png";
+import planit_logo_black_thin from "../images/planit_logo_black.png";
 import {
-  Blocks,
   ChevronsUpDown,
   LogOut,
   MessageSquareText,
-  Plus,
   Settings,
   UserCircle,
-  UserCog,
   ContactRound,
   House,
   Theater,
   CircleCheckBigIcon,
   BrainCircuit,
   CalendarHeart,
-  AtSign
+  AtSign,
+  PanelRight
 } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {Link, useNavigate} from "react-router-dom";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -86,6 +85,11 @@ export function SessionNavBar() {
   const {userDetails} = useEvents();
   const pathname = usePathname();
   const Navigate = useNavigate();
+  const name= userDetails?.name || ""; 
+  const n = name.split(" ") 
+  .map(word => word[0])
+  .join("") 
+  .toUpperCase();
   return (
     <motion.div
       className={cn(
@@ -103,61 +107,26 @@ export function SessionNavBar() {
         variants={contentVariants}
       >
         <motion.ul variants={staggerVariants} className="flex h-full flex-col">
-          <div className="flex grow flex-col items-center">
+          <div className="flex grow flex-col items-center ">
             <div className="flex h-[54px] w-full shrink-0  border-b p-2">
-              <div className=" mt-[1.5px] flex w-full">
-                <DropdownMenu modal={false}>
-                  <DropdownMenuTrigger className="w-full" asChild>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="flex w-fit items-center gap-2  px-2" 
-                    >
-                      <Avatar className='rounded size-4'>
-                        <AvatarFallback>O</AvatarFallback>
-                      </Avatar>
-                      <motion.li
+              <div className="ml-2 mt-[7px] flex w-full">
+                {isCollapsed && ( 
+                  <>
+                    <PanelRight/>
+                  </>
+                )}
+                <motion.li
                         variants={variants}
                         className="flex w-fit items-center gap-2"
                       >
                         {!isCollapsed && (
                           <>
-                            <p className="text-sm font-medium  ">
-                              {"PLANiT"}
-                            </p>
+                          <div>
+                            <img src={planit_logo_black} alt="PLANiT logo" className="w-full h-12 mb-2"/>
+                          </div>   
                           </>
-                        )}
-                      </motion.li>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start">
-                    <DropdownMenuItem
-                      asChild
-                      className="flex items-center gap-2"
-                    >
-                      <Link href="/settings/members">
-                        <UserCog className="h-4 w-4" /> Manage members
-                      </Link>
-                    </DropdownMenuItem>{" "}
-                    <DropdownMenuItem
-                      asChild
-                      className="flex items-center gap-2"
-                    >
-                      <Link href="/settings/integrations">
-                        <Blocks className="h-4 w-4" /> Integrations
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link
-                        href="/select-org"
-                        className="flex items-center gap-2"
-                      >
-                        <Plus className="h-4 w-4" />
-                        Create or join an organization
-                      </Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                        )} 
+                </motion.li>
               </div>
             </div>
 
@@ -182,7 +151,7 @@ export function SessionNavBar() {
                     </Link>
                     <Separator className="w-full" />
                     <Link
-                      to="/reports"   //Our Work
+                      to="/dashboard#our-work"   //Our Work
                       className={cn(
                         "flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-purple-300 hover:text-primary",
 
@@ -201,7 +170,7 @@ export function SessionNavBar() {
                     </Link>
                     <Separator className="w-full" />
                     <Link
-                      href="/deals"    //venue
+                      to="/dashboard#venues"    //venue
                       className={cn(
                         "flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5  hover:bg-purple-300 transition  hover:text-primary",
 
@@ -219,7 +188,7 @@ export function SessionNavBar() {
                     <Link
                       to="/about"
                       className={cn(
-                        "flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 hover:bg-purple-300  transition  hover:text-primary",
+                        "flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 hover:bg-purple-300  transition  hover:text-primary ",
 
                         pathname?.includes("accounts") &&
                           "bg-muted text-blue-600",
@@ -272,7 +241,7 @@ export function SessionNavBar() {
                     </Link>
                     <Separator className="w-full" />
                     <Link
-                      href="/feedback"
+                      to="/dashboard#feedback"
                       className={cn(
                         "flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5  hover:bg-purple-300 transition  hover:text-primary",
                         pathname?.includes("feedback") &&
@@ -294,7 +263,7 @@ export function SessionNavBar() {
                 <div>
                 <DropdownMenu modal={false}>
                     <DropdownMenuTrigger className="w-full">
-                      <div className="flex h-8 w-full flex-row items-center gap-2 rounded-md px-2 py-1.5  transition hover:text-primary hover:bg-purple-300">
+                      <div className="flex h-8 w-full flex-row items-center gap-2 rounded-md px-2 py-1.5  transition hover:text-primary hover:bg-purple-300 hover:cursor-pointer">
                         <Avatar className="size-6">
                           <AtSign/>
                         </Avatar>
@@ -314,8 +283,8 @@ export function SessionNavBar() {
                     <DropdownMenuContent sideOffset={5} className="absolute bottom-0 left-32 bg-[#8B78B6]">
                       <div className="flex flex-row items-center gap-2 p-2">
                         <Avatar className="size-6">
-                          <AvatarFallback className="text-3xl border border-full pb-3 ">
-                            {/* {userDetails.name[0][0]} */}
+                          <AvatarFallback className="text-xl border border-full  ">
+                            {n}
                           </AvatarFallback>
                         </Avatar>
                         <div className="flex flex-col text-left">
@@ -332,7 +301,7 @@ export function SessionNavBar() {
                         asChild
                         className="flex items-center gap-2"
                       >
-                        <Link to="/settings/profile">
+                        <Link to="/profile">
                           <UserCircle className="h-6 w-6" /> Profile
                         </Link>
                       </DropdownMenuItem>

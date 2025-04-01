@@ -90,7 +90,7 @@ const PlanitLogoLoader = () => {
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <circle cx="270" cy="28" r="5" fill="purple" />
+          <circle cx="270" cy="28" r="5" fill="#755EA5" />
           {/* T */}
           <path
             d="M290 20 L330 20 M310 20 L310 80"

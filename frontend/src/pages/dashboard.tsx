@@ -37,7 +37,7 @@ import {
 import SignupFormDemo from "@/components/signup-form-demo";
 import { BlocksIcon, Calendar1Icon, Dribbble, Facebook, Github, IndianRupee, Instagram, Landmark, Linkedin, MapPinHouse, Phone, Pin, Shapes, SunMedium, Theater, Users, Users2, X, Youtube } from "lucide-react";
 import { CarouselFocus } from "@/components/ui/carousel";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { DashboardButton } from "@/components/dashboardButton";
 import axios from "axios";
@@ -48,6 +48,7 @@ import { BackgroundLines } from "@/components/ui/background-lines";
 import DarkModeToggle from "@/components/darkMode";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import PlanitLogoLoader from "@/components/planitLoader";
+import { AppBar } from "@/components/appBar";
 
 interface Items {
   id: number;
@@ -117,7 +118,12 @@ export const Dashboard = () => {
     const [filterSkill, setFilterSkill] = useState('');
     const[loading , setLoading]=useState(false)
     const[redirecting , setRedirecting]=useState(false)
-  
+    const {userDetails} = useEvents()
+    const name= userDetails?.name || ""; 
+    const n = name.split(" ") 
+    .map(word => word[0])
+    .join("") 
+    .toUpperCase(); 
     // Form state
     const [formData, setFormData] = useState({
       clientName: "",
@@ -434,6 +440,30 @@ export const Dashboard = () => {
     };
 
     const {upcomingEvents ,  completedEvents } = useEvents()
+    const workRef = useRef(null)
+    const venueRef = useRef(null)
+    const feedbackRef = useRef(null)
+    const location = useLocation();
+
+    useEffect(() => {
+    if (location.hash === "#our-work" && workRef.current) {
+      workRef?.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
+
+  useEffect(() => {
+    if (location.hash === "#venues" && venueRef.current) {
+      venueRef?.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
+
+  useEffect(() => {
+    if (location.hash === "#feedback" && feedbackRef.current) {
+      feedbackRef?.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
+
+  
   return (
     <> 
     {loading ? <div className="mt-70 ">
@@ -445,8 +475,11 @@ export const Dashboard = () => {
       <div>
         <SessionNavBar />
       </div>
+      <div>
+        <AppBar profileInitials={n}/>
+      </div>
       {/* <div className="pt-4 pb-6 bg-purple-100"> niche wala iska alternative hai */}
-      <div className="pt-6 pb-4 ">
+      {/* <div className="pt-6 pb-4 ">
         <Marquee pauseOnHover={true}>
             <div className="pr-4 pl-4  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
               A dream becomes a goal when action is taken toward its achievement.
@@ -461,10 +494,10 @@ export const Dashboard = () => {
             An event is not over until everyone stops talking about it.
             </div>
         </Marquee>
-      </div>
+      </div> */}
       <div className="flex flex-col mb-20 pt-10">
         <div className="ml-8">
-          <div className="flex justify-center text-5xl text-[#755EA5] font-bold mb-4">Our Work</div>
+          <div ref={workRef} id="our-work" className="flex justify-center text-5xl text-[#755EA5] font-bold mb-4">Our Work</div>
           <div className="text-center mb-10 text-xl text-gray-600 max-w-3xl mx-auto">At the heart of every extraordinary event lies a vision and we bring that vision to life with creativity, precision, and passion.</div>
         </div>
         <div className="ml-20 mb-20">
@@ -473,7 +506,7 @@ export const Dashboard = () => {
         <div className="flex justify-center ml-12 mt-4">
                   <AlertDialog>
                     <AlertDialogTrigger asChild>
-                      <button className='w-64 ml-8 px-4 py-4 rounded-xl font-medium transition-all duration-200 bg-[#755EA5] text-white text-lg hover:rounded-3xl '>
+                      <button className='w-64 ml-8 px-4 py-4 rounded-xl font-medium transition-all duration-200 bg-[#755EA5] text-white text-lg hover:rounded-3xl hover:cursor-pointer'>
                         Book Event Now
                       </button>
                     </AlertDialogTrigger>
@@ -580,7 +613,7 @@ export const Dashboard = () => {
               <div className="flex gap-2">
                 <button 
                   onClick={() => setViewMode('upcoming')}
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors z-10 ${viewMode === 'upcoming' 
+                  className={`px-4 py-2 rounded-lg font-medium transition-colors z-10 hover:cursor-pointer ${viewMode === 'upcoming' 
                     ? 'bg-purple-300 text-black' 
                     : 'bg-white text-gray-700 transition-all duration-200 hover:bg-gray-100 '}`}
                 >
@@ -588,7 +621,7 @@ export const Dashboard = () => {
                 </button>
                 <button 
                   onClick={() => setViewMode('completed')}
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors z-10 ${viewMode === 'completed' 
+                  className={`px-4 py-2 rounded-lg font-medium transition-colors z-10 hover:cursor-pointer ${viewMode === 'completed' 
                     ? 'bg-purple-300 text-black' 
                     : 'bg-white text-gray-700 hover:bg-gray-100'}`}
                 >
@@ -597,7 +630,7 @@ export const Dashboard = () => {
                 <div className="z-10  ">
                   <AlertDialog>
                     <AlertDialogTrigger asChild>
-                      <button className='px-4 py-2 rounded-lg font-medium transition-colors bg-white text-gray-700 hover:bg-gray-100 '>
+                      <button className='px-4 py-2 rounded-lg font-medium transition-colors bg-white text-gray-700 hover:bg-gray-100 hover:cursor-pointer'>
                         Book new event
                       </button>
                     </AlertDialogTrigger>
@@ -792,7 +825,7 @@ export const Dashboard = () => {
       </div>
       <div className="min-h-screen bg-purple-200 py-16 px-4 sm:px-6 lg:px-8 mt-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-4xl mb-12 ml-8 text-[#755EA5] font-bold">We are now present at top venues in your city... explore now !!!</div>
+          <div ref={venueRef} id="venues" className="text-4xl mb-12 ml-8 text-[#755EA5] font-bold">We are now present at top venues in your city... explore now !!!</div>
           <div className="grid grid-cols-1 md:grid-cols-6 gap-7 mb-16 w-full ml-8">
             {filteredMembers.map((member, index) => (
               <div
@@ -831,7 +864,7 @@ export const Dashboard = () => {
                     <Users className="mr-2" /> {member.capacity}
                   </div>
                   <button 
-                    className={`w-full mt-2 ${member.color} text-white px-4 py-2 rounded-lg font-medium transition-colors`}
+                    className={`w-full mt-2 ${member.color} text-white px-4 py-2 rounded-lg font-medium transition-colors hover:cursor-pointer`}
                   >
                     Book now
                   </button>
@@ -862,9 +895,9 @@ export const Dashboard = () => {
         </div>
       </section>
       </BackgroundBeamsWithCollision>
-      <div>
+      <div ref={feedbackRef} id="feedback">
         <FeedbackSection/>
-      </div>>
+      </div>
       
       <div className="bg-[#9583C0] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 ml-16 md:px-6 py-6 md:py-8 text-white">
         {/* Home Section */}

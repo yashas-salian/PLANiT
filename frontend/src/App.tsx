@@ -5,6 +5,7 @@ import { Team } from "./pages/team"
 import { Dashboard } from "./pages/dashboard"
 import AboutUs from "./pages/about"
 import { Test } from "./pages/test"
+import { UserProfilePage } from "./pages/userProfile"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/about" element={<AboutUs/>}/>
         <Route path="/test" element={<Test/>}/>
+        <Route path="/profile" element={<UserProfilePage/>}/>
       </Routes>
     </BrowserRouter>
   )
