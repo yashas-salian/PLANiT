@@ -8,7 +8,7 @@
   // ],
   ,
   "triggers": {
-    "crons": ["0 0 * * *"]
+    "crons": ["* * * * *"]
   }
   , "vars": {
     "DATABASE_URL" : "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiOGQ4NTk0MzItMDg0My00NWY3LWIyN2UtM2E3NjcwZjVhMWVhIiwidGVuYW50X2lkIjoiMWM3Nzg1NTA0OTI2MzcwOTAwNDgzMjAxYzUwOTEyNzAwMjBlNWI0OWRjYjAwMTBhMzgzNmVlYmEzYjI5YzZiMiIsImludGVybmFsX3NlY3JldCI6ImYxNjhkYmJlLWEwNGEtNGFjMC05ODZkLWNiOGE1MzRmOWYwZiJ9.PG-qcW03pgEX2FmFXXZCQjMkxAuO08V7pwvOIGBr-u8",
