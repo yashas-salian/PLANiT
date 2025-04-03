@@ -475,26 +475,26 @@ export const Dashboard = () => {
       <div>
         <SessionNavBar />
       </div>
-      <div>
+      <div className="w-screen">
         <AppBar profileInitials={n}/>
       </div>
       {/* <div className="pt-4 pb-6 bg-purple-100"> niche wala iska alternative hai */}
-      {/* <div className="pt-6 pb-4 ">
-        <Marquee pauseOnHover={true}>
-            <div className="pr-4 pl-4  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
-              A dream becomes a goal when action is taken toward its achievement.
-            </div>
-            <div className="pr-4 pl-4  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
-            To execute an event successfully, you need three things: the right people, the right mindset, and just enough madness to make it unforgettable.
-            </div>
-            <div className="pr-4 pl-4  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
-            A successful event is when people leave feeling better than when they arrived.
-            </div>
-            <div className="pr-4 pl-4  text-black text-lg border border-[#755EA5] p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
-            An event is not over until everyone stops talking about it.
-            </div>
-        </Marquee>
-      </div> */}
+       <div className="bg-white">
+         <Marquee pauseOnHover={true} >
+                <div className="pr-4 pl-4  text-black text-lg p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
+                A dream becomes a goal when action is taken toward its achievement.
+                </div>
+                <div className="pr-4 pl-4  text-black text-lg p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
+                To execute an event successfully, you need three things: the right people, the right mindset, and just enough madness to make it unforgettable.
+                </div>
+                <div className="pr-4 pl-4  text-black text-lg p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
+                A successful event is when people leave feeling better than when they arrived.
+                </div>
+                <div className="pr-4 pl-4  text-black text-lg p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
+                An event is not over until everyone stops talking about it.
+                </div>
+            </Marquee> 
+      </div> 
       <div className="flex flex-col mb-20 pt-10">
         <div className="ml-8">
           <div ref={workRef} id="our-work" className="flex justify-center text-5xl text-[#755EA5] font-bold mb-4">Our Work</div>

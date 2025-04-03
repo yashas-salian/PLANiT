@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import wedding from "../components/images/wedding.jpg"
 import birthday from "../components/images/birthday.jpg"
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Instagram, Facebook, Youtube, Linkedin, X ,MessageSquare, Smartphone, MapPin} from 'lucide-react'; // Import social media icons
 import { AnimatedTooltip } from '@/components/ui/animated-tooltip';
 import em2 from "../components/images/em2.jpg";
@@ -163,6 +163,14 @@ const items: Items[] = [
     return () => clearInterval(interval);
   }, [testimonials.length]);
 
+  const location =  useLocation()
+  const missionRef = useRef(null)
+  useEffect(()=>{
+      if (location.hash==='#mission' && missionRef.current){
+        missionRef?.current.scrollIntoView({behavior : "smooth"})
+      }
+    },[location])
+
   return (
     <div className="min-h-screen bg-purple-200">
       {/* Hero Section */}
@@ -208,9 +216,9 @@ const items: Items[] = [
         </div>
 
         {/* Tab Content */}
-        <div id="mission" className="transition-all duration-500">
+        <div  className="transition-all duration-500">
           {activeTab === 'mission' && (
-            <div className="flex flex-col md:flex-row items-center gap-12">
+            <div ref={missionRef} id="mission" className="flex flex-col md:flex-row items-center gap-12 ">
               <div className="md:w-1/2">
                 <h2 className="text-3xl font-bold text-purple-900 mb-4">Our Mission</h2>
                 <p className="text-gray-700 mb-4">
@@ -234,7 +242,7 @@ const items: Items[] = [
           )}
 
           {activeTab === 'values' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div  className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 { title: 'User-Centered Design', description: 'We build everything with our users needs at the forefront, ensuring intuitive experiences.' },
                 { title: 'Continuous Innovation', description: 'Were constantly evolving, embracing new technologies and approaches to better serve our clients.' },
@@ -250,7 +258,7 @@ const items: Items[] = [
           )}
 
           {activeTab === 'approach' && (
-            <div className="flex flex-col items-center">
+            <div  className="flex flex-col items-center">
               <h2 className="text-3xl font-bold text-[#755EA5] mb-6 text-center">Our Approach to Event Management</h2>
               <div className="space-y-12 w-full max-w-4xl">
                 {[

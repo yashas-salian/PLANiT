@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import em2 from "../components/images/em2.jpg";
 import em3 from "../components/images/emp3.jpg";
 import em1 from "../components/images/safiyaWeb.jpg";
@@ -25,7 +25,7 @@ import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import HoverEffect from "@/components/ui/card-hover-effect";
 import { Menu, MenuItem, ProductItem, HoveredLink } from "../components/ui/navbar-menu";
 import { HeroParallax } from "../components/ui/hero-parallax";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/button";
 import { FlipWords } from "@/components/ui/flip-words";
 import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
@@ -182,6 +182,39 @@ export const HomePage: React.FC = () => {
   const scrollToTop = (e) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+  const welcomeRef = useRef(null)
+  const featuresRef = useRef(null)
+  const servicesRef = useRef(null)
+  const location =  useLocation()
+  // const missionRef = useRef(null)
+  // const welcomeRef = useRef(null)
+
+  useEffect(()=>{
+    if (location.hash==='#welcome' && welcomeRef.current){
+      welcomeRef?.current.scrollIntoView({behavior : "smooth"})
+    }
+  },[location])
+
+  useEffect(()=>{
+    if (location.hash==='#features' && featuresRef.current){
+      featuresRef?.current.scrollIntoView({behavior : "smooth"})
+    }
+  },[location])
+
+  useEffect(()=>{
+    if (location.hash==='#our-services' && servicesRef.current){
+      servicesRef?.current.scrollIntoView({behavior : "smooth"})
+    }
+  },[location])
+
+  useEffect(()=>{
+    if (location.hash==='#mission' && missionRef.current){
+      missionRef?.current.scrollIntoView({behavior : "smooth"})
+    }
+  },[location])
+
+
+
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -204,9 +237,9 @@ export const HomePage: React.FC = () => {
         <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Home">
           <div className="flex flex-col space-y-4 w-64">
-            <HoveredLink href="/">Main Page</HoveredLink>
-            <HoveredLink href="/welcome">Welcome</HoveredLink>
-            <HoveredLink href="/latest">Latest Updates</HoveredLink>
+            <HoveredLink to="/#welcome">Welcome</HoveredLink>
+            <HoveredLink to="/#features">Features</HoveredLink>
+            <HoveredLink to="/#our-services">our Services</HoveredLink>
           </div>
         </MenuItem>
         
@@ -216,13 +249,13 @@ export const HomePage: React.FC = () => {
             <ProductItem
               title="Core Features"
               description="Discover our product's main capabilities"
-              href="/features/core"
+              to="/features/core"
               src={weddingimg}
             />
             <ProductItem
               title="Premium Features"
               description="Explore advanced options and tools"
-              href="/features/premium"
+              to="/features/premium"
               src={anniversary}
             /> 
               </div>
@@ -231,13 +264,13 @@ export const HomePage: React.FC = () => {
             <ProductItem
               title="Core Features"
               description="Discover our product's main capabilities"
-              href="/features/core"
+              to="/features/core"
               src={holidayParty}
             />
             <ProductItem
               title="Premium Features"
               description="Explore advanced options and tools"
-              href="/features/premium"
+              to="/features/premium"
               src={birthday}
             />
               </div>
@@ -246,29 +279,28 @@ export const HomePage: React.FC = () => {
         
         <MenuItem setActive={setActive} active={active} item="Our Team">
           <div className="flex flex-col space-y-4 w-64">
-            <HoveredLink href="/team/leadership">Leadership</HoveredLink>
-            <HoveredLink href="/team/developers">Developers</HoveredLink>
-            <HoveredLink href="/team/designers">Designers</HoveredLink>
-            <HoveredLink href="/team/support">Support Team</HoveredLink>
+            <HoveredLink to="/team">Safiya Khan</HoveredLink>
+            <HoveredLink to="/team">Yashas Salian</HoveredLink>
+            <HoveredLink to="/team">Sohail Sayyad</HoveredLink>
           </div>
         </MenuItem>
         
         <MenuItem setActive={setActive} active={active} item="About Us">
           <div className="flex flex-col space-y-4 w-64">
-            <HoveredLink href="/about/story">Our Story</HoveredLink>
-            <HoveredLink href="/about/mission">Mission & Vision</HoveredLink>
-            <HoveredLink href="/about/values">Core Values</HoveredLink>
+            <HoveredLink to="/about#mission">Our Mission</HoveredLink>
+            <HoveredLink to="/about#mission">Our Values</HoveredLink>
+            <HoveredLink to="/about#mission">Our Approach</HoveredLink>
           </div>
         </MenuItem>
         
-        <MenuItem setActive={setActive} active={active} item="Contact Us">
-          <div className="flex flex-col space-y-4 w-64">
-            <HoveredLink href="/contact/support">Support</HoveredLink>
-            <HoveredLink href="/contact/sales">Sales</HoveredLink>
-            <HoveredLink href="/contact/careers">Careers</HoveredLink>
-            <HoveredLink href="/contact/press">Press Inquiries</HoveredLink>
-          </div>
-        </MenuItem>
+        {/* <MenuItem setActive={setActive} active={active} item="Contact Us">
+          <div className="flex flex-col space-y-4 w-64"> */}
+            <HoveredLink to="/contact/support">Contact Us</HoveredLink>
+            {/* <HoveredLink to="/contact/sales">Sales</HoveredLink>
+            <HoveredLink to="/contact/careers">Careers</HoveredLink>
+            <HoveredLink to="/contact/press">Press Inquiries</HoveredLink> */}
+          {/* </div>
+        </MenuItem> */}
       </Menu>
         </div>
         <div className="col-span-1 flex justify-end mr-10 md:ml-50 w-xs h-15 mt-4 md:flex justify-end pr-20">
@@ -283,7 +315,7 @@ export const HomePage: React.FC = () => {
         {/* <Carousel slides={slides} /> */}
       <div className="">
         <div className="grid-cols-1 md:w-screen grid grid-cols-2 gap-4 bg-[#755EA5] pb-10">
-          <div data-aos="fade-up" className="pl-12 pr-12 pt-4 text-xl font-serif">
+          <div data-aos="fade-up" ref={welcomeRef} id="welcome" className="pl-12 pr-12 pt-4 text-xl font-serif">
             <div className="text-4xl font-extrabold pt-6 text-white">
               Welcome to <b className="text-white">PLANiT</b> – Your Ultimate Event Management Solution!
             </div>
@@ -305,7 +337,7 @@ export const HomePage: React.FC = () => {
             <DirectionAwareHover imageUrl={calender} className="w-200"/>
           </div>
         </div>
-        <div className="font-extrabold text-center text-[#755EA5] font-serif text-4xl pl-12 pr-12 pt-20">Effortless Event Planning with <FlipWords words={words} className="text-5xl"/></div>
+        <div ref={featuresRef} id="features" className="font-extrabold text-center text-[#755EA5] font-serif text-4xl pl-12 pr-12 pt-20">Effortless Event Planning with <FlipWords words={words} className="text-5xl"/></div>
         <div data-aos="fade-up pl-6">
         <HoverEffect
           items={[
@@ -319,7 +351,7 @@ export const HomePage: React.FC = () => {
           
         />
         </div>
-      <section className="py-16 bg-purple-200">
+      <section ref={servicesRef} id="our-services" className="py-16 bg-purple-200">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-[#755EA5]">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -475,10 +507,10 @@ export const HomePage: React.FC = () => {
             GVJ8+567, IIEDC, Aissms IOIT, AISSMS COE Parking Rd, near RTO, Railway Officers Colony, Sangamvadi, Pune, Maharashtra 411001
             <br /><br />
             <div className="font-semibold transition-all duration-100 hover:scale-105">
-              <a href="mailto:PLANiT@gmail.com">Email: PLANiT@gmail.com</a> <br />
+              <a to="mailto:PLANiT@gmail.com">Email: PLANiT@gmail.com</a> <br />
             </div>
             <div className="font-semibold transition-all duration-100 hover:scale-105">
-           <a href="tel:7385875052">Phone: 9999999999</a> <br />
+           <a to="tel:7385875052">Phone: 9999999999</a> <br />
            </div>
            <div className="font-semibold transition-all duration-100 hover:scale-105">
            More contact info
