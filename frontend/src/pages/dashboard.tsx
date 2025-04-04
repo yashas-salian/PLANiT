@@ -475,27 +475,27 @@ export const Dashboard = () => {
       <div>
         <SessionNavBar />
       </div>
-      <div className="w-screen">
-        <AppBar profileInitials={n}/>
-      </div>
       {/* <div className="pt-4 pb-6 bg-purple-100"> niche wala iska alternative hai */}
-       <div className="bg-white">
+       <div className="bg-white mb-0">
          <Marquee pauseOnHover={true} >
-                <div className="pr-4 pl-4  text-black text-lg p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
+                <div className="pr-4 pl-4  text-black text-lg p-1 rounded-2xl ml-4 mr-4 ">
                 A dream becomes a goal when action is taken toward its achievement.
                 </div>
-                <div className="pr-4 pl-4  text-black text-lg p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
+                <div className="pr-4 pl-4  text-black text-lg p-1 rounded-2xl ml-4 mr-4 ">
                 To execute an event successfully, you need three things: the right people, the right mindset, and just enough madness to make it unforgettable.
                 </div>
-                <div className="pr-4 pl-4  text-black text-lg p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
+                <div className="pr-4 pl-4  text-black text-lg p-1 rounded-2xl ml-4 mr-4 ">
                 A successful event is when people leave feeling better than when they arrived.
                 </div>
-                <div className="pr-4 pl-4  text-black text-lg p-1 rounded-2xl ml-4 mr-4 hover:bg-[#755EA5] hover:text-white">
+                <div className="pr-4 pl-4  text-black text-lg p-1 rounded-2xl ml-4 mr-4 ">
                 An event is not over until everyone stops talking about it.
                 </div>
             </Marquee> 
       </div> 
-      <div className="flex flex-col mb-20 pt-10">
+      <div className="w-screen">
+        <AppBar profileInitials={n}/>
+      </div>
+      <div className="flex flex-col mb-20 pt-0">
         <div className="ml-8">
           <div ref={workRef} id="our-work" className="flex justify-center text-5xl text-[#755EA5] font-bold mb-4">Our Work</div>
           <div className="text-center mb-10 text-xl text-gray-600 max-w-3xl mx-auto">At the heart of every extraordinary event lies a vision and we bring that vision to life with creativity, precision, and passion.</div>
@@ -732,7 +732,7 @@ export const Dashboard = () => {
 
             {viewMode === 'upcoming' && (
               <div className="ml-20 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 mr-4">
-                {upcomingEvents.length===0 ? <BackgroundLines><div className="text-white md:text-white text-2xl font-semibold w-full ml-145"> No Upcoming Events</div></BackgroundLines>: 
+                {upcomingEvents.length===0 ? <BackgroundLines><div className="text-white md:text-white text-2xl font-semibold w-full ml-125"> No Upcoming Events</div></BackgroundLines>: 
                 upcomingEvents.map((event, index) => (
                   <div key={index} className="bg-white border border-purple-300 rounded-lg p-4 shadow-md">
                     {event.Category==='Wedding'? <img src={weddingimg} className=""></img>: <div></div>}
@@ -777,7 +777,7 @@ export const Dashboard = () => {
             
             {viewMode === 'completed' && (
               <div className="ml-20 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 mr-4">
-                {completedEvents.length===0 ? <BackgroundLines><div className="text-white text-2xl font-semibold w-full ml-145"> No Completed Events</div></BackgroundLines> : 
+                {completedEvents.length===0 ? <BackgroundLines><div className="text-white text-2xl font-semibold w-full ml-125"> No Completed Events</div></BackgroundLines> : 
               completedEvents.map((event, index) => (
                 <div key={index} className="bg-white border border-purple-300 rounded-lg p-4 shadow-md">
                   {event.Category==='Wedding'? <img src={weddingimg} className=""></img>: <div></div>}
