@@ -3,7 +3,7 @@ import React from "react"
 import Marquee from "react-fast-marquee"
 import { useNavigate } from "react-router-dom"
 import { Input } from "./ui/input"
-import { CalendarRangeIcon, Search } from "lucide-react"
+import { CalendarRangeIcon, LogOut, PanelRight, Search } from "lucide-react"
 import planit_logo from "./images/planit_logo.png"
 import { CalendarButton } from "./calender-button"
 
@@ -15,7 +15,7 @@ export const AppBar=({profileInitials} : {profileInitials :string})=>{
                     <div className="grid grid-cols-2">
                         <img src={planit_logo} className="w-[150px] mb-10 object-contain z-0"/>
                         <div className="">
-                        <CalendarButton className="mt-2 pr-12 ransition-all duration-200 hover:scale-105 hover:bg-[#5D4884]  hover:cursor-pointer active:scale-95"/>
+                        <CalendarButton className="mt-2 pr-12 transition-all duration-200 hover:scale-105 hover:bg-[#5D4884]  hover:cursor-pointer active:scale-95"/>
                         </div>
                     </div>
                 </div>
@@ -27,19 +27,28 @@ export const AppBar=({profileInitials} : {profileInitials :string})=>{
             </div>
         </div>
     </div>
-    <div className="ml-60 cols-span-1 mt-4">
-        <div className="grid grid-cols-2 gap-x-4">
-          <button className="rounded-full  p-2 mt-2 mr-5 text-black font-semibold transition-all duration-200 hover:scale-105 hover:bg-[#5D4884] hover:cursor-pointer active:scale-95" onClick={()=>{
-            localStorage.removeItem("token")
-            navigate('/')
-          }}>Log out</button>       
+    <div className="pl-50 cols-span-1 mt-4">
+  <div className="grid grid-cols-2 gap-x-4">
+    <button
+      className="w-full rounded-full p-2 mt-2 mr-5 text-black font-semibold transition-all duration-200 hover:scale-105 hover:bg-[#5D4884] hover:cursor-pointer active:scale-95 flex items-center justify-center gap-2"
+      onClick={() => {
+        localStorage.removeItem("token");
+        navigate("/");
+      }}
+    >
+      <LogOut className="w-5 h-5" />
+      Log out
+    </button>
+    <button
+      className="rounded-full bg-[#755EA5] w-10 h-10 mt-2 text-center mr-6 font-semibold text-white transition-all duration-200 hover:scale-105 hover:bg-[#5D4884] hover:cursor-pointer active:scale-95"
+      onClick={() => {
+        navigate("/profile");
+      }}
+    >
+      {profileInitials}
+    </button>
+  </div>
+</div>
 
-            <button className="rounded-full bg-[#755EA5] w-10 h-10 mt-2 text-center mr-6 font-semibold text-white transition-all duration-200 hover:scale-105 hover:bg-[#5D4884] hover:cursor-pointer active:scale-95" onClick={()=>{
-                navigate("/profile")
-            }}>
-                {profileInitials}
-            </button>
-        </div>
-    </div>
   </div>
 }

@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from "react";
 import em2 from "../components/images/em2.jpg";
 import em3 from "../components/images/emp3.jpg";
 import em1 from "../components/images/safiyaWeb.jpg";
-import logo from "../components/images/LOGO.jpg";
 import planit_logo from "../components/images/planit_logo.png";
 import birthdayimg from "../components/images/birthday.jpg"
 import openMicimg from "../components/images/OpenMicNight.jpg"
@@ -15,7 +14,7 @@ import openMicNight from "../components/images/OpenMicNight.jpg"
 import holidayParty from "../components/images/HolidayParty.jpg"
 import welcome from "../components/images/welcome.jpg"
 import birthday from "../components/images/birthday.jpg"
-import calender from "../components/images/calender.jpg"
+import welcome_1 from "../components/images/welcome_1.png"
 import venue1 from "../components/images/wedding-venue.jpg"
 import venue2 from "../components/images/anniversary-venue.jpg"
 import venue3 from "../components/images/birthday-venue.jpg"
@@ -26,7 +25,6 @@ import HoverEffect from "@/components/ui/card-hover-effect";
 import { Menu, MenuItem, ProductItem, HoveredLink } from "../components/ui/navbar-menu";
 import { HeroParallax } from "../components/ui/hero-parallax";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Button } from "@/components/button";
 import { FlipWords } from "@/components/ui/flip-words";
 import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
 import { FeaturesSectionDemo } from "@/components/ui/bento-grid";
@@ -34,8 +32,6 @@ import { Instagram , Youtube , Linkedin , X , Facebook } from "lucide-react";
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import { DashboardButton } from "@/components/dashboardButton";
-import { MaskContainer } from "@/components/ui/svg-mask-effect";
-import { Card, Carousel } from "@/components/ui/apple-cards-carousel";
 
 interface Items {
   id: number;
@@ -236,7 +232,7 @@ export const HomePage: React.FC = () => {
         <div className="invisible md:visible relative z-10 flex justify-center pt-4 pr-4 pl-4 mb-10 w-lg max-h-24">
         <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Home">
-          <div className="flex flex-col space-y-4 w-64">
+          <div className="flex flex-col space-y-4 w-full">
             <HoveredLink to="/#welcome">Welcome</HoveredLink>
             <HoveredLink to="/#features">Features</HoveredLink>
             <HoveredLink to="/#our-services">our Services</HoveredLink>
@@ -278,7 +274,7 @@ export const HomePage: React.FC = () => {
         </MenuItem>
         
         <MenuItem setActive={setActive} active={active} item="Our Team">
-          <div className="flex flex-col space-y-4 w-64">
+          <div className="flex flex-col space-y-4 w-full">
             <HoveredLink to="/team">Safiya Khan</HoveredLink>
             <HoveredLink to="/team">Yashas Salian</HoveredLink>
             <HoveredLink to="/team">Sohail Sayyad</HoveredLink>
@@ -286,21 +282,13 @@ export const HomePage: React.FC = () => {
         </MenuItem>
         
         <MenuItem setActive={setActive} active={active} item="About Us">
-          <div className="flex flex-col space-y-4 w-64">
+          <div className="flex flex-col space-y-4 w-full">
             <HoveredLink to="/about#mission">Our Mission</HoveredLink>
             <HoveredLink to="/about#mission">Our Values</HoveredLink>
             <HoveredLink to="/about#mission">Our Approach</HoveredLink>
           </div>
         </MenuItem>
-        
-        {/* <MenuItem setActive={setActive} active={active} item="Contact Us">
-          <div className="flex flex-col space-y-4 w-64"> */}
             <HoveredLink to="/contact/support">Contact Us</HoveredLink>
-            {/* <HoveredLink to="/contact/sales">Sales</HoveredLink>
-            <HoveredLink to="/contact/careers">Careers</HoveredLink>
-            <HoveredLink to="/contact/press">Press Inquiries</HoveredLink> */}
-          {/* </div>
-        </MenuItem> */}
       </Menu>
         </div>
         <div className="col-span-1 flex justify-end mr-10 md:ml-50 w-xs h-15 mt-4 md:flex justify-end pr-20">
@@ -314,8 +302,8 @@ export const HomePage: React.FC = () => {
       </div>
         {/* <Carousel slides={slides} /> */}
       <div className="">
-        <div className="grid-cols-1 md:w-screen grid grid-cols-2 gap-4 bg-[#755EA5] pb-10">
-          <div data-aos="fade-up" ref={welcomeRef} id="welcome" className="pl-12 pr-12 pt-4 text-xl font-serif">
+        <div ref={welcomeRef} id="welcome" className="grid-cols-1 md:w-screen grid grid-cols-2 gap-4 bg-[#755EA5] pb-10">
+          <div data-aos="fade-up"  className="pl-12 pr-12 pt-4 text-xl font-serif">
             <div className="text-4xl font-extrabold pt-6 text-white">
               Welcome to <b className="text-white">PLANiT</b> – Your Ultimate Event Management Solution!
             </div>
@@ -334,7 +322,7 @@ export const HomePage: React.FC = () => {
             
           </div>
           <div data-aos="fade-up" className="w-full pt-20 pl-20">
-            <DirectionAwareHover imageUrl={calender} className="w-200"/>
+            <DirectionAwareHover imageUrl={welcome_1} className="w-200"/>
           </div>
         </div>
         <div ref={featuresRef} id="features" className="font-extrabold text-center text-[#755EA5] font-serif text-4xl pl-12 pr-12 pt-20">Effortless Event Planning with <FlipWords words={words} className="text-5xl"/></div>

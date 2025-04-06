@@ -44,7 +44,7 @@ export const CalendarButton = ({
         <Button
           variant={buttonVariant}
           size="icon"
-          className={`rounded-full h-10 w-28 p-2 text-black ${className}`}
+          className={`rounded-full h-10 w-28 p-2 text-black  ${className}`}
         ><div className="grid grid-cols-2 gap-x-0">
           <CalendarIcon className="h-5 w-5 mt-1" />
           <div className="text-lg mr-20">Calendar</div>
