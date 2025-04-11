@@ -1,14 +1,15 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "event-status-updater",
-  "main": "src/workers/eventStatusUpdater.ts",
+  // "main": "src/workers/eventStatusUpdater.ts",
+  "main": "src/index.ts",
   "compatibility_date": "2025-03-21"
   // "compatibility_flags": [
   //   "nodejs_compat"
   // ],
   ,
   "triggers": {
-    "crons": ["* * * * *"]
+    "crons": ["0 * * * *"]
   }
   , "vars": {
     "DATABASE_URL" : "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiOGQ4NTk0MzItMDg0My00NWY3LWIyN2UtM2E3NjcwZjVhMWVhIiwidGVuYW50X2lkIjoiMWM3Nzg1NTA0OTI2MzcwOTAwNDgzMjAxYzUwOTEyNzAwMjBlNWI0OWRjYjAwMTBhMzgzNmVlYmEzYjI5YzZiMiIsImludGVybmFsX3NlY3JldCI6ImYxNjhkYmJlLWEwNGEtNGFjMC05ODZkLWNiOGE1MzRmOWYwZiJ9.PG-qcW03pgEX2FmFXXZCQjMkxAuO08V7pwvOIGBr-u8",

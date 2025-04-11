@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 import { sign, verify } from 'hono/jwt'
+import { useEffect } from 'hono/jsx'
 
 
 export const eventRouter =new Hono<{
@@ -19,7 +20,8 @@ eventRouter.use('/*',async (c,next)=>{
   const token = c.req.header("Authorization")
   if (!token){
     return c.json({
-      message: "Authorization failed"
+      message: "Authorization failed",
+      req : c.req
     })
   }
 
@@ -98,17 +100,7 @@ eventRouter.get('/event-details-upcoming',async (c)=>{
       where : {
         userID : Number(userid),
         EventStatus : false
-      }, 
-      select:{
-        clientName: true,
-        PhoneNumber: true,
-        EventName: true,
-        Category: true,
-        EventDate: true,
-        EventVenue: true,
-        Attendees: true,
-        Budget: true
-      }
+      },
     })
 
     if (!events){
@@ -122,9 +114,12 @@ eventRouter.get('/event-details-upcoming',async (c)=>{
       PhoneNumber: event.PhoneNumber?.toString(), 
       Budget: event.Budget?.toString(),
     }));
+
+    const ID = events.map(event => event.id);
     
     return c.json({ 
-      events: eventdetails 
+      events: eventdetails ,
+      id: ID
     });
   }
   catch(e){
@@ -182,3 +177,66 @@ eventRouter.get('/event-details-completed',async (c)=>{
   } 
 })
 
+
+eventRouter.put('/update-events',async (c)=>{
+  const prisma = new PrismaClient({
+	datasourceUrl: c.env?.DATABASE_URL	,
+	}).$extends(withAccelerate());
+  const userid= c.get("userid")
+
+  if (!userid) {
+    return c.json({ message: "User ID is required" }, 400);
+  }
+
+  try {
+    const body = await c.req.json()
+    const ID = await Number(c.req.header("ID"))
+console.log(ID)
+    const userDetails = await prisma.events.findFirst({
+      where: {
+        id: ID
+      },
+      select:{
+        id:true,
+        clientName:true,
+        PhoneNumber: true,
+        EventName: true,
+        Category : true,
+        EventDate : true,
+        EventVenue : true,
+        Attendees : true,
+        Budget: true,
+      }
+    })
+
+
+    const updatedEvents = await prisma.events.update({
+      where : {
+        id : userDetails?.id
+      },
+      data:{
+        clientName:body?.clientName?? userDetails?.clientName,
+        PhoneNumber: body?.PhoneNumber ?? userDetails?.PhoneNumber,
+        EventName: body?.EventName ?? userDetails?.EventName,
+        Category : body?.Category ?? userDetails?.Category,
+        EventDate : body?.EventDate ?? userDetails?.EventDate,
+        EventVenue : body?.EventVenue ?? userDetails?.EventVenue,
+        Attendees : body?.Attendees ?? userDetails?.Attendees,
+        Budget: body?.Budget ?? userDetails?.Budget,
+      }
+    })
+
+    return c.json({
+      ID : updatedEvents.id,
+      message  : "Successfull"
+    })
+  }
+  catch(e){
+    return c.json({
+      message: "Cannot get event",
+      error:  e instanceof Error ? e.message : "Unknown error"
+    })
+  } 
+})
+
+export default eventRouter

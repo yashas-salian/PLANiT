@@ -1,42 +1,43 @@
-// backend/src/workers/eventStatusUpdater.ts
-
-import { PrismaClient } from '@prisma/client/edge';
-import { withAccelerate } from '@prisma/extension-accelerate';
+import { PrismaClient } from "@prisma/client/edge";
+import { withAccelerate } from "@prisma/extension-accelerate";
 
 export interface Env {
   DATABASE_URL: string;
 }
 
-export default {
-  // Cron trigger that runs hourly (based on your cron setting)
-  async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<Response> {
-    const prisma = new PrismaClient({
-      datasourceUrl: env.DATABASE_URL,
-    }).$extends(withAccelerate());
+// Cloudflare Worker fetch handler (for debugging/testing)
+export async function fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+  return new Response("This worker primarily runs scheduled jobs.", { status: 200 });
+}
 
-    try {
-      console.log('Running event status update job');
-      
-      // Use Prisma to update all events with status=false and startDate in the past
-      const result = await prisma.events.updateMany({
-        where: {
-          EventStatus: false,
-          EventDate: {
-            lte: new Date()
-          }
+// Scheduled handler for cron jobs
+export async function scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
+  console.log(" [Cron Job] Starting event status update...");
+
+  const prisma = new PrismaClient({
+    datasourceUrl: env.DATABASE_URL,
+  }).$extends(withAccelerate());
+
+  try {
+    const now = new Date();
+    console.log(` Checking events before: ${now.toISOString()}`);
+
+    const result = await prisma.events.updateMany({
+      where: {
+        EventStatus: false,
+        EventDate: {
+          lte: now,
         },
-        data: {
-          EventStatus: true
-        }
-      });
-      
-      console.log(`Successfully updated ${result.count} events`);
-      return new Response(`Updated ${result.count} events`, { status: 200 });
-    } catch (error) {
-      console.error('Error in event status update job:', error instanceof Error ? error.message : String(error));
-      return new Response('Error updating events: ' + (error instanceof Error ? error.message : String(error)), { status: 500 });
-    } finally {
-      await prisma.$disconnect();
-    }
+      },
+      data: {
+        EventStatus: true,
+      },
+    });
+
+    console.log(` [Cron Job] Updated ${result.count} events.`);
+  } catch (error) {
+    console.error(" [Cron Job] Error updating events:", error instanceof Error ? error.message : String(error));
+  } finally {
+    await prisma.$disconnect();
   }
-};
+}
