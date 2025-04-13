@@ -31,7 +31,6 @@ import { useEffect, useRef, useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-// import toast, { Toaster } from "react-hot-toast"
 import { ToastContainer, toast } from "react-fox-toast";
 import {
   AlertDialog,
@@ -600,7 +599,7 @@ export const Dashboard = () => {
         </div>
       )} */}
       {loading && (
-        <div className="mt-45 ">
+        <div className="mt-45">
           <div className="flex justify-center mb-40">
             <PlanitLogoLoader className="bg-transparent" />
           </div>    
@@ -618,10 +617,8 @@ export const Dashboard = () => {
     )}
       
         <div className="overflow-x-hidden bg-purple-200 z-10">
-          <div className="z-[10000]">
-            <ToastContainer
-             toastClassName="z-[10000]"
-             />
+          <div className="z-[100000]">
+            <ToastContainer />
           </div>
           <div>
             <SessionNavBar />
@@ -685,7 +682,6 @@ export const Dashboard = () => {
                               id="clientName"
                               label="Client name"
                               placeholder="Ex:-Tyler"
-                              value={formData.clientName}
                               onChange={handleChange}
                             />
                             <CustomInput
@@ -693,7 +689,6 @@ export const Dashboard = () => {
                               label="Phone number"
                               placeholder="Ex:-9999999999"
                               type="text"
-                              value={formData.phoneNumber}
                               onChange={handleChange}
                             />
                           </div>
@@ -702,7 +697,6 @@ export const Dashboard = () => {
                               id="eventName"
                               label="Event name"
                               placeholder="Ex:-Ayush's birthday"
-                              value={formData.eventName}
                               onChange={handleChange}
                             />
                             <CustomInput
@@ -717,7 +711,6 @@ export const Dashboard = () => {
                                 "Open mic night",
                                 "Engagement",
                               ]}
-                              value={formData.category}
                               onChange={(e) =>
                                 handleSelectChange("category", e.target.value)
                               }
@@ -740,11 +733,10 @@ export const Dashboard = () => {
                                 "Pune",
                                 "Bangalore",
                                 "Lucknow",
-                                "Shambhajinagar events",
+                                "Mumbai",
                                 "Delhi",
                                 "Nagpur",
                               ]}
-                              value={formData.eventVenue}
                               onChange={(e) =>
                                 handleSelectChange("eventVenue", e.target.value)
                               }
@@ -756,7 +748,6 @@ export const Dashboard = () => {
                               label="Attendees count"
                               placeholder="Ex:-500"
                               type="number"
-                              value={formData.attendees}
                               onChange={handleChange}
                             />
                             <CustomInput
@@ -764,7 +755,6 @@ export const Dashboard = () => {
                               label="Budget"
                               placeholder="Ex:-50000"
                               type="number"
-                              value={formData.budget}
                               onChange={handleChange}
                             />
                           </div>
@@ -892,7 +882,7 @@ export const Dashboard = () => {
                                       "Pune",
                                       "Bangalore",
                                       "Lucknow",
-                                      "Shambhajinagar events",
+                                      "Mumbai",
                                       "Delhi",
                                       "Nagpur",
                                     ]}
@@ -1160,12 +1150,12 @@ export const Dashboard = () => {
                                                 "Pune",
                                                 "Bangalore",
                                                 "Lucknow",
-                                                "Shambhajinagar events",
+                                                "Mumbai",
                                                 "Delhi",
                                                 "Nagpur",
                                               ]}
                                               value={formData.eventVenue}
-                                              onChange={(e) =>
+                                              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                                                 handleSelectChange(
                                                   "eventVenue",
                                                   e.target.value

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { Input } from "./ui/input"
 import { CalendarRangeIcon, LogOut, PanelRight, Search } from "lucide-react"
 import planit_logo from "./images/planit_logo.png"
+import planit_logo_new from "./images/planit_logo_new.png"
 import { CalendarButton } from "./calender-button"
 
 export const AppBar=({profileInitials} : {profileInitials :string})=>{
@@ -13,7 +14,7 @@ export const AppBar=({profileInitials} : {profileInitials :string})=>{
     return <div className="grid grid-cols-3 gap-x-4 w-full ">
                 <div className="cols-span-1  ml-20 mt-4">
                     <div className="grid grid-cols-2">
-                        <img src={planit_logo} className="w-[150px] mb-10 object-contain z-0"/>
+                        <img src={planit_logo_new} className="w-[90px] h-20 mb-10 object-contain z-0"/>
                         <div className="">
                         <CalendarButton className="mt-2 pr-12 transition-all duration-200 hover:scale-105 hover:bg-[#5D4884]  hover:cursor-pointer active:scale-95"/>
                         </div>

@@ -4,6 +4,7 @@ import em2 from "../components/images/em2.jpg";
 import em3 from "../components/images/emp3.jpg";
 import em1 from "../components/images/safiyaWeb.jpg";
 import planit_logo from "../components/images/planit_logo.png";
+import planit_logo_new from "../components/images/planit_logo_new.png";
 import birthdayimg from "../components/images/birthday.jpg"
 import openMic_3 from "../components/images/openMic_3.jpg"
 import corporate_3 from "../components/images/corporate_3.png"
@@ -226,7 +227,7 @@ export const HomePage: React.FC = () => {
       <div className="grid grid-cols-2 gap-8 px-6 md:grid grid-cols-3 gap-8 px-6">
         <div className="flex justify-start md:flex justify-start">
             <div className="w-auto flex items-center justify-center bg-purple-200 overflow-hidden">
-              <img src={planit_logo} className="w-[150px] h-auto mb-10 object-contain z-0" />
+              <img src={planit_logo_new} className="w-[90px] h-auto mb-10 object-contain z-0" />
             </div>
         </div>
         <div className="invisible md:visible relative z-10 flex justify-center pt-4 pr-4 pl-4 mb-10 w-lg max-h-24">

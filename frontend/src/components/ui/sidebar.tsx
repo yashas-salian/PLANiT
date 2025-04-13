@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 import planit_logo_black from "../images/planit_logo_black.png";
-import planit_logo_black_thin from "../images/planit_logo_black.png";
+import planit_logo_new from "../images/planit_logo_new.png";
 import {
   ChevronsUpDown,
   LogOut,
@@ -121,8 +121,8 @@ export function SessionNavBar() {
                       >
                         {!isCollapsed && (
                           <>
-                          <div>
-                            <img src={planit_logo_black} alt="PLANiT logo" className="w-full h-12 mb-2"/>
+                          <div className="w-full pl-15">
+                            <img src={planit_logo_new} alt="PLANiT logo" className="w-full h-12 mb-2 l-10"/>
                           </div>   
                           </>
                         )} 
