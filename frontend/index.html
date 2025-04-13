@@ -5,9 +5,145 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React + TS</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      
+      #root {
+        min-height: 100vh;
+      }
+      
+      #initial-loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        background-color: #f5f5f5;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+      
+      .loader-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 16rem;
+        width: 16rem;
+        background-color: transparent;
+      }
+      
+      .logo-container {
+        width: 12rem;
+        height: 4rem;
+      }
+      
+      .background-path {
+        fill: none;
+        stroke: #e9d8fd;
+        stroke-width: 6;
+      }
+      
+      .animated-path {
+        fill: none;
+        stroke: #755EA5;
+        stroke-width: 6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      
+      .dot {
+        fill: #755EA5;
+      }
+      
+      .background-dot {
+        fill: #e9d8fd;
+      }
+      
+      .fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+    
+    <script>
+      window.runLoaderAnimation = function() {
+        const totalPathLength = 570;
+        const paths = [
+          document.getElementById('p-path'),
+          document.getElementById('l-path'),
+          document.getElementById('a-path'),
+          document.getElementById('n-path'),
+          document.getElementById('i-path'),
+          document.getElementById('t-path')
+        ];
+        
+        if (paths.some(p => !p)) {
+          setTimeout(window.runLoaderAnimation, 10);
+          return;
+        }
+        
+        paths.forEach(path => {
+          path.style.strokeDasharray = totalPathLength.toString();
+          path.style.strokeDashoffset = totalPathLength.toString();
+        });
+        
+        let progress = 0;
+        const animationSpeed = 0.3;
+        const letterOffsets = [0, 16, 32, 48, 64, 80];
+        
+        function animate() {
+          progress = (progress >= 100) ? 0 : progress + animationSpeed;
+          
+          // Update each path's dashoffset based on progress
+          paths.forEach((path, index) => {
+            const letterProgress = progress - letterOffsets[index];
+            const dashOffset = Math.max(0, totalPathLength - ((letterProgress * totalPathLength) / 100));
+            path.style.strokeDashoffset = dashOffset.toString();
+          });
+          
+          window.loaderAnimationId = requestAnimationFrame(animate);
+        }
+        
+        animate();
+      };
+    </script>
   </head>
   <body>
+    <div id="initial-loader">
+      <div class="loader-container">
+        <div class="logo-container">
+          <svg viewBox="0 0 360 100" xmlns="http://www.w3.org/2000/svg">
+            <path class="background-path" d="M20 20 L20 80 M20 20 L50 20 C65 20 70 30 70 40 C70 50 65 60 50 60 L20 60" />
+            <path class="background-path" d="M90 20 L90 80 L130 80" />
+            <path class="background-path" d="M150 80 L165 20 L180 80 M155 60 L175 60" />
+            <path class="background-path" d="M210 80 L210 20 L250 80 L250 20" />
+            <path class="background-path" d="M270 40 L270 80" />
+            <circle class="background-dot" cx="270" cy="28" r="5" />
+            <path class="background-path" d="M290 20 L330 20 M310 20 L310 80" />
+    
+            
+            <path id="p-path" class="animated-path" d="M20 20 L20 80 M20 20 L50 20 C65 20 70 30 70 40 C70 50 65 60 50 60 L20 60" />
+            <path id="l-path" class="animated-path" d="M90 20 L90 80 L130 80" />
+            <path id="a-path" class="animated-path" d="M150 80 L165 20 L180 80 M155 60 L175 60" />
+            <path id="n-path" class="animated-path" d="M210 80 L210 20 L250 80 L250 20" />
+            <path id="i-path" class="animated-path" d="M270 40 L270 80" />
+            <circle class="dot" cx="270" cy="28" r="5" />
+            <path id="t-path" class="animated-path" d="M290 20 L330 20 M310 20 L310 80" />
+          </svg>
+        </div>
+      </div>
+    </div>
+    
     <div id="root"></div>
+    <script>
+      window.runLoaderAnimation();
+    </script>
+    
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

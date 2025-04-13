@@ -5,16 +5,16 @@ import em3 from "../components/images/emp3.jpg";
 import em1 from "../components/images/safiyaWeb.jpg";
 import planit_logo from "../components/images/planit_logo.png";
 import birthdayimg from "../components/images/birthday.jpg"
-import openMicimg from "../components/images/OpenMicNight.jpg"
-import holidayimg from "../components/images/HolidayParty.jpg"
-import haldiimg from "../components/images/haldiimg.jpg"
+import openMic_3 from "../components/images/openMic_3.jpg"
+import corporate_3 from "../components/images/corporate_3.png"
+import babyShower_3 from "../components/images/babyShower_3.png"
 import weddingimg from "../components/images/wedding.jpg"
-import anniversary from "../components/images/anniversary.jpg"
+import anniversary_3 from "../components/images/anniversary_3.png"
 import openMicNight from "../components/images/OpenMicNight.jpg"
 import holidayParty from "../components/images/HolidayParty.jpg"
-import welcome from "../components/images/welcome.jpg"
+import wedding_4 from "../components/images/wedding_4.jpg"
 import birthday from "../components/images/birthday.jpg"
-import welcome_1 from "../components/images/welcome_1.png"
+import people from "../components/images/peoples.png"
 import venue1 from "../components/images/wedding-venue.jpg"
 import venue2 from "../components/images/anniversary-venue.jpg"
 import venue3 from "../components/images/birthday-venue.jpg"
@@ -84,14 +84,14 @@ const items: Items[] = [
   { id: 3, name: "Sohail", designation: "Documentation Executive", image: em3 }
 ];
 
-const slides: SlideData[] = [
-  { title: "Welcome",  src: welcome },
-  { title: "Anniversary", src:anniversary},
-  { title: "Open mic night", src: openMicNight },
-  { title: "Holiday Party", src: holidayParty },
-  { title: "Wedding",  src: weddingimg },
-  { title: "Birthday Party",  src: birthday }
-];
+// const slides: SlideData[] = [
+//   { title: "Welcome",  src: welcome },
+//   { title: "Anniversary", src:anniversary},
+//   { title: "Open mic night", src: openMicNight },
+//   { title: "Holiday Party", src: holidayParty },
+//   { title: "Wedding",  src: weddingimg },
+//   { title: "Birthday Party",  src: birthday }
+// ];
 
 
 const products = [
@@ -103,7 +103,7 @@ const products = [
   {
     title: "",
     link: "/product-2",
-    thumbnail: anniversary,
+    thumbnail: anniversary_3,
   },
   {
     title: "",
@@ -128,7 +128,7 @@ const products = [
   {
     title: "",
     link: "/product-7",
-    thumbnail: anniversary,
+    thumbnail: anniversary_3,
   },
   {
     title: "",
@@ -153,7 +153,7 @@ const products = [
   {
     title: "",
     link: "/product-12",
-    thumbnail: anniversary,
+    thumbnail: anniversary_3,
   },
   {
     title: "",
@@ -252,7 +252,7 @@ export const HomePage: React.FC = () => {
               title="Premium Features"
               description="Explore advanced options and tools"
               to="/features/premium"
-              src={anniversary}
+              src={anniversary_3}
             /> 
               </div>
             <div className="grid grid-cols-2 pt-4">
@@ -302,29 +302,38 @@ export const HomePage: React.FC = () => {
       </div>
         {/* <Carousel slides={slides} /> */}
       <div className="">
-        <div ref={welcomeRef} id="welcome" className="grid-cols-1 md:w-screen grid grid-cols-2 gap-4 bg-[#755EA5] pb-10">
-          <div data-aos="fade-up"  className="pl-12 pr-12 pt-4 text-xl font-serif">
-            <div className="text-4xl font-extrabold pt-6 text-white">
-              Welcome to <b className="text-white">PLANiT</b> – Your Ultimate Event Management Solution!
-            </div>
-            <div className="text-white mt-10 text-justify">
-            At <b className="text-white">PLANiT</b>, we turn your special moments into unforgettable 
-            experiences! Whether it's a birthday party, engagement, wedding celebration, anniversary, 
-            baby shower, corporate event, farewell, fresher’s party, holiday gathering, or an exciting 
-            open mic night, we take care of every detail so you can enjoy the occasion stress-free. 
-            From venue selection to décor, entertainment, catering, and seamless coordination,
-             our expert team ensures a smooth, hassle-free, and personalized event experience. 
-             No matter the size or theme, we bring your vision to life with creativity, precision, 
-             and passion.<br/> Let <b className="text-white">PLANiT</b> handle the planning 
-             while you create memories that last a lifetime. Your perfect event starts here!
-            </div>
-            <br />
-            
-          </div>
-          <div data-aos="fade-up" className="w-full pt-20 pl-20">
-            <DirectionAwareHover imageUrl={welcome_1} className="w-200"/>
-          </div>
-        </div>
+      <div 
+  ref={welcomeRef} 
+  id="welcome" 
+  className="grid-cols-1 md:w-screen grid grid-cols-2 gap-4 bg-[#755EA5] bg-no-repeat pb-10">
+  <div data-aos="fade-up" className="w-200 pl-12 pr-12 pt-4 text-xl font-serif z-10 relative">
+    <div className="text-4xl font-extrabold pt-6 text-white">
+      Welcome to <b className="text-white">PLANiT</b> – Your Ultimate Event Management Solution!
+    </div>
+    <div className="text-white mt-10 text-justify">
+      At <b className="text-white">PLANiT</b>, we turn your special moments into unforgettable 
+      experiences! Whether it's a birthday party, engagement, wedding celebration, anniversary, 
+      baby shower, corporate event, farewell, fresher's party, holiday gathering, or an exciting 
+      open mic night, we take care of every detail so you can enjoy the occasion stress-free. 
+      From venue selection to décor, entertainment, catering, and seamless coordination,
+      our expert team ensures a smooth, hassle-free, and personalized event experience. 
+      No matter the size or theme, we bring your vision to life with creativity, precision, 
+      and passion.<br/> Let <b className="text-white">PLANiT</b> handle the planning 
+      while you create memories that last a lifetime. Your perfect event starts here!
+    </div>
+    <br />
+  </div>
+  <div data-aos="fade-up" className="w-full z-10 relative bg-no-repeat"
+   style={{ 
+    backgroundImage: `url(${people})`,
+    backgroundSize: '500px 500px',
+    backgroundPosition: 'center bottom',
+    backgroundBlendMode: 'soft-light',
+    backgroundOpacity: '0.1',
+  }}>
+    {/* <DirectionAwareHover imageUrl={welcome_1} className="w-200"/> */}
+  </div>
+</div>
         <div ref={featuresRef} id="features" className="font-extrabold text-center text-[#755EA5] font-serif text-4xl pl-12 pr-12 pt-20">Effortless Event Planning with <FlipWords words={words} className="text-5xl"/></div>
         <div data-aos="fade-up pl-6">
         <HoverEffect
@@ -349,13 +358,13 @@ export const HomePage: React.FC = () => {
                 description:
                   "From intimate ceremonies to grand celebrations, we handle every detail of your special day.",
                 icon: "heart",
-                image: weddingimg,
+                image: wedding_4,
               },
               {
                 title: "Corporate Events",
                 description: "Professional planning for conferences, team building, and company celebrations.",
                 icon: "briefcase",
-                image: holidayimg,
+                image: corporate_3,
               },
               {
                 title: "Birthday Parties",
@@ -367,19 +376,19 @@ export const HomePage: React.FC = () => {
                 title: "Anniversary Celebrations",
                 description: "Commemorate your special milestones with thoughtfully planned celebrations.",
                 icon: "gift",
-                image: anniversary,
+                image: anniversary_3,
               },
               {
-                title: "Cultural Events",
+                title: "Baby Shower",
                 description: "Showcase traditions and heritage with authentic cultural event planning.",
                 icon: "globe",
-                image: haldiimg,
+                image: babyShower_3,
               },
               {
-                title: "Custom Event Solutions",
+                title: "Open Mic Nights",
                 description: "Unique events tailored to your specific vision and requirements.",
                 icon: "settings",
-                image: openMicimg,
+                image: openMic_3,
               },
             ].map((service, index) => (
               <div

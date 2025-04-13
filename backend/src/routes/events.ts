@@ -239,4 +239,36 @@ console.log(ID)
   } 
 })
 
+eventRouter.put('/delete-event',async (c)=>{
+  const prisma = new PrismaClient({
+	datasourceUrl: c.env?.DATABASE_URL	,
+	}).$extends(withAccelerate());
+  const userid= c.get("userid")
+  console.log(userid)
+  if (!userid) {
+    return c.json({ message: "User ID is required" }, 400);
+  }
+
+  try {
+    const body = await c.req.json()
+    const ID = await Number(c.req.header("ID"))
+    console.log(ID)
+    const deleteEvent = await prisma.events.delete({
+      where: {
+        id: ID
+      }
+    })
+    return c.json({
+      ID : deleteEvent.id,
+      message  : "Deletion Successfull"
+    })
+  }
+  catch(e){
+    return c.json({
+      message: "Cannot get event",
+      error:  e instanceof Error ? e.message : "Unknown error"
+    })
+  } 
+})
+
 export default eventRouter

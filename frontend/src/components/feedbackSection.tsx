@@ -8,9 +8,8 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import em1 from "../components/safiyaWeb.jpg";
-import em2 from "../components/em2.jpg";
-import em3 from "../components/emp3.jpg";
+import clientTestimonal from "../components/images/clientTestimonal.png";
+
 
 interface Testimonial {
   id: string
@@ -167,13 +166,24 @@ export function FeedbackSection({ initialTestimonials = [], className = "" }: Fe
   return (
     <section className={`py-16 bg-purple-200 ${className}`}>
       <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="grid grid-cols-10 mb-10">
+        <div className="col-span-9 text-center mb-12 mt-10">
           <h2 className="text-4xl font-bold text-[#755EA5] mb-3">Client Testimonials</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Don't just take our word for it. See what our clients have to say about their experiences with PLANiT.
           </p>
         </div>
-
+        <div data-aos="fade-up" className="col-span-1 h-50 z-10 relative bg-no-repeat"
+   style={{ 
+    backgroundImage: `url(${clientTestimonal})`,
+    backgroundSize: 'contain',
+    backgroundPosition: 'center bottom',
+    backgroundBlendMode: 'soft-light',
+    backgroundOpacity: '0.1',
+  }}>
+    {/* <DirectionAwareHover imageUrl={welcome_1} className="w-200"/> */}
+  </div>
+  </div>
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
           <div className="flex flex-wrap gap-2">
             <Button
