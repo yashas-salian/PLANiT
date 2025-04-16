@@ -59,7 +59,7 @@ eventRouter.post('/book-event',async (c)=>{
 
       if (isVenueBooked){
         return c.json({
-          message: "venue aleady booked for this date"
+          message: "venue already booked for this date"
         })
       }
 

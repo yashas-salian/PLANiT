@@ -12,10 +12,10 @@ export const AppBar=({profileInitials} : {profileInitials :string})=>{
     const navigate = useNavigate()
     const [date, setDate] = React.useState<Date | undefined>(new Date())
     return <div className="grid grid-cols-3 gap-x-4 w-full ">
-                <div className="cols-span-1  ml-20 mt-4">
+                <div className="cols-span-1 ml-20">
                     <div className="grid grid-cols-2">
-                        <img src={planit_logo_new} className="w-[90px] h-20 mb-10 object-contain z-0"/>
-                        <div className="">
+                        <img src={planit_logo_new} className="w-[90px] h-20 ml-12 mb-10 object-contain z-0"/>
+                        <div className="mt-3">
                         <CalendarButton className="mt-2 pr-12 transition-all duration-200 hover:scale-105 hover:bg-[#5D4884]  hover:cursor-pointer active:scale-95"/>
                         </div>
                     </div>

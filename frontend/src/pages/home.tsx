@@ -226,8 +226,8 @@ export const HomePage: React.FC = () => {
     <div className="bg-purple-200 flex flex-col relative w-full min-h-screen overflow-x-hidden">
       <div className="grid grid-cols-2 gap-8 px-6 md:grid grid-cols-3 gap-8 px-6">
         <div className="flex justify-start md:flex justify-start">
-            <div className="w-auto flex items-center justify-center bg-purple-200 overflow-hidden">
-              <img src={planit_logo_new} className="w-[90px] h-auto mb-10 object-contain z-0" />
+            <div className="w-auto flex items-center justify-center bg-purple-200 mt-2 overflow-hidden">
+              <img src={planit_logo_new} className="w-[110px] h-auto mb-10 object-contain z-0" />
             </div>
         </div>
         <div className="invisible md:visible relative z-10 flex justify-center pt-4 pr-4 pl-4 mb-10 w-lg max-h-24">
