@@ -154,56 +154,48 @@ PLANIT/
 ```
 
 
-### 🔄 Api Endpoints
-Events
-GET /events – Get all events
+## 🔄 Api Endpoints
+### Events
+**GET /events** – Get all events
 
-POST /book-event – Create new event
+**POST /book-event** – Create new event
 
-GET /event-details-upcoming - Get upcoming events details
+**GET /event-details-upcoming** - Get upcoming events details
 
-GET /event-details-completed - Get completed events details
+**GET /event-details-completed** - Get completed events details
 
-PUT /update-events – Update event
+**PUT /update-events** – Update event
 
-PUT /delete-event – Delete event
+**PUT /delete-event** – Delete event
 
-Venues
-GET /venues – List all venues
+### Venues
+**GET /venues** – List all venues
 
-POST /venues – Add a new venue
+**POST /venues** – Add a new venue
 
-Users
-GET /get-details – Get user data
+### Users
+**GET /get-details** – Get user data
 
-POST /signup – Create new user
+**POST /signup** – Create new user
 
-POST /Login – Login to existing account
+**POST /Login** – Login to existing account
 
 
-### ✨ TypeScript Benefits
-Catch bugs at compile time
+## ✨ TypeScript Benefits
+- Catch bugs at compile time
+- Better autocompletion and code intelligence
+- Shared types between frontend and backend
+- Easier to maintain and scale the codebase
 
-Better autocompletion and code intelligence
-
-Shared types between frontend and backend
-
-Easier to maintain and scale the codebase
-
-### 🤝 Contributing
+## 🤝 Contributing
 We welcome contributions!
+- Fork this repo
+- Create your feature branch (git checkout -b feature/feature-name)
+- Commit your changes (git commit -m "add feature")
+- Push to the branch (git push origin feature/feature-name)
+- Open a Pull Request
 
-Fork this repo
-
-Create your feature branch (git checkout -b feature/feature-name)
-
-Commit your changes (git commit -m "add feature")
-
-Push to the branch (git push origin feature/feature-name)
-
-Open a Pull Request
-
-### 👨‍💻 Author
+## 👨‍💻 Author
 Planit was developed with ❤️ by [Your Name]
 GitHub: [@yashas-salian]
 
