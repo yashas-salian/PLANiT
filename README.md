@@ -156,10 +156,10 @@ PLANIT/
 
 ## 🔄 Api Endpoints
 - ### Events
-**`GET /events`** – Get all events
-**`POST /book-event`** – Create new event
-**`GET /event-details-upcoming`** - Get upcoming events details
-**`GET /event-details-completed`** - Get completed events details
+<br>○ **`GET /events`** – Get all events
+<br>○ **`POST /book-event`** – Create new event
+<br>○ **`GET /event-details-upcoming`** - Get upcoming events details
+<br>○ **`GET /event-details-completed`** - Get completed events details
 **`PUT /update-events`** – Update event
 **`PUT /delete-event`** – Delete event
 
