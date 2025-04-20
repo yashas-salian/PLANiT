@@ -156,7 +156,7 @@ PLANIT/
 
 ## 🔄 Api Endpoints
 - ### Events
-<br>○ ####**`GET /events`** – Get all events
+○ ####**`GET /events`** – Get all events
 <br>○ ####**`POST /book-event`** – Create new event
 <br>○ ####**`GET /event-details-upcoming`** - Get upcoming events details
 <br>○ ####**`GET /event-details-completed`** - Get completed events details
@@ -164,11 +164,11 @@ PLANIT/
 <br>○ ####**`PUT /delete-event`** – Delete event
 
 - ### Venues
-<br>○ ####**`GET /venues`** – List all venues
+○ ####**`GET /venues`** – List all venues
 <br>○ ####**`POST /venues`** – Add a new venue
 
 - ### Users
-<br>○ ####**`GET /get-details`** – Get user data
+○ ####**`GET /get-details`** – Get user data
 <br>○ ####**`POST /signup`** – Create new user
 <br>○ ####**`POST /Login`** – Login to existing account
 
