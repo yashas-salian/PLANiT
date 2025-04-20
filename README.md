@@ -66,3 +66,31 @@ npm install
 # or
 pnpm install
 
+
+
+project Structure
+planit/
+├── backend/
+│   ├── prisma/                # Prisma schema and migrations
+│   ├── src/
+│   │   ├── routes/            # API route definitions (events, user, venue)
+│   │   ├── workers/           # Scheduled workers (e.g., status updates)
+│   │   └── index.ts           # Entry point
+│   ├── wrangler.toml          # Cloudflare Workers config
+│   ├── .env                   # Backend env vars
+│   └── package.json
+│
+├── frontend/
+│   ├── public/                # Static assets
+│   ├── src/
+│   │   ├── assets/            # Images, icons
+│   │   ├── components/        # Reusable UI components
+│   │   ├── hooks/             # Custom React hooks
+│   │   ├── lib/               # Utility functions
+│   │   ├── pages/             # Route-specific pages
+│   │   ├── config.ts          # Constants and config
+│   │   └── main.tsx           # App entry point
+│   ├── .env                   # Frontend env vars
+│   └── package.json
+
+
