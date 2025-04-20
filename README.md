@@ -60,16 +60,46 @@ git clone https://github.com/yashas-salian/PLANiT.git
 cd PLANIT
 ```
 
-#### 1. FrontEnd Setup
+#### 2. FrontEnd Setup
 ```bash
 cd frontend
 npm install
 # or
 pnpm install
 ```
+#### 3. BackEnd Setup
+```bash
+cd ../backend
+npm install
+# or
+pnpm install
+```
+#### 4. Backend Environment Variables (.env)
+```bash
+DATABASE_URL=your_postgresql_url
+```
+
+#### 5. Generate Prisma Client
+```bash
+npx prisma generate
+```
+### 6. Run Locally
+```bash
+# In frontend/
+npm run dev
+
+# In backend/ (local wrangler)
+npx wrangler dev
+```
+
+### 7. Deploy Backend
+```bash 
+npx wrangler deploy
+```
 
 
-project Structure
+
+### 🧩 Project Structure
 planit/
 ├── backend/
 │   ├── prisma/                # Prisma schema and migrations
@@ -93,5 +123,61 @@ planit/
 │   │   └── main.tsx           # App entry point
 │   ├── .env                   # Frontend env vars
 │   └── package.json
+
+
+
+### 🔄 Api Endpoints
+Events
+GET /events – Get all events
+
+POST /book-event – Create new event
+
+GET /event-details-upcoming - Get upcoming events details
+
+GET /event-details-completed - Get completed events details
+
+PUT /update-events – Update event
+
+PUT /delete-event – Delete event
+
+Venues
+GET /venues – List all venues
+
+POST /venues – Add a new venue
+
+Users
+GET /get-details – Get user data
+
+POST /signup – Create new user
+
+POST /Login – Login to existing account
+
+
+### ✨ TypeScript Benefits
+Catch bugs at compile time
+
+Better autocompletion and code intelligence
+
+Shared types between frontend and backend
+
+Easier to maintain and scale the codebase
+
+### 🤝 Contributing
+We welcome contributions!
+
+Fork this repo
+
+Create your feature branch (git checkout -b feature/feature-name)
+
+Commit your changes (git commit -m "add feature")
+
+Push to the branch (git push origin feature/feature-name)
+
+Open a Pull Request
+
+### 👨‍💻 Author
+Planit was developed with ❤️ by [Your Name]
+GitHub: [@yashas-salian]
+
 
 
