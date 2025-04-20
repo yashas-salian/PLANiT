@@ -99,8 +99,7 @@ npx wrangler deploy
 
 
 
-### 🧩 Project Structure
-# PLANIT Project Structure
+## 🧩 Project Structure
 
 ```markdown
 PLANIT/
@@ -152,7 +151,7 @@ PLANIT/
 │   ├── tsconfig.node.json    # Node-specific TypeScript config
 │   └── vite.config.ts        # Vite bundler configuration
 └── README.md                 # Project-level documentation
-
+```
 
 
 ### 🔄 Api Endpoints
