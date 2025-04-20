@@ -100,29 +100,55 @@ npx wrangler deploy
 
 
 ### 🧩 Project Structure
-planit/
+PLANIT/
 ├── backend/
-│   ├── prisma/                # Prisma schema and migrations
+│   ├── .wrangler/            # Cloudflare Workers configuration
+│   ├── node_modules/         # Backend dependencies
+│   ├── prisma/               # Database ORM
 │   ├── src/
-│   │   ├── routes/            # API route definitions (events, user, venue)
-│   │   ├── workers/           # Scheduled workers (e.g., status updates)
-│   │   └── index.ts           # Entry point
-│   ├── wrangler.toml          # Cloudflare Workers config
-│   ├── .env                   # Backend env vars
-│   └── package.json
-│
+│   │   ├── routes/           # API route handlers
+│   │   │   ├── events.ts     # Event-related endpoints
+│   │   │   ├── user.ts       # User-related endpoints
+│   │   │   └── venue.ts      # Venue-related endpoints
+│   │   └── workers/          # Worker functions
+│   │       └── eventStatusUpdater.ts
+│   ├── index.ts              # Main backend entry point
+│   ├── .env                  # Environment variables
+│   ├── .gitignore            # Git ignore rules
+│   ├── package-lock.json     # Dependency lock file
+│   ├── package.json          # Backend dependencies and scripts
+│   ├── README.md             # Backend documentation
+│   ├── tsconfig.json         # TypeScript configuration
+│   └── wrangler.jsonc        # Cloudflare Workers config
 ├── frontend/
-│   ├── public/                # Static assets
+│   ├── node_modules/         # Frontend dependencies
+│   ├── public/               # Static assets served directly
 │   ├── src/
-│   │   ├── assets/            # Images, icons
-│   │   ├── components/        # Reusable UI components
-│   │   ├── hooks/             # Custom React hooks
-│   │   ├── lib/               # Utility functions
-│   │   ├── pages/             # Route-specific pages
-│   │   ├── config.ts          # Constants and config
-│   │   └── main.tsx           # App entry point
-│   ├── .env                   # Frontend env vars
-│   └── package.json
+│   │   ├── assets/           # Images, fonts, etc.
+│   │   ├── components/       # Reusable UI components
+│   │   ├── hooks/            # Custom React hooks
+│   │   ├── lib/              # Utility functions
+│   │   ├── pages/            # Page components
+│   │   ├── App.css           # App-level styles
+│   │   ├── App.tsx           # Main React component
+│   │   ├── config.ts         # Frontend configuration
+│   │   ├── index.css         # Global styles
+│   │   └── main.tsx          # React entry point
+│   ├── .env                  # Frontend environment variables
+│   ├── .gitignore            # Git ignore rules for frontend
+│   ├── components.json       # UI component library config
+│   ├── eslint.config.js      # ESLint configuration
+│   ├── index.html            # HTML entry point
+│   ├── package-lock.json     # Dependency lock file
+│   ├── package.json          # Frontend dependencies and scripts
+│   ├── postcss.config.js     # PostCSS configuration
+│   ├── README.md             # Frontend documentation
+│   ├── tailwind.config.js    # Tailwind CSS configuration
+│   ├── tsconfig.app.json     # App-specific TypeScript config
+│   ├── tsconfig.json         # Main TypeScript config
+│   ├── tsconfig.node.json    # Node-specific TypeScript config
+│   └── vite.config.ts        # Vite bundler configuration
+└── README.md                 # Project-level documentation
 
 
 
