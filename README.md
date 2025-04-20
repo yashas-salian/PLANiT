@@ -100,6 +100,9 @@ npx wrangler deploy
 
 
 ### 🧩 Project Structure
+# PLANIT Project Structure
+
+```markdown
 PLANIT/
 ├── backend/
 │   ├── .wrangler/            # Cloudflare Workers configuration
