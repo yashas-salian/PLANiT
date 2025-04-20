@@ -156,20 +156,20 @@ PLANIT/
 
 ## 🔄 Api Endpoints
 - ### Events
-**GET /events** – Get all events
-**POST /book-event** – Create new event
-**GET /event-details-upcoming** - Get upcoming events details
-**GET /event-details-completed** - Get completed events details
-**PUT /update-events** – Update event
-**PUT /delete-event** – Delete event
+**`GET /events`** – Get all events
+**`POST /book-event`** – Create new event
+**`GET /event-details-upcoming`** - Get upcoming events details
+**`GET /event-details-completed`** - Get completed events details
+**`PUT /update-events`** – Update event
+**`PUT /delete-event`** – Delete event
 
 - ### Venues
-**GET /venues** – List all venues
-**POST /venues** – Add a new venue
+**`GET /venues`** – List all venues
+**`POST /venues`** – Add a new venue
 - ### Users
-**GET /get-details** – Get user data
-**POST /signup** – Create new user
-**POST /Login** – Login to existing account
+**`GET /get-details`** – Get user data
+**`POST /signup`** – Create new user
+**`POST /Login`** – Login to existing account
 
 
 ## ✨ TypeScript Benefits
