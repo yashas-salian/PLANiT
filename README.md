@@ -58,6 +58,7 @@ _Add screenshots here showing the event creation page, calendar view, venue list
 ```bash
 git clone https://github.com/yashas-salian/PLANiT.git
 cd PLANIT
+```
 
 #### 1. FrontEnd Setup
 ```bash
@@ -65,7 +66,7 @@ cd frontend
 npm install
 # or
 pnpm install
-
+```
 
 
 project Structure
